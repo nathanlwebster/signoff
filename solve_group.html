@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <title>WFDS BP Matrix Sign Off</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<table class="table table-responsive">
+    <tr id="solveGroupTable">
+    <th id="idRow">ID</th>
+    <th id="solveGroupRow">Solve Group</th>
+    </tr>
+</table>
+
+<div class="form-group">
+    <form action="http://localhost:8081/addSolveGroup" method="POST">
+        Add ID:<input type="text" name="id" id="id">
+        Add Solve Group:<input type="text" name="solve_group" id="solve_group">
+        <button type="input" value="submit" id="solve_group_submit">Submit</button>
+    </form>
+</div>
+<div class="form-group">
+    <form action="http://localhost:8081/deleteSolveGroup" method="POST">
+        Delete Status ID:<input type="text" name="id" id="deleteID">
+        <button type="submit" value="submit" id="delete_solve_group">Submit</button>
+    </form>
+</div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="js/solve_group_app.js"></script>
+</body>
+</html>
+
