@@ -109,6 +109,57 @@ app.post('/deleteSolveGroup', urlencodedParser, function (req, res) {
    });
 })
 
+/* Report API */
+app.get('/report', function (req, res) {
+   res.sendFile( __dirname + "/" + "report.html");
+})
+
+app.get('/listReport', function (req, res) {
+   fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+       res.end( data );
+   }); 
+})
+
+app.post('/addReport', urlencodedParser, function (req, res) {
+   var index = req.body.id - 1;
+   var response = {
+       id:req.body.id,
+       name:req.body.name,
+       columns:req.body.columns     
+   };
+   fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/report');
+        } else {
+        obj = JSON.parse(data);
+        obj[index] = response;
+        fs.writeFileSync('report.json', JSON.stringify(obj));
+        res.redirect('/report');   
+        }
+   });
+   
+   
+})
+
+app.post('/deleteReport', urlencodedParser, function (req, res) {
+    var index = req.body.id - 1;
+    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/report');
+        } else {
+        obj = JSON.parse(data);
+        obj.splice(index, 1);
+        //delete obj[index];
+
+        fs.writeFileSync('report.json', JSON.stringify(obj));
+        res.redirect('/report');   
+        }
+   });
+})
+
+
 var server = app.listen(8081, function () {
 
    var host = server.address().address

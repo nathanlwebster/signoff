@@ -4,7 +4,7 @@ $(function(){
 	
     var model = {
         
-        getAll: function(){
+        getAllStatus: function(){
             $.getJSON('/listStatus', function(data){
                    controller.passData(data);
             });
@@ -60,7 +60,7 @@ $(function(){
         }
     };
     
-    model.getAll();
+    model.getAllStatus();
     view.addRow();
     view.deleteRow();
 });
