@@ -30,8 +30,9 @@ $(function(){
         addRowReport: function(){
             $("#report_submit").click(function(){
                 view.id = ($("#id").val());
-                view.Description = ($("#Description").val());
-                controller.newReport(view.id, view.name, view.report_columns);
+                view.name = ($("#name").val());
+                view.columns = ($("#columns").val());
+                controller.newReport(view.id, view.name, view.columns);
             });
         },
         deleteRowReport: function(){
@@ -49,7 +50,7 @@ $(function(){
                 view.renderRowReport(value.id, value.name, value.columns);
             });    
         },
-        newStatusReport: function(id, name, columns){
+        newReport: function(id, name, columns){
             var data = "{id: " + id + ",name: " + name + ",columns: " + columns + "}";
             model.addReport(data);
         },
