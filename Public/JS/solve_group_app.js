@@ -4,7 +4,7 @@ $(function(){
 	
     var model = {
         
-        getAll: function(){
+        getAllSolveGroups: function(){
             $.getJSON('/listSolveGroup', function(data){
                    controller.passData(data);
             });
@@ -60,7 +60,7 @@ $(function(){
         }
     };
     
-    model.getAll();
+    model.getAllSolveGroups();
     view.addRow();
     view.deleteRow();
 });
