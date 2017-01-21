@@ -109,6 +109,56 @@ app.post('/deleteSolveGroup', urlencodedParser, function (req, res) {
    });
 })
 
+/* Report API */
+app.get('/report', function (req, res) {
+   res.sendFile( __dirname + "/" + "report.html");
+})
+
+app.get('/listReport', function (req, res) {
+   fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+       res.end( data );
+   }); 
+})
+
+app.post('/addSolveGroup', urlencodedParser, function (req, res) {
+   var index = req.body.id - 1;
+   var response = {
+       id:req.body.id,
+       solve_group:req.body.solve_group     
+   };
+   fs.readFile( __dirname + "/" + "solve_group.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/solve_group');
+        } else {
+        obj = JSON.parse(data);
+        obj[index] = response;
+        fs.writeFileSync('solve_group.json', JSON.stringify(obj));
+        res.redirect('/solve_group');   
+        }
+   });
+   
+   
+})
+
+app.post('/deleteSolveGroup', urlencodedParser, function (req, res) {
+    var index = req.body.id - 1;
+    fs.readFile( __dirname + "/" + "solve_group.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/solve_group');
+        } else {
+        obj = JSON.parse(data);
+        obj.splice(index, 1);
+        //delete obj[index];
+
+        fs.writeFileSync('solve_group.json', JSON.stringify(obj));
+        res.redirect('/solve_group');   
+        }
+   });
+})
+
+
 var server = app.listen(8081, function () {
 
    var host = server.address().address

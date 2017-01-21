@@ -12,8 +12,8 @@
 <table class="table table-responsive">
     <tr id="reportTable">
     <th id="idRow">ID</th>
-    <th id="reportGroupRow">Solve Group</th>
-    <th id="reportColumnNumber">Solve Group</th>
+    <th id="reportGroupRow">Report Name</th>
+    <th id="reportColumnNumber">Number of Columns</th>
     </tr>
 </table>
 
@@ -21,19 +21,19 @@
     <form action="http://localhost:8081/addReport" method="POST">
         Add ID:<input type="text" name="id" id="id">
         Add Report:<input type="text" name="name" id="name">
-        Add Number of columns in report:<input type="text" name="report_columns" id="report_columns">
+        Add columns in report:<input type="text" name="report_columns" id="report_columns">
         <button type="input" value="submit" id="report_submit">Submit</button>
     </form>
 </div>
 <div class="form-group">
     <form action="http://localhost:8081/deleteReport" method="POST">
-        Delete Status ID:<input type="text" name="id" id="deleteID">
+        Delete Report with ID:<input type="text" name="id" id="deleteID">
         <button type="submit" value="submit" id="delete_report">Submit</button>
     </form>
 </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-    <script src="js/solve_group_app.js"></script>
+    <script src="js/report_app.js"></script>
 </body>
 </html>
 

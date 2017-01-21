@@ -5,8 +5,8 @@ $(function(){
     var model = {
         
         getAllReports: function(){
-            $.getJSON('/listStatus', function(data){
-                   controller.passData(data);
+            $.getJSON('/listReport', function(data){
+                   controller.passDataReport(data);
             });
         },
         addReport: function(newReport){
@@ -23,20 +23,19 @@ $(function(){
     };
 
 	var view = {
-        renderRowReport: function(key, val){
-            var newRow = "<tr><td>" + key + "</td>" + "<td>" + val + "</td></tr>";
-            //console.log(newRow);
+        renderRowReport: function(id, name, columns){
+            var newRow = "<tr><td>" + id + "</td>" + "<td>" + name + "</td>" + "<td>" + columns + "</td></tr>";
             $("tr:last").after(newRow);
         },
         addRowReport: function(){
-            $("#status_submit").click(function(){
+            $("#report_submit").click(function(){
                 view.id = ($("#id").val());
                 view.Description = ($("#Description").val());
                 controller.newReport(view.id, view.name, view.report_columns);
             });
         },
         deleteRowReport: function(){
-            $("#delete_status").click(function(){
+            $("#delete_report").click(function(){
                 view.id = ($("#deleteID").val());
                 controller.removeReport(view.id);
             });
@@ -47,11 +46,11 @@ $(function(){
 	var controller = {
         passDataReport: function(tableData){
             $.each(tableData, function(key, value){
-                view.renderRow(value.id, value.name, value.report_columns);
+                view.renderRowReport(value.id, value.name, value.columns);
             });    
         },
-        newStatusReport: function(id, name, report_columns){
-            var data = "{id: " + id + ",Description: " + Description + "}";
+        newStatusReport: function(id, name, columns){
+            var data = "{id: " + id + ",name: " + name + ",columns: " + columns + "}";
             model.addReport(data);
         },
         removeReport: function(id){
