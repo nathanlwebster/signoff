@@ -159,6 +159,55 @@ app.post('/deleteReport', urlencodedParser, function (req, res) {
    });
 })
 
+/* Data Category API */
+app.get('/data_category', function (req, res) {
+   res.sendFile( __dirname + "/" + "data_category.html");
+})
+
+app.get('/listDataCategories', function (req, res) {
+   fs.readFile( __dirname + "/" + "data_category.json", 'utf8', function (err, data) {
+       res.end( data );
+   }); 
+})
+
+app.post('/addDataCategory', urlencodedParser, function (req, res) {
+   var index = req.body.id - 1;
+   var response = {
+       id:req.body.id,
+       name:req.body.name     
+   };
+   fs.readFile( __dirname + "/" + "data_category.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/data_category');
+        } else {
+        obj = JSON.parse(data);
+        obj[index] = response;
+        fs.writeFileSync('data_category.json', JSON.stringify(obj));
+        res.redirect('/data_category');   
+        }
+   });
+   
+   
+})
+
+app.post('/deleteDataCategory', urlencodedParser, function (req, res) {
+    var index = req.body.id - 1;
+    fs.readFile( __dirname + "/" + "data_category.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/data_category');
+        } else {
+        obj = JSON.parse(data);
+        obj.splice(index, 1);
+        //delete obj[index];
+
+        fs.writeFileSync('data_category.json', JSON.stringify(obj));
+        res.redirect('/data_category');   
+        }
+   });
+})
+
 
 var server = app.listen(8081, function () {
 
