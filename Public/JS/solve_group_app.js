@@ -23,10 +23,22 @@ $(function(){
     };
 
 	var view = {
-        renderRow: function(key, val){
-            var newRow = "<tr><td>" + key + "</td>" + "<td>" + val + "</td></tr>";
-            //console.log(newRow);
+        renderRow: function(id, name){
+            var rowArray = [id, name];
+            var rowArrayLength = rowArray.length;
+            var newRow = "";
+            $.each(rowArray, function(index, value){
+                if (index == rowArrayLength) {
+                    newRow += "<td>" + value + "</td></tr>";
+                }
+                else if (index == 0) {
+                    newRow += "<tr><td>" + value + "</td>";   
+                } else {
+                    newRow += "<td>" + value + "</td>"; 
+                } 
+            });
             $("tr:last").after(newRow);
+            newRow = "";
         },
         addRow: function(){
             $("#SolveGroup_submit").click(function(){

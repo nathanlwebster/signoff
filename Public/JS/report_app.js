@@ -24,8 +24,21 @@ $(function(){
 
 	var view = {
         renderRowReport: function(id, name, columns){
-            var newRow = "<tr><td>" + id + "</td>" + "<td>" + name + "</td>" + "<td>" + columns + "</td></tr>";
+            var rowArray = [id, name, columns];
+            var rowArrayLength = rowArray.length;
+            var newRow = "";
+            $.each(rowArray, function(index, value){
+                if (index == rowArrayLength) {
+                    newRow += "<td>" + value + "</td></tr>";
+                }
+                else if (index == 0) {
+                    newRow += "<tr><td>" + value + "</td>";   
+                } else {
+                    newRow += "<td>" + value + "</td>";
+                } 
+            });
             $("tr:last").after(newRow);
+            newRow = "";
         },
         addRowReport: function(){
             $("#report_submit").click(function(){
