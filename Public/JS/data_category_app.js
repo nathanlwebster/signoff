@@ -16,7 +16,7 @@ $(function(){
             });
         },
         deleteDataCategory: function(oldDataCategory){
-            $.post('/addStatus', oldDataCategory, function(data, status){
+            $.post('/addDataCategory', oldDataCategory, function(data, status){
                 console.log("Here's the status: " + status); 
             });
         }
@@ -44,7 +44,7 @@ $(function(){
             $("#data_category_submit").click(function(){
                 view.id = ($("#id").val());
                 view.Description = ($("#name").val());
-                controller.newStatus(view.id, view.name);
+                controller.newDataCategory(view.id, view.name);
             });
         },
         deleteRowDataCategory: function(){
@@ -59,7 +59,7 @@ $(function(){
 	var controller = {
         passData: function(tableData){
             $.each(tableData, function(key, value){
-                view.renderRow(value.id, value.name);
+                view.renderRowDataCategory(value.id, value.name);
             });    
         },
         newDataCategory: function(id, name){
