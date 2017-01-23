@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title></title>
+    <title>Data Categories</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<table class="table table-responsive">
+    <tr id="dataCategoryTable">
+    <th id="idRow">ID</th>
+    <th id="categoryRow">Data Category</th>
+    </tr>
+    
+</table>
+<div class="form-group">
+    <form action="http://localhost:8081/addDataCategory" method="POST">
+        Add ID:<input type="text" name="id" id="id">
+        Add Status:<input type="text" name="name" id="name">
+        <button type="submit" value="submit" id="data_category_submit">Submit</button>
+    </form>
+</div>
+<div class="form-group">
+    <form action="http://localhost:8081/deleteDataCategory" method="POST">
+        Delete Status ID:<input type="text" name="id" id="deleteID">
+        <button type="submit" value="submit" id="delete_data_category">Submit</button>
+    </form>
+</div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="js/data_category_app.js"></script>
+</body>
+</html>
+
