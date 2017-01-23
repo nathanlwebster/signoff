@@ -208,6 +208,11 @@ app.post('/deleteDataCategory', urlencodedParser, function (req, res) {
    });
 })
 
+/* Create Report API */
+
+app.get('/create_report', function (req, res) {
+   res.sendFile( __dirname + "/" + "create_report.html");
+})
 
 var server = app.listen(8081, function () {
 

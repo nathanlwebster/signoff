@@ -1,1 +1,22 @@
-[{"id":"1","name":"Solve Group"},{"id":"2","name":"Planner"},{"id":"3","name":"Product"},{"id":"4","name":"Tool"},{"id":"5","name":"Process"}]
+[
+    {
+        "id": "1",
+        "name": "Solve Group"
+    },
+    {
+        "id": "2",
+        "name": "Planner"
+    },
+    {
+        "id": "3",
+        "name": "Product"
+    },
+    {
+        "id": "4",
+        "name": "Tool"
+    },
+    {
+        "id": "5",
+        "name": "Process"
+    }
+]
