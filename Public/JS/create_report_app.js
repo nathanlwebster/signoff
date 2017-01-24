@@ -20,15 +20,22 @@ $(function(){
         },
         getDataCategories: function(){
             $.getJSON('/listDataCategories', function(data){
-                   console.log("Got data: " + data);
                    controller.createColOptions(data);
             });
         }      
     };
 
 	var view = {
-        
-        
+        renderColOptions: function(id, name) {
+            console.log(name);
+            if (id < 6) {
+            var newOption = "<option value=" + name + ">" + name + "</option>";
+            $("#column1").append(newOption);
+            } else {
+                
+            }
+        }
+         
     };
 
 	var controller = {
@@ -39,7 +46,9 @@ $(function(){
             model.colHeaders = ["Column 1", "Column 2", "Column 3", "Column 4", "Column 5"]; //from create report by options
         },
         createColOptions: function(data) {
-            console.log(data);
+            $.each(data, function(key, value){
+                view.renderColOptions(value.id, value.name);
+            });
         }
     };
     
