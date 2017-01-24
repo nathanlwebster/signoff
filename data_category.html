@@ -12,13 +12,15 @@
     <tr id="dataCategoryTable">
     <th id="idRow">ID</th>
     <th id="categoryRow">Data Category</th>
+    <th id="categoryRow">Data Type</th>
     </tr>
     
 </table>
 <div class="form-group">
     <form action="http://localhost:8081/addDataCategory" method="POST">
         Add ID:<input type="text" name="id" id="id">
-        Add Status:<input type="text" name="name" id="name">
+        Add Data Category:<input type="text" name="name" id="name">
+        Add Data Type:<input type="text" name="data_type" id="data_type">
         <button type="submit" value="submit" id="data_category_submit">Submit</button>
     </form>
 </div>

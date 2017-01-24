@@ -175,7 +175,8 @@ app.post('/addDataCategory', urlencodedParser, function (req, res) {
    var index = req.body.id - 1;
    var response = {
        id:req.body.id,
-       name:req.body.name     
+       name:req.body.name,
+       data_type:req.body.data_type     
    };
    fs.readFile( __dirname + "/" + "data_category.json", 'utf8', function (err, data) {
         if (err) {
