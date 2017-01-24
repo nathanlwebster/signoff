@@ -26,7 +26,7 @@ $(function(){
     };
 
 	var view = {
-        renderColumns: function (number) {
+        renderColumnSelectors: function (number) {
             var numOfColumns = number;
             var i = 1;
             while (i <= numOfColumns) {
@@ -73,7 +73,7 @@ $(function(){
         },
         createColumnBoxes: function() {
             var numOfColumns = model.numColumns;
-            view.renderColumns(numOfColumns);
+            view.renderColumnSelectors(numOfColumns);
         }
     };
     

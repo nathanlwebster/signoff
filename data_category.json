@@ -1,34 +1,42 @@
 [
     {
         "id": "1",
-        "name": "Solve Group"
+        "name": "Solve Group",
+        "data_type": "list"
     },
     {
         "id": "2",
-        "name": "Planner"
+        "name": "Planner",
+        "data_type": "list"
     },
     {
         "id": "3",
-        "name": "Product"
+        "name": "Product",
+        "data_type": "list"
     },
     {
         "id": "4",
-        "name": "Tool"
+        "name": "Tool",
+        "data_type": "list"
     },
     {
         "id": "5",
-        "name": "Process"
+        "name": "Process",
+        "data_type": "list"
     },
     {
         "id": "6",
-        "name": "Sign Off"
+        "name": "Sign Off",
+        "data_type": "text"
     },
     {
         "id": "7",
-        "name": "Yes/No"
+        "name": "Yes/No",
+        "data_type": "radio"
     },
     {
         "id": "8",
-        "name": "User Input"
+        "name": "User Input",
+        "data_type": "text"
     }
 ]
