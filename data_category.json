@@ -18,5 +18,17 @@
     {
         "id": "5",
         "name": "Process"
-    }
+    },
+    {
+        "id": "6",
+        "name": "Sign Off"
+    },
+    {
+        "id": "7",
+        "name": "Yes/No"
+    },
+    {
+        "id": "8",
+        "name": "User Input"
+    },
 ]
