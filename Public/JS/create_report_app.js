@@ -31,9 +31,9 @@ $(function(){
             var i = 1;
             while (i <= numOfColumns) {
                 console.log(i);
-                var newColumn = "Column " + i + ": <select value=column" + i + " id=column" + i + "></select><br>";
+                var newColumn = "Column " + i + ": <select value=column" + i + " id=column" + i + " class='columnSelectors'></select><br>";
                 $("#columnDiv").append(newColumn);
-                var heading = "<input type='text' name='column" + i + "heading' id='column" + i + "heading'>"  
+                var heading = "<input type='text' name='column" + i + "heading' id='column" + i + "heading' class='columnHeadings'>"  
                 $("#column" + i).after(heading);
             i++;
             }
