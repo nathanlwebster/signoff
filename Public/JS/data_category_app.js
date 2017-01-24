@@ -4,9 +4,9 @@ $(function(){
 	
     var model = {
         
-        getAllDataCategories: function(){
+        getDataCategories: function(){
             $.getJSON('/listDataCategories', function(data){
-                   controller.passData(data);
+                controller.passDataCategory(data);
             });
         },
         addDataCategory: function(newDataCategory){
@@ -57,8 +57,9 @@ $(function(){
     };
 
 	var controller = {
-        passData: function(tableData){
+        passDataCategory: function(tableData){
             $.each(tableData, function(key, value){
+                console.log(tableData);
                 view.renderRowDataCategory(value.id, value.name);
             });    
         },
@@ -72,7 +73,7 @@ $(function(){
         }
     };
     
-    model.getAllDataCategories();
+    model.getDataCategories();
     view.addRowDataCategory();
     view.deleteRowDataCategory();
 });

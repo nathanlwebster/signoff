@@ -6,6 +6,7 @@ var fs = require("fs");
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+
 app.use(express.static('public'));
 
 /* Status API */
@@ -166,6 +167,7 @@ app.get('/data_category', function (req, res) {
 
 app.get('/listDataCategories', function (req, res) {
    fs.readFile( __dirname + "/" + "data_category.json", 'utf8', function (err, data) {
+       console.log(data);
        res.end( data );
    }); 
 })

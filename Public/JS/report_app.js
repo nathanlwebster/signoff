@@ -6,6 +6,7 @@ $(function(){
         
         getAllReports: function(){
             $.getJSON('/listReport', function(data){
+                   console.log(data);
                    controller.passDataReport(data);
             });
         },
