@@ -15,6 +15,10 @@
 
 <div class="form-group">
     <form action="http://localhost:8081/addReport" method="POST">
+        Report Title: <input type="text" name="title" id="title">
+        <br><br><br>
+        Number of Columns: <input type="number" name="colNum" id="colNum">
+        <br><br><br>
         Create Report by:
             <select name="column1" id="column1">
                 <option value="Option 1">Option 1</option>
@@ -53,6 +57,7 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="js/data_category_app.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
