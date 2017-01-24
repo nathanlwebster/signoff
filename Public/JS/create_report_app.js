@@ -30,8 +30,7 @@ $(function(){
             var numOfColumns = number;
             var i = 1;
             while (i <= numOfColumns) {
-                console.log(i);
-                var newColumn = "Column " + i + ": <select value=column" + i + " id=column" + i + " class='columnSelectors'></select><br>";
+                var newColumn = "Column " + i + ": <select name=column" + i + " id=column" + i + " class='columnSelectors'></select><br>";
                 $("#columnDiv").append(newColumn);
                 var heading = "<input type='text' name='column" + i + "heading' id='column" + i + "heading' class='columnHeadings'>"  
                 $("#column" + i).after(heading);
@@ -55,6 +54,32 @@ $(function(){
                 }
             i++;
             }
+        },
+        createNewReport: function() {
+            $("#create_report_submit").click(function(){
+                view.title = ($("#title").val());
+                view.instructions = ($("#instructions").val());
+                view.columns = ($("#colNum").val());
+
+                var reportData = [];
+                reportData[0] = view.title;
+                reportData[1] = view.instructions;
+                reportData[2] = view.columns
+                var i = 1;
+                var j = 3;
+                var cols = view.columns;
+                while (i <= cols) {
+                    console.log("i is now: " + i);
+                    reportData[j] = ($("#column" + i).val());
+                    j++;
+                    reportData[j] = ($("#column" + i + "heading").val()); 
+                    console.log("This is the report data: " + reportData);
+                    i++;
+                    j++;
+                }
+                
+                controller.newStatus();
+            });
         }
          
     };
