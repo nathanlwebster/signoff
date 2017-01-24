@@ -4,7 +4,7 @@ $(function(){
 	
     var model = {
         reportTitle:null,
-        numColumns:null,
+        numColumns: 4,
         numRows:null,
         minRow:null,
         minCol:null,
@@ -26,13 +26,30 @@ $(function(){
     };
 
 	var view = {
+        renderColumns: function (number) {
+            var numOfColumns = number;
+            var i = 1;
+            while (i <= numOfColumns) {
+                console.log(i);
+                var newColumn = "Column " + i + ": <select value=column" + i + " id=column" + i + "></select><br>";
+                $("#columnDiv").append(newColumn);
+                var heading = "<input type='text' name='column" + i + "heading' id='column" + i + "heading'>"  
+                $("#column" + i).after(heading);
+            i++;
+            }
+        },
         renderColOptions: function(id, name) {
-            console.log(name);
-            if (id < 6) {
-            var newOption = "<option value=" + name + ">" + name + "</option>";
-            $("#column1").append(newOption);
-            } else {
-                
+            var i = 1;
+            var numOfColumns = model.numColumns;
+            console.log(numOfColumns);
+            while (i <= numOfColumns) {
+                if (id > 6) {
+                    var newOption = "<option value=" + name + ">" + name + "</option>";
+                    $("#column" + i).append(newOption);
+                } else {
+                    
+                }
+            i++;
             }
         }
          
@@ -49,9 +66,14 @@ $(function(){
             $.each(data, function(key, value){
                 view.renderColOptions(value.id, value.name);
             });
+        },
+        createColumnBoxes: function() {
+            var numOfColumns = model.numColumns;
+            view.renderColumns(numOfColumns);
         }
     };
     
     model.getDataCategories();
+    controller.createColumnBoxes();
     
 });

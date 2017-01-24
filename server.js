@@ -167,7 +167,6 @@ app.get('/data_category', function (req, res) {
 
 app.get('/listDataCategories', function (req, res) {
    fs.readFile( __dirname + "/" + "data_category.json", 'utf8', function (err, data) {
-       console.log(data);
        res.end( data );
    }); 
 })
