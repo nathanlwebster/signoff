@@ -41,13 +41,17 @@ $(function(){
         renderColOptions: function(id, name) {
             var i = 1;
             var numOfColumns = model.numColumns;
-            console.log(numOfColumns);
             while (i <= numOfColumns) {
-                if (id > 6) {
-                    var newOption = "<option value=" + name + ">" + name + "</option>";
-                    $("#column" + i).append(newOption);
+                if (i < 2) {
+                    if (id < 6) {
+                        var newOption = "<option value=" + name + ">" + name + "</option>";
+                        $("#column" + i).append(newOption);
+                    }
                 } else {
-                    
+                    if (id > 5) {
+                        var newOption = "<option value=" + name + ">" + name + "</option>";
+                        $("#column" + i).append(newOption);
+                    }
                 }
             i++;
             }
