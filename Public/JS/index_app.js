@@ -5,11 +5,18 @@ $(function(){
     var model = {
         
         getReportData: function(){
-            $.getJSON('/getReport', function(data){
-                console.log(data);
-                //    controller.createColOptions(data);
+            $.getJSON('/listReport', function(data){
+                   console.log(data);
+                   //controller.passDataReport(data);
             });
-        }      
+        },
+        getAllStatus: function(){
+            $.getJSON('/listStatus', function(data){
+                   console.log(data);
+                   //controller.passData(data);
+            });
+        }
+
     };
 
 	var view = {
@@ -65,6 +72,7 @@ $(function(){
     };
     
     model.getReportData();
+    model.getAllStatus();
     //controller.createColumnBoxes();
     
 });

@@ -1,12 +1,18 @@
+div.main {
+    width: 1500px;
+    margin: 0 auto;
+}
+
 table {
-    width: 1000px;
+    width: 1500px;
 }
 
 form {
-    width: 1000px;
+    width: 1500px;
     margin: 0 auto;
     text-align: center;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 input {
     margin: 0 5px;
