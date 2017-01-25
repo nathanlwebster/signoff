@@ -46,7 +46,21 @@ $(function(){
                 view.id = ($("#id").val());
                 view.name = ($("#name").val());
                 view.columns = ($("#columns").val());
-                controller.newReport(view.id, view.name, view.columns);
+                view.column1 = ($("#column1").val());
+                view.column1heading = ($("#column1heading").val());
+                view.column2 = ($("#column2").val());
+                view.column2heading = ($("#column2heading").val());
+                view.column3 = ($("#column3").val());
+                view.column3heading = ($("#column3heading").val());
+                view.column4 = ($("#column4").val());
+                view.column4heading = ($("#column4heading").val());
+                view.column5 = ($("#column5").val());
+                view.column5heading = ($("#column5heading").val());
+                
+                controller.newReport(view.id, view.name, view.columns, view.column1, view.column1heading,
+                view.column2, view.column2heading, view.column3, view.column3heading, view.column4, view.column4heading,
+                view.column5, view.column5heading);
+                
             });
         },
         deleteRowReport: function(){

@@ -10,18 +10,38 @@
 <body>
 
 <table class="table table-responsive">
-    <tr id="reportTable">
-    <th id="idRow">ID</th>
-    <th id="reportGroupRow">Report Name</th>
-    <th id="reportColumnNumber">Number of Columns</th>
+        <tr id="reportTable">
+        <th id="idRow">ID</th>
+        <th id="reportGroupRow">Report Name</th>
+        <th id="reportColumnNumber">Number of Columns</th>
+        <th id="reportColumn1">Column 1</th>
+        <th id="reportColumn1Heading">Column 1 Heading</th>
+        <th id="reportColumn2">Column 2</th>
+        <th id="reportColumn2Heading">Column 2 Heading</th>
+        <th id="reportColumn3">Column 3</th>
+        <th id="reportColumn3Heading">Column 3 Heading</th>
+        <th id="reportColumn4">Column 4</th>
+        <th id="reportColumn4Heading">Column 4 Heading</th>
+        <th id="reportColumn5">Column 5</th>
+        <th id="reportColumn5Heading">Column 5 Heading</th>
     </tr>
 </table>
 
 <div class="form-group">
     <form action="http://localhost:8081/addReport" method="POST">
-        Add ID:<input type="text" name="id" id="id">
-        Add Report:<input type="text" name="name" id="name">
-        Add columns in report:<input type="text" name="columns" id="columns">
+        Add ID:<input type="text" name="id" id="id" value="6">
+        Add Report:<input type="text" name="name" id="name" value="My Report">
+        Add columns in report:<input type="text" name="columns" id="columns" value="4">
+        Add Column 1 selection:<input type="text" name="column1" id="column1" value="Solve Group">
+        Add Column 1 heading:<input type="text" name="column1heading" id="column1heading" value="Column 1">
+        Add Column 2 selection:<input type="text" name="column2" id="column2" value="Sign Off">
+        Add Column 2 heading:<input type="text" name="column2heading" id="column2heading" value="Column 2">
+        Add Column 3 selection:<input type="text" name="column3" id="column3" value="Sign Off">
+        Add Column 3 heading:<input type="text" name="column3heading" id="column3heading" value="Column 3">
+        Add Column 4 selection:<input type="text" name="column4" id="column4" value="Sign Off">
+        Add Column 4 heading:<input type="text" name="column4heading" id="column4heading" value="Column 4">
+        Add Column 5 selection:<input type="text" name="column5" id="column5" value="Sign Off">
+        Add Column 5 heading:<input type="text" name="column5heading" id="column5heading" value="Column 5">
         <button type="input" value="submit" id="report_submit">Submit</button>
     </form>
 </div>
