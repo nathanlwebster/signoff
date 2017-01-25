@@ -24,10 +24,12 @@ $(function(){
     };
 
 	var view = {
-        renderRowReport: function(id, name, columns){
-            var rowArray = [id, name, columns];
-            var rowArrayLength = rowArray.length;
-            var newRow = "";
+        renderRowReport: function(id, name, columns, column1, column1heading, column2, column2heading,
+        column3, column3heading, column4, column4heading, column5, column5heading){
+        var rowArray = [id, name, columns, column1, column1heading, column2, column2heading,
+            column3, column3heading, column4, column4heading, column5, column5heading];
+        var rowArrayLength = rowArray.length;
+        var newRow = "";
             $.each(rowArray, function(index, value){
                 if (index == rowArrayLength) {
                     newRow += "<td>" + value + "</td></tr>";
@@ -75,11 +77,16 @@ $(function(){
 	var controller = {
         passDataReport: function(tableData){
             $.each(tableData, function(key, value){
-                view.renderRowReport(value.id, value.name, value.columns);
+                view.renderRowReport(value.id, value.name, value.columns, value.column1, value.column1heading,
+                value.column2, value.column2heading, value.column3, value.column3heading, value.column4, value.column4heading,
+                value.column5, value.column5heading);
             });    
         },
-        newReport: function(id, name, columns){
-            var data = "{id: " + id + ",name: " + name + ",columns: " + columns + "}";
+        newReport: function(id, name, columns, column1, column1heading, column2, column2heading, column3, column3heading, column4, column4heading, column5, column5heading){
+            var data = "{id: " + id + ",name: " + name + ",columns: " + columns + ",column1: " +  column1 + 
+            ", column1heading: " + column1heading + ",column2: " + column2 + ",column2heading: " + column2heading +
+            ",column3: " +  column3 + ", column3heading: " + column3heading + ",column4: " + column4 + ",column4heading: "
+             + column4heading + ",column5: " +  column5 + ", column5heading: " + column5heading + "}";
             model.addReport(data);
         },
         removeReport: function(id){
