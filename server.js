@@ -9,6 +9,12 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(express.static('public'));
 
+/* Index API */
+app.get('/', function (req, res) {
+   res.sendFile( __dirname + "/" + "index.html");
+})
+
+
 /* Status API */
 app.get('/status', function (req, res) {
    res.sendFile( __dirname + "/" + "status.html");
