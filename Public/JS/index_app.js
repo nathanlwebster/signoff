@@ -7,50 +7,39 @@ $(function(){
         getReportData: function(){
             $.getJSON('/listReport', function(data){
                    console.log(data);
-                   //controller.passDataReport(data);
+                   controller.createColOptions(data);
             });
         },
         getAllStatus: function(){
             $.getJSON('/listStatus', function(data){
-                   console.log(data);
                    //controller.passData(data);
             });
-        }
+        },
+        getDataCategories: function(){
+            $.getJSON('/listDataCategories', function(data){
+                    //console.log(data);
+                   //controller.createColOptions(data);
+            });
+        } 
 
     };
 
 	var view = {
-        renderColumnSelectors: function (number) {
-            var numOfColumns = number;
-            var i = 1;
-            while (i <= numOfColumns) {
-                var newColumn = "Column " + i + ": <select name=column" + i + " id=column" + i + " class='columnSelectors'></select><br>";
-                $("#columnDiv").append(newColumn);
-                var heading = "<input type='text' name='column" + i + "heading' id='column" + i + "heading' class='columnHeadings'>"  
-                $("#column" + i).after(heading);
-            i++;
-            }
-        },
-        renderColOptions: function(id, name) {
-            var i = 1;
-            var numOfColumns = model.numColumns;
-            while (i <= numOfColumns) {
-                if (i < 2) {
-                    if (id < 6) {
-                        var newOption = "<option value=" + name + ">" + name + "</option>";
-                        $("#column" + i).append(newOption);
-                    }
-                } else {
-                    if (id > 5) {
-                        var newOption = "<option value=" + name + ">" + name + "</option>";
-                        $("#column" + i).append(newOption);
-                    }
-                }
-            i++;
-            }
+        // renderColumnSelectors: function (number) {
+        //     var numOfColumns = number;
+        //     var i = 1;
+        //     while (i <= numOfColumns) {
+        //         var newColumn = "Column " + i + ": <select name=column" + i + " id=column" + i + " class='columnSelectors'></select><br>";
+        //         $("#columnDiv").append(newColumn);
+        //         var heading = "<input type='text' name='column" + i + "heading' id='column" + i + "heading' class='columnHeadings'>"  
+        //         $("#column" + i).after(heading);
+        //     i++;
+        //     }
+        // },
+        renderColOptions: function(name) {
+            var newReportOpt = "<option value=" + name + ">" + name + "</option>";
+                        $("#selectReport").append(newReportOpt);
         }
-        
-         
     };
 
 	var controller = {
@@ -62,17 +51,19 @@ $(function(){
         },
         createColOptions: function(data) {
             $.each(data, function(key, value){
-                view.renderColOptions(value.id, value.name);
+                //console.log(value.name);
+                view.renderColOptions(value.name);
             });
-        },
-        createColumnBoxes: function() {
-            var numOfColumns = model.numColumns;
-            view.renderColumnSelectors(numOfColumns);
         }
+        // createColumnBoxes: function() {
+        //     var numOfColumns = model.numColumns;
+        //     view.renderColumnSelectors(numOfColumns);
+        // }
     };
     
     model.getReportData();
     model.getAllStatus();
+    model.getDataCategories();
     //controller.createColumnBoxes();
     
 });
