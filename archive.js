@@ -48,3 +48,33 @@ $(function(){
    model.getAll();
    view.addRow();
 });
+
+[
+  '{{repeat(5, 7)}}',
+  {
+    id: '{{index()}}',
+    name: '{{firstName()}}',
+    columns: '{{integer(1, 5)}}',
+    column1: 'column1',
+    column1heading: 'column1heading',
+    column2: 'column2',
+    column2heading: 'column2heading',
+    column3: 'column3',
+    column3heading: 'column3heading',
+    column4: 'column4',
+    column4heading: 'column4heading',
+    column5: 'column5',
+    column5heading: 'column5heading',
+    rows: [
+      '{{repeat(30)}}',
+      {
+        id: '{{index()}}',
+        col1val: '{{company()}}',
+        col2val: '{{company()}}',
+        col3val: '{{company()}}',
+        col4val: '{{company()}}',
+        col5val: '{{company()}}'
+      }
+    ]    
+  }
+]

@@ -55,7 +55,7 @@ $(function(){
             i++;
             }
         },
-        createNewReport: function() {
+        createNewReport: function(numCol) {
             $("#create_report_submit").click(function(){
                 view.title = ($("#title").val());
                 view.instructions = ($("#instructions").val());
@@ -68,17 +68,16 @@ $(function(){
                 var i = 1;
                 var j = 3;
                 var cols = view.columns;
+                var numOfColumns = $('#colNum').val();
+                console.log(numOfColumns);
                 while (i <= cols) {
-                    console.log("i is now: " + i);
                     reportData[j] = ($("#column" + i).val());
                     j++;
                     reportData[j] = ($("#column" + i + "heading").val()); 
-                    console.log("This is the report data: " + reportData);
                     i++;
                     j++;
                 }
-                
-                controller.newStatus();
+                console.log("Report data is: " + reportData);
             });
         }
          
@@ -104,5 +103,6 @@ $(function(){
     
     model.getDataCategories();
     controller.createColumnBoxes();
+    view.createNewReport();
     
 });
