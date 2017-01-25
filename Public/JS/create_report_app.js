@@ -15,8 +15,8 @@ $(function(){
         init: function() {
             this.minRow = 1;
             this.minCol = 1;
-            this.maxRow = 5;
-            this.maxCol = null;
+            this.maxRow = null;
+            this.maxCol = 5;
         },
         getDataCategories: function(){
             $.getJSON('/listDataCategories', function(data){
