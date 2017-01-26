@@ -32,7 +32,7 @@ $(function(){
             while (i <= numOfColumns) {
                 var newColumn = "Column " + i + ": <select name=column" + i + " id=column" + i + " class='columnSelectors'></select><br>";
                 $("#columnDiv").append(newColumn);
-                var heading = "<input type='text' name='column" + i + "heading' id='column" + i + "heading' class='columnHeadings'>"  
+                var heading = "<input type='text' name='column" + i + "heading' id='column" + i + "heading' class='columnHeadings' value='test'>"  
                 $("#column" + i).after(heading);
             i++;
             }
@@ -60,23 +60,25 @@ $(function(){
                 view.title = ($("#title").val());
                 view.instructions = ($("#instructions").val());
                 view.columns = ($("#colNum").val());
-
-                var reportData = [];
-                reportData[0] = view.title;
-                reportData[1] = view.instructions;
-                reportData[2] = view.columns
-                var i = 1;
-                var j = 3;
-                var cols = view.columns;
+                
                 var numOfColumns = $('#colNum').val();
                 console.log(numOfColumns);
+                var reportData = [];
+                reportData[0] = "{'title':'" + view.title + "'";
+                reportData[1] = "'instructions':'" + view.instructions + "'";
+                reportData[2] = "'columns':'" + view.columns + "'";
+                var i = 1;
+                var j = numOfColumns - 1;
+                var cols = view.columns;
+                
                 while (i <= cols) {
-                    reportData[j] = ($("#column" + i).val());
+                    reportData[j] = "'column" + i + "':'" + ($("#column" + i).val()) + "'";
                     j++;
-                    reportData[j] = ($("#column" + i + "heading").val()); 
+                    reportData[j] = "'column" + i + "heading':'" + ($("#column" + i + "heading").val()) + "'"; 
                     i++;
                     j++;
-                }
+                } 
+
                 console.log("Report data is: " + reportData);
             });
         }
