@@ -4,38 +4,36 @@ $(function(){
 	
     var model = {
         
+        reports: null,
+        status: null,
+        data_categories: null,
+
         getReportData: function(){
             $.getJSON('/listReport', function(data){
-                   console.log(data);
+                   model.reports = data;
                    controller.createColOptions(data);
             });
         },
         getAllStatus: function(){
             $.getJSON('/listStatus', function(data){
+                   model.status = data;
                    //controller.passData(data);
             });
         },
         getDataCategories: function(){
             $.getJSON('/listDataCategories', function(data){
+                   model.data_categories = data;
                     //console.log(data);
-                   //controller.createColOptions(data);
+                   
             });
         } 
 
     };
 
 	var view = {
-        // renderColumnSelectors: function (number) {
-        //     var numOfColumns = number;
-        //     var i = 1;
-        //     while (i <= numOfColumns) {
-        //         var newColumn = "Column " + i + ": <select name=column" + i + " id=column" + i + " class='columnSelectors'></select><br>";
-        //         $("#columnDiv").append(newColumn);
-        //         var heading = "<input type='text' name='column" + i + "heading' id='column" + i + "heading' class='columnHeadings'>"  
-        //         $("#column" + i).after(heading);
-        //     i++;
-        //     }
-        // },
+        init: function() {
+            //controller.createColOptions(model.reports);
+        },
         renderColOptions: function(name) {
             var newReportOpt = "<option value=" + name + ">" + name + "</option>";
                         $("#selectReport").append(newReportOpt);
@@ -43,7 +41,14 @@ $(function(){
     };
 
 	var controller = {
+        init: function(){
+            model.getReportData();
+            model.getAllStatus();
+            model.getDataCategories();
+            //controller.buildTable();
+        },
         buildTable: function() {
+            console.log(model.reports);
             model.reportTitle = "My New Report"; //input from user
             model.numColumns = 5; //input from user
             model.numRows = 10; //input from column 1 selection
@@ -61,9 +66,8 @@ $(function(){
         // }
     };
     
-    model.getReportData();
-    model.getAllStatus();
-    model.getDataCategories();
+    controller.init();
+    view.init();
     //controller.createColumnBoxes();
     
 });
