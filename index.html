@@ -14,6 +14,7 @@
     
     <div>
         <form>
+        <h2>Select Report:</h2>
         <select id="selectReport" ng-model="name">
         </select>
         </form>
@@ -23,11 +24,11 @@
     </div>
     <table class="table table-responsive">        
         <tr id="reportHeadings">
-            <th id="reportColumn1Heading">Column 1 Heading</th>
-            <th id="reportColumn2Heading">Column 2 Heading</th>
-            <th id="reportColumn3Heading">Column 3 Heading</th>
-            <th id="reportColumn4Heading">Column 4 Heading</th>
-            <th id="reportColumn5Heading">Column 5 Heading</th>
+            <th id="reportColumn1Heading" ng-repeat="heading in headings">{{ heading }}</th>
+            
+        </tr>
+        <tr>
+            <td></td>
         </tr>
 
     </table>

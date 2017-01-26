@@ -45,7 +45,7 @@ $(function(){
             model.getReportData();
             model.getAllStatus();
             model.getDataCategories();
-            //controller.buildTable();
+            controller.buildTable();
         },
         buildTable: function() {
             console.log(model.reports);
