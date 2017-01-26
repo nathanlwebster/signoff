@@ -9,15 +9,18 @@
 <header>
     <h2>Replace with Intel Header</h2>
 </header>
-<body ng-app="reportApp">
+<body ng-app="reportApp" ng-controller="reportCtrl">
 <div class="main">
+    
     <div>
         <form>
-        <select id="selectReport">
+        <select id="selectReport" ng-model="name">
         </select>
         </form>
     </div>
-
+    <div id="reportTitle">
+        <h1>{{name}}</h1>
+    </div>
     <table class="table table-responsive">        
         <tr id="reportHeadings">
             <th id="reportColumn1Heading">Column 1 Heading</th>
