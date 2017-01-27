@@ -25,10 +25,9 @@
     <table class="table table-responsive">        
         <tr id="reportHeadings">
             <th id="reportColumn1Heading" ng-repeat="heading in headings">{{ heading }}</th>
-            
         </tr>
-        <tr>
-            <td></td>
+        <tr id="reportRows" ng-repeat="row in rows">
+            <td>{{ row[0] }}</td>
         </tr>
 
     </table>
