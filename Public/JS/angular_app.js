@@ -16,48 +16,37 @@ app.service('prepHeadings', function() {
     }
 });
 
-app.service('prepRows', function() {
-    this.myFunc = function (data) {
-        console.log("This is the data passed to prepRows: " + data);
-        var len = data.length;
-        console.log("This is data[0]: " + data[0]);
-        var numRows = data[0].rows.length;
-        //console.log("Number of rows: " + numRows);
-        console.log("This is data[0].rows[0].col1val: " + data[0].rows[0].col1val);
-        var newRows = [];
-        
-        var n = 0;
-        while (n < numRows) {
-            newRows[n] = {};
-            var i = 0;
-            while (i < len) {
-            var concatName = "";
-            var j = i + 1;
-            concatName = "col" + j + "val";
-            newRows[n][i] = data[0].rows[n][concatName];
-            i++;
-            }
-        //console.log("newRows is: " + newRows);
-        n++;
-
-        }
-        console.log("This is newRows[0][0]: " + newRows[0][0]);
-        return newRows;
-    }
-});
-
-app.controller('reportCtrl', function($scope, $http, prepHeadings, prepRows) {
+app.controller('reportCtrl', function($scope, $http, prepHeadings) {
     $scope.name = "Report Title";
     $http.get("/listReport")
     .then(function(response) {
         //console.log("This is response.data: " + response.data);
-        var report1rows = response.data[0].rows;
-        //console.log(report1rows);
+        //var reportData = JSON.stringify(response.data);
+        
+        //if the report name == the view report name, set the report as variable
+
+        //set the report data as $scope variables
+
+        var getKeys = function(obj){
+            var keys = [];
+            for (var key in obj){
+                keys.push(key);
+            }
+            return keys
+        }
+        var gotKeys = getKeys(response.data[0].rows[0]);
+        console.log("gotKeys: " + gotKeys);
         {
             $scope.headings = prepHeadings.myFunc(response.data);
-            $scope.rows = prepRows.myFunc(response.data);
+            $scope.rows = response.data[0].rows;
         }
-        console.log("This is what is assigned to $scope.rows: " + $scope.rows[0][1]);
+        
+        console.log("This is the rows data: " + $scope.rows);
+        {
+            // $scope.headings = prepHeadings.myFunc(response.data);
+            // $scope.rows = prepRows.myFunc(response.data);
+        }
+        //console.log("This is what is assigned to $scope.rows: " + $scope.rows[0][1]);
     });
 });
 

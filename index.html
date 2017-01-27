@@ -22,12 +22,17 @@
     <div id="reportTitle">
         <h1>{{name}}</h1>
     </div>
+    
     <table class="table table-responsive">        
         <tr id="reportHeadings">
             <th id="reportColumn1Heading" ng-repeat="heading in headings">{{ heading }}</th>
         </tr>
         <tr id="reportRows" ng-repeat="row in rows">
-            <td>{{ row[0] }}</td>
+            <td>{{ row.col1val }}</td>
+            <td><input value="{{ row.col2val }}" /></td>
+            <td><input value="{{ row.col3val }}" /></td>
+            <td><input value="{{ row.col4val }}" /></td>
+            <td><input value="{{ row.col5val }}" /></td>
         </tr>
 
     </table>
