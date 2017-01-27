@@ -25,14 +25,18 @@
     
     <table class="table table-responsive">        
         <tr id="reportHeadings">
-            <th id="reportColumn1Heading" ng-repeat="heading in headings">{{ heading }}</th>
+            <th id="reportColumn1Heading" >{{ headings.column1heading }}</th>
+            <th id="reportColumn2Heading" >{{ headings.column2heading }}</th>
+            <th id="reportColumn3Heading" >{{ headings.column3heading }}</th>
+            <th id="reportColumn4Heading" >{{ headings.column4heading }}</th>
+            <th id="reportColumn5Heading" >{{ headings.column5heading }}</th>
         </tr>
         <tr id="reportRows" ng-repeat="row in rows">
             <td>{{ row.col1val }}</td>
-            <td><input value="{{ row.col2val }}" /></td>
-            <td><input value="{{ row.col3val }}" /></td>
-            <td><input value="{{ row.col4val }}" /></td>
-            <td><input value="{{ row.col5val }}" /></td>
+            <td><input type="{{ row.col2type }}" />{{ row.col2val }}</td>
+            <td><input type="{{ row.col3type }}" />{{ row.col3val }}</td>
+            <td><input type="{{ row.col4type }}" />{{ row.col4val }}</td>
+            <td><input type="{{ row.col5type }}" />{{ row.col5val }}</td>
         </tr>
 
     </table>

@@ -34,10 +34,11 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
             }
             return keys
         }
-        var gotKeys = getKeys(response.data[0].rows[0]);
+        var gotKeys = getKeys(response.data[0]);
         console.log("gotKeys: " + gotKeys);
         {
-            $scope.headings = prepHeadings.myFunc(response.data);
+            //$scope.headings = prepHeadings.myFunc(response.data);
+            $scope.headings = response.data[0];
             $scope.rows = response.data[0].rows;
         }
         
