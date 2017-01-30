@@ -33,11 +33,11 @@ $(function(){
 	var view = {
         init: function() {
             //controller.createColOptions(model.reports);
-        },
-        renderColOptions: function(name) {
-            var newReportOpt = "<option value=" + name + ">" + name + "</option>";
-                        $("#selectReport").append(newReportOpt);
         }
+        // renderColOptions: function(name) {
+        //     var newReportOpt = "<option value=" + name + ">" + name + "</option>";
+        //                 $("#selectReport").append(newReportOpt);
+        // }
     };
 
 	var controller = {
@@ -55,10 +55,10 @@ $(function(){
             model.colHeaders = ["Column 1", "Column 2", "Column 3", "Column 4", "Column 5"]; //from create report by options
         },
         createColOptions: function(data) {
-            $.each(data, function(key, value){
-                //console.log(value.name);
-                view.renderColOptions(value.name);
-            });
+            // $.each(data, function(key, value){
+            //     //console.log(value.name);
+            //     view.renderColOptions(value.name);
+            // });
         }
         // createColumnBoxes: function() {
         //     var numOfColumns = model.numColumns;

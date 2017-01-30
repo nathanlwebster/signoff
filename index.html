@@ -16,6 +16,7 @@
         <form>
         <h2>Select Report:</h2>
         <select id="selectReport" ng-model="name">
+            <option id="selectReportOptions" ng-repeat="title in titles">{{title}}</option>
         </select>
         </form>
     </div>

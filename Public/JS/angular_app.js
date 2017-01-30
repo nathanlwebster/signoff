@@ -20,12 +20,23 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
     $scope.name = "Report Title";
     $http.get("/listReport")
     .then(function(response) {
-        //console.log("This is response.data: " + response.data);
-        //var reportData = JSON.stringify(response.data);
         
-        //if the report name == the view report name, set the report as variable
+        var titleArray = [];
+        var i = 0;
+        while (i < response.data.length) {
+            var newTitle = response.data[i].name;
+            titleArray[i] = newTitle;
+            i++;
+        }
+        $scope.titles = titleArray;
+        console.log("$scope.titles is: " + $scope.titles);
 
-        //set the report data as $scope variables
+        console.log("Response name is: " + response.data[0].name);
+        console.log("Response ID is: " + response.data[0].id);
+        console.log("$scope.name is: " + $scope.name)
+
+
+        var reportNum = 1;
 
         var getKeys = function(obj){
             var keys = [];
@@ -34,15 +45,17 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
             }
             return keys
         }
-        var gotKeys = getKeys(response.data[0]);
-        console.log("gotKeys: " + gotKeys);
+        var gotKeys = getKeys(response.data[reportNum]);
+        //console.log("gotKeys: " + gotKeys);
         {
             //$scope.headings = prepHeadings.myFunc(response.data);
-            $scope.headings = response.data[0];
-            $scope.rows = response.data[0].rows;
+            $scope.reportNum = reportNum;
+            $scope.headings = response.data[reportNum];
+            $scope.rows = response.data[reportNum].rows;
+           
         }
         
-        console.log("This is the rows data: " + $scope.rows);
+        //console.log("This is the rows data: " + $scope.rows);
         {
             // $scope.headings = prepHeadings.myFunc(response.data);
             // $scope.rows = prepRows.myFunc(response.data);
