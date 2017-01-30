@@ -29,26 +29,32 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
             i++;
         }
         $scope.titles = titleArray;
-        console.log("$scope.titles is: " + $scope.titles);
-
+        
         console.log("Response name is: " + response.data[0].name);
         console.log("Response ID is: " + response.data[0].id);
         console.log("$scope.name is: " + $scope.name)
 
-
-        var reportNum = 1;
-
-        var getKeys = function(obj){
-            var keys = [];
-            for (var key in obj){
-                keys.push(key);
+        
+        var reportNum = 0;
+        $scope.$watch("name", function(newValue) {
+            console.log("Watching name. newValue = " + newValue);
+            var i = 0;
+            while (i < response.data.length) {
+                if (response.data[i].name == newValue) {
+                   reportNum = response.data[i].id;
+                   $scope.reportNum = reportNum;
+                } 
+                i++;
             }
-            return keys
-        }
-        var gotKeys = getKeys(response.data[reportNum]);
-        //console.log("gotKeys: " + gotKeys);
+        });
+
+        $scope.$watch("reportNum", function(newValue) {
+            $scope.rows = response.data[newValue].rows;
+        });
+
+        
         {
-            //$scope.headings = prepHeadings.myFunc(response.data);
+                               
             $scope.reportNum = reportNum;
             $scope.headings = response.data[reportNum];
             $scope.rows = response.data[reportNum].rows;
@@ -61,6 +67,17 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
             // $scope.rows = prepRows.myFunc(response.data);
         }
         //console.log("This is what is assigned to $scope.rows: " + $scope.rows[0][1]);
+
+        // var getKeys = function(obj){
+        //     var keys = [];
+        //     for (var key in obj){
+        //         keys.push(key);
+        //     }
+        //     return keys
+        // }
+        // var gotKeys = getKeys(response.data[reportNum]);
+        //console.log("gotKeys: " + gotKeys);
+
     });
 });
 
