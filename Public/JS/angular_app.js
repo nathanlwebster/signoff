@@ -30,14 +30,14 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
         }
         $scope.titles = titleArray;
         
-        console.log("Response name is: " + response.data[0].name);
-        console.log("Response ID is: " + response.data[0].id);
-        console.log("$scope.name is: " + $scope.name)
+        // console.log("Response name is: " + response.data[0].name);
+        // console.log("Response ID is: " + response.data[0].id);
+        // console.log("$scope.name is: " + $scope.name)
 
         
-        var reportNum = 0;
+        var reportNum = 9999;
         $scope.$watch("name", function(newValue) {
-            console.log("Watching name. newValue = " + newValue);
+            //console.log("Watching name. newValue = " + newValue);
             var i = 0;
             while (i < response.data.length) {
                 if (response.data[i].name == newValue) {
@@ -49,18 +49,25 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
         });
 
         $scope.$watch("reportNum", function(newValue) {
+            if (response.data[newValue].rows != null) {
             $scope.rows = response.data[newValue].rows;
+            $scope.headings = response.data[reportNum];
+            }
         });
 
         
         {
-                               
+            if (reportNum != 9999) {
             $scope.reportNum = reportNum;
             $scope.headings = response.data[reportNum];
             $scope.rows = response.data[reportNum].rows;
-           
+            }
         }
         
+        $scope.submitReportForm = function() {
+            console.log("You clicked submit.");
+        }
+
         //console.log("This is the rows data: " + $scope.rows);
         {
             // $scope.headings = prepHeadings.myFunc(response.data);
