@@ -49,7 +49,7 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
         });
 
         $scope.$watch("reportNum", function(newValue) {
-            if (response.data[newValue].rows != null) {
+            if (response.data[newValue] != null) {
             $scope.rows = response.data[newValue].rows;
             $scope.headings = response.data[reportNum];
             }
