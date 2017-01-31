@@ -32,7 +32,7 @@ $(function(){
         updateReport: function(reportData){
             console.log(reportData);
             $.post('/updateReport', reportData, function(data, status){
-                console.log("Here's the status: " + status); 
+                //console.log("Here's the status: " + status); 
             });
         } 
 
@@ -53,26 +53,23 @@ $(function(){
                     if (!update[i]) {
                     update[i] = {};
                     } 
-                    console.log(update[i]);
+                    //console.log(update[i]);
 
                     for(var j = 1; j < 6; j++) {
 
                         update[i][j] = $("#row" + i + "col" + j + "val").val();
                         // view["row" + i + "column" + j] = $("#row" + i + "col" + j + "val").val();
                         // update[i][j] = view["row" + i + "column" + j];
-                        console.log("Update is: " + update);
+                        
 
                     }
                 i++;    
                 }
-                view.id = ($("#row0col3val").val());
-                view.id2 = ($("#row1col3val").val());
 
                 //TODO Get value of checkboxes
-
-                //view.solve_group = ($("#solve_group").val());
-                //controller.reportUpdater(view.id, view.solve_group);
+                controller.reportUpdater(update);
             });
+        
         }
         // renderColOptions: function(name) {
         //     var newReportOpt = "<option value=" + name + ">" + name + "</option>";
@@ -89,7 +86,7 @@ $(function(){
             view.collectUpdate();
         },
         buildTable: function() {
-            console.log(model.reports);
+            //console.log(model.reports);
             model.reportTitle = "My New Report"; //input from user
             model.numColumns = 5; //input from user
             model.numRows = 10; //input from column 1 selection
@@ -101,8 +98,8 @@ $(function(){
             //     view.renderColOptions(value.name);
             // });
         },
-        reportUpdater: function() {
-
+        reportUpdater: function(data) {
+            console.log(data);
         }
         // createColumnBoxes: function() {
         //     var numOfColumns = model.numColumns;
