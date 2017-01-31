@@ -55,9 +55,9 @@ $(function(){
                     } 
                     //console.log(update[i]);
 
-                    for(var j = 1; j < 6; j++) {
-
-                        update[i][j] = $("#row" + i + "col" + j + "val").val();
+                    for(var j = 2; j < 6; j++) {
+                        var concatData = $("#row" + i + "col" + j + "val").val(); 
+                        update[i][j] = "col" + j + "val:" + concatData;
                         // view["row" + i + "column" + j] = $("#row" + i + "col" + j + "val").val();
                         // update[i][j] = view["row" + i + "column" + j];
                         
@@ -67,6 +67,7 @@ $(function(){
                 }
 
                 //TODO Get value of checkboxes
+                console.log("I got here.");
                 controller.reportUpdater(update);
             });
         
