@@ -81,10 +81,12 @@ $(function(){
                     j++;
                     }
                     
-                console.log(rows);
+                //console.log(rows);
                 i++;
                 }
                 update.rows = rows;
+                JSON.stringify(update);
+                controller.reportUpdater(update);
                 //console.log(update);
             //     update.id = reportNum;
             //     update.name = reportName;
@@ -164,7 +166,7 @@ $(function(){
         reportUpdater: function(data) {
             //var dataStringified = JSON.stringify(data);
             //console.log(dataStringified);
-            //model.updateReport(data);
+            model.updateReport(data);
         }
         // createColumnBoxes: function() {
         //     var numOfColumns = model.numColumns;
