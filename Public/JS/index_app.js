@@ -44,12 +44,27 @@ $(function(){
         },
         collectUpdate: function(){
             $("#form_submit").click(function(){
+                var update = {};
+                
                 var reportNum = $("#reportNum").val();
                 var numRows = $("#rowCount").val();
                 var reportName = $("#reportName").val();
-                var update = {};
+
+                var c = 1;
+                while (c < 6) {
+                    var columnHeading = "Column " + c;
+                    update["column" + c + "heading"] = columnHeading;
+
+                    var columnName = "column" + c;
+                    update["column" + c] = columnName;
+
+                    c++;
+                }
+
+                
                 update.id = reportNum;
                 update.name = reportName;
+                update.columns = 5;
                 update.rows = [];
                 var i = 0;
                 while(i < numRows) {

@@ -33,11 +33,11 @@
             <button id="form_submit">Save Changes</button>
             <table class="table table-responsive">        
                 <tr id="reportHeadings">
-                    <th id="reportColumn1Heading" >{{ headings.column1heading }}</th>
-                    <th id="reportColumn2Heading" >{{ headings.column2heading }}</th>
-                    <th id="reportColumn3Heading" >{{ headings.column3heading }}</th>
-                    <th id="reportColumn4Heading" >{{ headings.column4heading }}</th>
-                    <th id="reportColumn5Heading" >{{ headings.column5heading }}</th>
+                    <th id="reportColumn1Heading" value="{{ headings.column1heading }}">{{ headings.column1heading }}</th>
+                    <th id="reportColumn2Heading" value="{{ headings.column2heading }}">{{ headings.column2heading }}</th>
+                    <th id="reportColumn3Heading" value="{{ headings.column3heading }}">{{ headings.column3heading }}</th>
+                    <th id="reportColumn4Heading" value="{{ headings.column4heading }}">{{ headings.column4heading }}</th>
+                    <th id="reportColumn5Heading" value="{{ headings.column5heading }}">{{ headings.column5heading }}</th>
                 </tr>
                 <tr id="hiddenData" ng-show="false">
                     <td><input id="reportNum" type="text" value="{{ reportNum }}" /></td>
