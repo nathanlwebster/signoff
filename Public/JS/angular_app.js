@@ -52,6 +52,7 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
             if (response.data[newValue] != null) {
             $scope.rows = response.data[newValue].rows;
             $scope.headings = response.data[reportNum];
+            $scope.rowCount = response.data[reportNum].rows.length;
             }
         });
 
@@ -64,9 +65,9 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
             }
         }
         
-        $scope.submitReportForm = function() {
-            console.log("You clicked submit.");
-        }
+        // $scope.submitReportForm = function() {
+        //     console.log("You clicked submit.");
+        // }
 
         //console.log("This is the rows data: " + $scope.rows);
         {

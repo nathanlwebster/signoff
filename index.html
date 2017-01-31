@@ -23,13 +23,14 @@
     <div id="reportTitle">
         <row>
         <h1>{{name}}</h1>
-        <!--<h2>{{reportNum}}</h2>-->
+        <h2 ng-show="true">{{reportNum}}</h2>
         </row>
     </div>
     
     <div class="form-group">
-        <form ng-submit="submitReportForm()">
-            <button>Save Changes</button>
+        <form>
+        <!--<form action="http://localhost:8081/updateReport" method="POST">-->
+            <button id="form_submit">Save Changes</button>
             <table class="table table-responsive">        
                 <tr id="reportHeadings">
                     <th id="reportColumn1Heading" >{{ headings.column1heading }}</th>
@@ -38,12 +39,16 @@
                     <th id="reportColumn4Heading" >{{ headings.column4heading }}</th>
                     <th id="reportColumn5Heading" >{{ headings.column5heading }}</th>
                 </tr>
+                <tr id="hiddenData" ng-show="true">
+                    <td><input id="reportNum" type="text" value="{{ reportNum }}" /></td>
+                    <td><input id="rowCount" type="text" value="{{ rowCount }}" /></td>
+                </tr>
                 <tr id="reportRows" ng-repeat="row in rows">
-                    <td>{{ row.col1val }}</td>
-                    <td><input type="{{ row.col2type }}" />{{ row.col2val }}</td>
-                    <td><input type="{{ row.col3type }}" />{{ row.col3val }}</td>
-                    <td><input type="{{ row.col4type }}" />{{ row.col4val }}</td>
-                    <td><input type="{{ row.col5type }}" />{{ row.col5val }}</td>
+                    <td id="row{{row.id}}col1val">{{ row.col1val }}</td>
+                    <td><input id="row{{row.id}}col2val" type="{{ row.col2type }}" />{{ row.col2val }}</td>
+                    <td><input id="row{{row.id}}col3val" type="{{ row.col3type }}" />{{ row.col3val }}</td>
+                    <td><input id="row{{row.id}}col4val" type="{{ row.col4type }}" />{{ row.col4val }}</td>
+                    <td><input id="row{{row.id}}col5val" type="{{ row.col5type }}" />{{ row.col5val }}</td>
                 </tr>
             </table>
         </form>
