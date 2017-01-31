@@ -66,18 +66,18 @@ $(function(){
                 update.columns = 5;
                 
                 var rows = [];
-                var cell = {};
                 var i = 0;
                 while (i < numRows) {
+                    var cell = {};
                     var j = 1;
                     while (j < 6) {
-                        console.log($("#row" + i + "col" + j + "val").val());
+                        //console.log($("#row" + i + "col" + j + "val").val());
                         var cellVal = "col" + j + "val";
                         var cellType = "col" + j + "type";
                         cell[cellVal] = $("#row" + i + "col" + j + "val").val();
                         cell[cellType] = $("#row" + i + "col" + j + "val").attr('type');
-                        console.log(cell);
                         rows[i] = cell;
+                        //console.log(rows[i]);
                     j++;
                     }
                     
@@ -85,7 +85,7 @@ $(function(){
                 i++;
                 }
                 update.rows = rows;
-
+                //console.log(update);
             //     update.id = reportNum;
             //     update.name = reportName;
             //     update.columns = 5;
@@ -129,7 +129,7 @@ $(function(){
             //     update.rows = rows;
             //     //console.log(update);
             //     //TODO Get value of checkboxes
-                controller.reportUpdater(update);
+                //controller.reportUpdater(update);
             // });
         
         // }
@@ -164,7 +164,7 @@ $(function(){
         reportUpdater: function(data) {
             //var dataStringified = JSON.stringify(data);
             //console.log(dataStringified);
-            model.updateReport(data);
+            //model.updateReport(data);
         }
         // createColumnBoxes: function() {
         //     var numOfColumns = model.numColumns;
