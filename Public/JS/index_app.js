@@ -48,7 +48,7 @@ $(function(){
                 var numRows = $("#rowCount").val();
                 var update = [];
                 var i = 0;
-                while(i < model.numRows) {
+                while(i < numRows) {
 
                     if (!update[i]) {
                     update[i] = {};
@@ -68,7 +68,7 @@ $(function(){
 
                 //TODO Get value of checkboxes
                 console.log("I got here.");
-                controller.reportUpdater(update);
+                controller.reportUpdater(reportNum, update);
             });
         
         }
@@ -99,8 +99,10 @@ $(function(){
             //     view.renderColOptions(value.name);
             // });
         },
-        reportUpdater: function(data) {
-            console.log(data);
+        reportUpdater: function(reportNum, data) {
+            var dataStringified = JSON.stringify(data);
+            console.log(reportNum, dataStringified);
+            //model.updateReport(data);
         }
         // createColumnBoxes: function() {
         //     var numOfColumns = model.numColumns;
