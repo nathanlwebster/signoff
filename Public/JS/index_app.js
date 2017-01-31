@@ -46,7 +46,10 @@ $(function(){
             $("#form_submit").click(function(){
                 var reportNum = $("#reportNum").val();
                 var numRows = $("#rowCount").val();
+                var reportName = $("#reportName").val();
                 var update = {};
+                update.id = reportNum;
+                update.name = reportName;
                 update.rows = [];
                 var i = 0;
                 while(i < numRows) {
@@ -67,9 +70,9 @@ $(function(){
                     }
                 i++;    
                 }
-
+                console.log(update);
                 //TODO Get value of checkboxes
-                controller.reportUpdater(reportNum, update);
+                //controller.reportUpdater(reportNum, update);
             });
         
         }

@@ -161,10 +161,10 @@ app.post('/addReport', urlencodedParser, function (req, res) {
 })
 
 app.post('/updateReport', urlencodedParser, function (req, res) {
-    // console.log(req.body);
+    console.log(req.body);
 //    var index = req.body.id - 1;
     var response = {
-       col2val:req.body.rows.col2val
+       col2val:req.body.rows[0].col2val
 //        name:req.body.name,
 //        columns:req.body.columns,
 //        column1:req.body.column1,
@@ -178,7 +178,7 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
 //        column5:req.body.column5,
 //        column5heading:req.body.column5heading    
       };
-      console.log(response);
+      //console.log(response);
 //    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
 //         if (err) {
 //             console.log(err);
