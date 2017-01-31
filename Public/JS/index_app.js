@@ -60,41 +60,84 @@ $(function(){
 
                     c++;
                 }
-
-                
+               
                 update.id = reportNum;
                 update.name = reportName;
                 update.columns = 5;
-                update.rows = {};
+                
+                var rows = [];
+                var cell = {};
                 var i = 0;
-                while(i < numRows) {
-
-                    if (!update.rows[i]) {
-                    update.rows[i] = {};
-                    } 
-                    //console.log(update[i]);
-
-                    for(var j = 1; j < 6; j++) {
-                        var concat1 = $("#row" + i + "col" + j + "val").val();
-                        var concat2 = $("#row" + i + "col" + j + "val").attr('type');
-                        var concat3 = "col" + j + "val";
-                        var concat4 = "col" + j + "type"; 
-                        update.rows[i][concat3] = concat1;
-                        update.rows[i][concat4] = concat2;
+                while (i < numRows) {
+                    var j = 1;
+                    while (j < 6) {
+                        console.log($("#row" + i + "col" + j + "val").val());
+                        var cellVal = "col" + j + "val";
+                        var cellType = "col" + j + "type";
+                        cell[cellVal] = $("#row" + i + "col" + j + "val").val();
+                        cell[cellType] = $("#row" + i + "col" + j + "val").attr('type');
+                        console.log(cell);
+                        rows[i] = cell;
+                    j++;
                     }
-                i++;    
+                    
+                console.log(rows);
+                i++;
                 }
+                update.rows = rows;
 
-                //console.log(update);
-                //TODO Get value of checkboxes
+            //     update.id = reportNum;
+            //     update.name = reportName;
+            //     update.columns = 5;
+            //     var rows = [];
+            //     var i = 0;
+            //     while(i < numRows) {
+            //         if (!rows[i]) {
+            //             //console.log("rows[i] is not created yet.");
+            //         }
+            //         if (!rows[i]) {
+            //             rows[i] = [
+            //                 "id",
+            //                 "col1val",
+            //                 "col2val",
+            //                 "col3val",
+            //                 "col4val",
+            //                 "col5val",
+            //                 "col1type",
+            //                 "col2type",
+            //                 "col3type",
+            //                 "col4type",
+            //                 "col5type"
+            //             ];
+            //         }
+            //     i++;    
+            //     } 
+            //         //console.log(update[i]);
+            //         var k = 0;
+            //         while (k < numRows) {
+            //             for(var j = 1; j < 6; j++) {
+            //                 var concat1 = $("#row" + k + "col" + j + "val").val();
+            //                 var concat2 = $("#row" + k + "col" + j + "val").attr('type');
+            //                 // var concat3 = "col" + j + "val";
+            //                 // var concat4 = "col" + j + "type";
+            //                 //console.log("rows.k is: " + rows);
+            //                 //rows[k]["col" + j + "val"] = concat1;
+            //             }
+            //         k++;
+            //         }
+               
+            //     update.rows = rows;
+            //     //console.log(update);
+            //     //TODO Get value of checkboxes
                 controller.reportUpdater(update);
-            });
+            // });
         
-        }
+        // }
         // renderColOptions: function(name) {
         //     var newReportOpt = "<option value=" + name + ">" + name + "</option>";
         //                 $("#selectReport").append(newReportOpt);
-        // }
+            });
+        }
     };
 
 	var controller = {

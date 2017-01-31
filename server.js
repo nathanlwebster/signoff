@@ -170,25 +170,23 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
             return keys
         }
         var gotKeys = getKeys(req.body);
-        console.log("gotKeys: " + gotKeys);
+        //console.log("gotKeys: " + gotKeys);
 
     var reportID = req.body.id;
     var reportData = req.body;
-    var reportRows = req.body.rows;
-    // console.log("The reportID is: " + reportID);
-    // console.log("Report rows: " + reportRows);
+    console.log("The reportID is: " + reportID);
     
    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
         if (err) {
             console.log(err);
             res.redirect('/');
         } else {
-        obj = data;
-        //obj = JSON.parse(data);
+        // obj = data;
+        obj = JSON.parse(data);
         obj[reportID] = reportData;
-        console.log(reportData);
-        // fs.writeFileSync('report.json', JSON.stringify(obj));
-        // res.redirect('/');   
+        //console.log(reportData);
+        fs.writeFileSync('report.json', JSON.stringify(obj));
+        res.redirect('/');   
         }
    });
    
