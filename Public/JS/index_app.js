@@ -87,57 +87,7 @@ $(function(){
                 update.rows = rows;
                 JSON.stringify(update);
                 controller.reportUpdater(update);
-                //console.log(update);
-            //     update.id = reportNum;
-            //     update.name = reportName;
-            //     update.columns = 5;
-            //     var rows = [];
-            //     var i = 0;
-            //     while(i < numRows) {
-            //         if (!rows[i]) {
-            //             //console.log("rows[i] is not created yet.");
-            //         }
-            //         if (!rows[i]) {
-            //             rows[i] = [
-            //                 "id",
-            //                 "col1val",
-            //                 "col2val",
-            //                 "col3val",
-            //                 "col4val",
-            //                 "col5val",
-            //                 "col1type",
-            //                 "col2type",
-            //                 "col3type",
-            //                 "col4type",
-            //                 "col5type"
-            //             ];
-            //         }
-            //     i++;    
-            //     } 
-            //         //console.log(update[i]);
-            //         var k = 0;
-            //         while (k < numRows) {
-            //             for(var j = 1; j < 6; j++) {
-            //                 var concat1 = $("#row" + k + "col" + j + "val").val();
-            //                 var concat2 = $("#row" + k + "col" + j + "val").attr('type');
-            //                 // var concat3 = "col" + j + "val";
-            //                 // var concat4 = "col" + j + "type";
-            //                 //console.log("rows.k is: " + rows);
-            //                 //rows[k]["col" + j + "val"] = concat1;
-            //             }
-            //         k++;
-            //         }
-               
-            //     update.rows = rows;
-            //     //console.log(update);
-            //     //TODO Get value of checkboxes
-                //controller.reportUpdater(update);
-            // });
-        
-        // }
-        // renderColOptions: function(name) {
-        //     var newReportOpt = "<option value=" + name + ">" + name + "</option>";
-        //                 $("#selectReport").append(newReportOpt);
+                
             });
         }
     };
