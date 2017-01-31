@@ -65,7 +65,7 @@ $(function(){
                 update.id = reportNum;
                 update.name = reportName;
                 update.columns = 5;
-                update.rows = [];
+                update.rows = {};
                 var i = 0;
                 while(i < numRows) {
 
@@ -81,14 +81,13 @@ $(function(){
                         var concat4 = "col" + j + "type"; 
                         update.rows[i][concat3] = concat1;
                         update.rows[i][concat4] = concat2;
-                        // view["row" + i + "column" + j] = $("#row" + i + "col" + j + "val").val();
-                        // update[i][j] = view["row" + i + "column" + j];
                     }
                 i++;    
                 }
-                console.log(update);
+
+                //console.log(update);
                 //TODO Get value of checkboxes
-                //controller.reportUpdater(reportNum, update);
+                controller.reportUpdater(update);
             });
         
         }
@@ -119,10 +118,10 @@ $(function(){
             //     view.renderColOptions(value.name);
             // });
         },
-        reportUpdater: function(reportNum, data) {
-            var dataStringified = JSON.stringify(data);
-            //console.log(reportNum, dataStringified);
-            //model.updateReport(data);
+        reportUpdater: function(data) {
+            //var dataStringified = JSON.stringify(data);
+            //console.log(dataStringified);
+            model.updateReport(data);
         }
         // createColumnBoxes: function() {
         //     var numOfColumns = model.numColumns;

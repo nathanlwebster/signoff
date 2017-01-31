@@ -161,35 +161,36 @@ app.post('/addReport', urlencodedParser, function (req, res) {
 })
 
 app.post('/updateReport', urlencodedParser, function (req, res) {
-    console.log(req.body);
-//    var index = req.body.id - 1;
-    var response = {
-       col2val:req.body.rows[0].col2val
-//        name:req.body.name,
-//        columns:req.body.columns,
-//        column1:req.body.column1,
-//        column1heading:req.body.column1heading,
-//        column2:req.body.column2,
-//        column2heading:req.body.column2heading,
-//        column3:req.body.column3,
-//        column3heading:req.body.column3heading,
-//        column4:req.body.column4,
-//        column4heading:req.body.column4heading,
-//        column5:req.body.column5,
-//        column5heading:req.body.column5heading    
-      };
-      //console.log(response);
-//    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
-//         if (err) {
-//             console.log(err);
-//             res.redirect('/report');
-//         } else {
-//         obj = JSON.parse(data);
-//         obj[index] = response;
-//         fs.writeFileSync('report.json', JSON.stringify(obj));
-//         res.redirect('/report');   
-//         }
-//    });
+    
+        var getKeys = function(obj){
+            var keys = [];
+            for (var key in obj){
+                keys.push(key);
+            }
+            return keys
+        }
+        var gotKeys = getKeys(req.body);
+        console.log("gotKeys: " + gotKeys);
+
+    var reportID = req.body.id;
+    var reportData = req.body;
+    var reportRows = req.body.rows;
+    // console.log("The reportID is: " + reportID);
+    // console.log("Report rows: " + reportRows);
+    
+   fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/');
+        } else {
+        obj = data;
+        //obj = JSON.parse(data);
+        obj[reportID] = reportData;
+        console.log(reportData);
+        // fs.writeFileSync('report.json', JSON.stringify(obj));
+        // res.redirect('/');   
+        }
+   });
    
    
 })
