@@ -46,18 +46,20 @@ $(function(){
             $("#form_submit").click(function(){
                 var reportNum = $("#reportNum").val();
                 var numRows = $("#rowCount").val();
-                var update = [];
+                var update = {};
+                update.rows = [];
                 var i = 0;
                 while(i < numRows) {
 
-                    if (!update[i]) {
-                    update[i] = {};
+                    if (!update.rows[i]) {
+                    update.rows[i] = {};
                     } 
                     //console.log(update[i]);
 
                     for(var j = 2; j < 6; j++) {
-                        var concatData = $("#row" + i + "col" + j + "val").val(); 
-                        update[i][j] = "col" + j + "val:" + concatData;
+                        var concatData = $("#row" + i + "col" + j + "val").val();
+                        var concatData2 = "col" + j + "val"; 
+                        update.rows[i][concatData2] = concatData;
                         // view["row" + i + "column" + j] = $("#row" + i + "col" + j + "val").val();
                         // update[i][j] = view["row" + i + "column" + j];
                         
@@ -67,7 +69,6 @@ $(function(){
                 }
 
                 //TODO Get value of checkboxes
-                console.log("I got here.");
                 controller.reportUpdater(reportNum, update);
             });
         
@@ -102,7 +103,7 @@ $(function(){
         reportUpdater: function(reportNum, data) {
             var dataStringified = JSON.stringify(data);
             console.log(reportNum, dataStringified);
-            //model.updateReport(data);
+            model.updateReport(data);
         }
         // createColumnBoxes: function() {
         //     var numOfColumns = model.numColumns;
