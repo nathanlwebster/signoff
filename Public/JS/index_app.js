@@ -102,6 +102,7 @@ $(function(){
             });
         },
         showStatus: function(status) {
+            window.location.reload();
             $("#save_status").text(status);
             $("#save_status").fadeOut(5000);
         }

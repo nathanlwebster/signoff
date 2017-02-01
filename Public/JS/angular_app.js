@@ -65,26 +65,7 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings) {
             }
         }
         
-        // $scope.submitReportForm = function() {
-        //     console.log("You clicked submit.");
-        // }
-
-        //console.log("This is the rows data: " + $scope.rows);
-        {
-            // $scope.headings = prepHeadings.myFunc(response.data);
-            // $scope.rows = prepRows.myFunc(response.data);
-        }
-        //console.log("This is what is assigned to $scope.rows: " + $scope.rows[0][1]);
-
-        // var getKeys = function(obj){
-        //     var keys = [];
-        //     for (var key in obj){
-        //         keys.push(key);
-        //     }
-        //     return keys
-        // }
-        // var gotKeys = getKeys(response.data[reportNum]);
-        //console.log("gotKeys: " + gotKeys);
+        
 
     });
 });
