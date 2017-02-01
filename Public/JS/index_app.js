@@ -30,7 +30,7 @@ $(function(){
             });
         },
         updateReport: function(reportData){
-            console.log(reportData);
+            //console.log(reportData);
             $.post('/updateReport', reportData, function(data, status){
                 //console.log("Here's the status: " + status); 
             });
@@ -85,7 +85,7 @@ $(function(){
                 i++;
                 }
                 update.rows = rows;
-                JSON.stringify(update);
+                //JSON.stringify(update);
                 controller.reportUpdater(update);
                 
             });
