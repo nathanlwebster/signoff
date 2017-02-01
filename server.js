@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var fs = require("fs");
 var stringify = require("json-stringify-pretty-compact");
 // Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 
 app.use(express.static('public'));
@@ -161,7 +161,7 @@ app.post('/addReport', urlencodedParser, function (req, res) {
 })
 
 app.post('/updateReport', urlencodedParser, function (req, res) {
-    
+        console.log(req.body);
         var getKeys = function(obj){
             var keys = [];
             for (var key in obj){
@@ -170,12 +170,11 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
             return keys
         }
         var gotKeys = getKeys(req.body);
-        console.log("gotKeys: " + gotKeys);
-    
-    
+        //console.log("gotKeys: " + gotKeys);
+
     var reportID = req.body.id;
-    var reportData = req.body.name;
-    //console.log("The reportID is: " + reportID);
+    var reportData = req.body;
+    console.log("The reportID is: " + reportID);
     
    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
         if (err) {
@@ -183,12 +182,11 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
             res.redirect('/');
         } else {
         // obj = data;
-
         obj = JSON.parse(data);
         obj[reportID] = reportData;
-        //console.log(obj);
-        // fs.writeFileSync('report.json', JSON.stringify(obj));
-        // res.redirect('/');   
+        console.log(reportData);
+        fs.writeFileSync('report.json', JSON.stringify(obj));
+        res.redirect('/');   
         }
    });
    

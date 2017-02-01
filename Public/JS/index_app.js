@@ -30,10 +30,16 @@ $(function(){
             });
         },
         updateReport: function(reportData){
-            console.log(reportData);
+            //console.log(reportData);
             $.post('/updateReport', reportData, function(data, status){
                 //console.log("Here's the status: " + status); 
             });
+            // $.ajax({
+            //     type: 'POST',
+            //     data: reportData,
+            //     contentType: 'application/json',
+            //     url: '/updateReport'
+            // });
         } 
 
     };
@@ -64,7 +70,7 @@ $(function(){
                 update.id = reportNum;
                 update.name = reportName;
                 update.columns = 5;
-                update.rows = [];
+                
                 var rows = [];
                 var i = 0;
                 while (i < numRows) {
@@ -84,10 +90,9 @@ $(function(){
                 //console.log(rows);
                 i++;
                 }
-                // update.rows = rows;
+                update.rows = rows;
                 //JSON.stringify(update);
-                var pass = {update, rows};
-                controller.reportUpdater(pass);
+                controller.reportUpdater(update);
                 
             });
         }
