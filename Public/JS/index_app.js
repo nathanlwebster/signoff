@@ -86,9 +86,14 @@ $(function(){
                         } else {
                             var cellVal = "col" + j + "val";
                             var cellType = "col" + j + "type";
+                            var cellID = "id";
                             cell[cellVal] = $("#row" + i + "col" + j + "val").val();
                             cell[cellType] = $("#row" + i + "col" + j + "val").attr('type');
+                            cell[cellID] = j;
                         }
+                        var cellID = "id";
+                        cell[cellID] = i;
+                        console.log(cell);
                         rows[i] = cell;
                         //console.log(rows[i]);
                     j++;
