@@ -103,6 +103,7 @@ $(function(){
         },
         showStatus: function(status) {
             $("#save_status").text(status);
+            $("#save_status").fadeOut(5000);
         }
     };
 

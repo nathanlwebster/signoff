@@ -20,6 +20,10 @@ input {
 .columnHeadings {
     margin: 10px 10px;
 }
+button#form_submit {
+    margin: 20px 0;
+}
 div#save_status {
     margin: 20px 0;
+    color: green;
 }
