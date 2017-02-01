@@ -102,7 +102,7 @@ $(function(){
             });
         },
         showStatus: function(status) {
-            console.log(status);
+            $("#save_status").text(status);
         }
     };
 
