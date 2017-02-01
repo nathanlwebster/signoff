@@ -32,14 +32,8 @@ $(function(){
         updateReport: function(reportData){
             //console.log(reportData);
             $.post('/updateReport', reportData, function(data, status){
-                //console.log("Here's the status: " + status); 
+                controller.updateStatus(status); 
             });
-            // $.ajax({
-            //     type: 'POST',
-            //     data: reportData,
-            //     contentType: 'application/json',
-            //     url: '/updateReport'
-            // });
         } 
 
     };
@@ -93,7 +87,6 @@ $(function(){
                         }
                         var cellID = "id";
                         cell[cellID] = i;
-                        console.log(cell);
                         rows[i] = cell;
                         //console.log(rows[i]);
                     j++;
@@ -107,6 +100,9 @@ $(function(){
                 controller.reportUpdater(update);
                 
             });
+        },
+        showStatus: function(status) {
+            console.log(status);
         }
     };
 
@@ -135,11 +131,16 @@ $(function(){
             //var dataStringified = JSON.stringify(data);
             //console.log(dataStringified);
             model.updateReport(data);
+        },
+        updateStatus: function(status) {
+            if (status == "success") {
+               var reportStatus = "Changes successfully saved!";
+               view.showStatus(reportStatus);
+            } else {
+                var reportStatus = "Error, changes not saved.";
+                view.showStatus(reportStatus);
+            }
         }
-        // createColumnBoxes: function() {
-        //     var numOfColumns = model.numColumns;
-        //     view.renderColumnSelectors(numOfColumns);
-        // }
     };
     
     controller.init();
