@@ -78,10 +78,17 @@ $(function(){
                     var j = 1;
                     while (j < 6) {
                         //console.log($("#row" + i + "col" + j + "val").val());
-                        var cellVal = "col" + j + "val";
-                        var cellType = "col" + j + "type";
-                        cell[cellVal] = $("#row" + i + "col" + j + "val").val();
-                        cell[cellType] = $("#row" + i + "col" + j + "val").attr('type');
+                        if (j == 1) {
+                            var cellVal = "col" + j + "val";
+                            var cellType = "col" + j + "type";
+                            cell[cellVal] = $("#row" + i + "col" + j + "val").text();
+                            cell[cellType] = "fixed";
+                        } else {
+                            var cellVal = "col" + j + "val";
+                            var cellType = "col" + j + "type";
+                            cell[cellVal] = $("#row" + i + "col" + j + "val").val();
+                            cell[cellType] = $("#row" + i + "col" + j + "val").attr('type');
+                        }
                         rows[i] = cell;
                         //console.log(rows[i]);
                     j++;
