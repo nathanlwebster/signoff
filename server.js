@@ -161,7 +161,7 @@ app.post('/addReport', urlencodedParser, function (req, res) {
 })
 
 app.post('/updateReport', urlencodedParser, function (req, res) {
-        console.log(req.body);
+        //console.log(req.body);
         var getKeys = function(obj){
             var keys = [];
             for (var key in obj){
@@ -174,7 +174,7 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
 
     var reportID = req.body.id;
     var reportData = req.body;
-    console.log("The reportID is: " + reportID);
+    //console.log("The reportID is: " + reportID);
     
    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
         if (err) {
@@ -184,7 +184,7 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
         // obj = data;
         obj = JSON.parse(data);
         obj[reportID] = reportData;
-        console.log(reportData);
+        //console.log(reportData);
         fs.writeFileSync('report.json', JSON.stringify(obj));
         res.redirect('/');   
         }
