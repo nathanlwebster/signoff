@@ -170,11 +170,12 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
             return keys
         }
         var gotKeys = getKeys(req.body);
-        //console.log("gotKeys: " + gotKeys);
-
+        console.log("gotKeys: " + gotKeys);
+    
+    
     var reportID = req.body.id;
-    var reportData = req.body;
-    console.log("The reportID is: " + reportID);
+    var reportData = req.body.name;
+    //console.log("The reportID is: " + reportID);
     
    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
         if (err) {
@@ -182,9 +183,10 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
             res.redirect('/');
         } else {
         // obj = data;
+
         obj = JSON.parse(data);
         obj[reportID] = reportData;
-        console.log(reportData);
+        //console.log(obj);
         // fs.writeFileSync('report.json', JSON.stringify(obj));
         // res.redirect('/');   
         }
