@@ -185,7 +185,7 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
         obj = JSON.parse(data);
         obj[reportID] = reportData;
         //console.log(reportData);
-        fs.writeFileSync('report.json', JSON.stringify(obj));
+        fs.writeFileSync('report.json', JSON.stringify(obj, null, 4));
         res.redirect('/');   
         }
    });
