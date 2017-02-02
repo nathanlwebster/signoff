@@ -1,4 +1,4 @@
-var app = angular.module('reportApp', []);
+var app = angular.module('reportApp', ['ngStorage']);
 
 app.service('prepHeadings', function() {
     this.myFunc = function (data) {
@@ -16,8 +16,19 @@ app.service('prepHeadings', function() {
     }
 });
 
-app.controller('reportCtrl', function($scope, $http, prepHeadings) {
-    $scope.name = "Report Title";
+app.controller('reportCtrl', function($scope, $http, prepHeadings, $sessionStorage) {
+    
+    // if ($sessionStorage.currentReport) {
+    //     $scope.name = document.getElementById("result").innerHTML;
+    //     console.log($scope.name);
+    // } else {
+    //     $scope.name = "Report Title";
+    // }
+    
+    $scope.$storage = $sessionStorage.$default({
+        title: "Report Title"
+    });
+
     $http.get("/listReport")
     .then(function(response) {
         

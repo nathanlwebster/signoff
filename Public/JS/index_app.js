@@ -50,6 +50,12 @@ $(function(){
                 var numRows = $("#rowCount").val();
                 var reportName = $("#reportName").val();
 
+                //use sessionStorage to select correct report on refresh
+
+                if (typeof(Storage) !== "undefined") {
+                    sessionStorage.currentReport = reportName;
+                } 
+
                 var c = 1;
                 while (c < 6) {
                     var columnHeading = "Column " + c;
