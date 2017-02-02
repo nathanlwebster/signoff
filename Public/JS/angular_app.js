@@ -17,17 +17,16 @@ app.service('prepHeadings', function() {
 });
 
 app.controller('reportCtrl', function($scope, $http, prepHeadings, $sessionStorage) {
-    
-    // if ($sessionStorage.currentReport) {
-    //     $scope.name = document.getElementById("result").innerHTML;
-    //     console.log($scope.name);
-    // } else {
-    //     $scope.name = "Report Title";
-    // }
-    
-    $scope.$storage = $sessionStorage.$default({
-        title: "Report Title"
-    });
+    if ($scope.$storage) {
+         $scope.name = $scope.$storage.title;
+    } else {
+        $scope.$storage = $sessionStorage.$default({
+            title: "Report Title"
+        });
+        $scope.name = $scope.$storage.title;
+    }
+
+   
 
     $http.get("/listReport")
     .then(function(response) {
@@ -49,6 +48,7 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings, $sessionStora
         var reportNum = 9999;
         $scope.$watch("name", function(newValue) {
             //console.log("Watching name. newValue = " + newValue);
+            $scope.$storage.title = newValue;
             var i = 0;
             while (i < response.data.length) {
                 if (response.data[i].name == newValue) {
