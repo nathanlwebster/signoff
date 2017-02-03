@@ -1,22 +1,22 @@
 var app = angular.module('reportApp', ['ngStorage']);
 
-app.service('prepHeadings', function() {
-    this.myFunc = function (data) {
-        var len = data.length;
-        var headings = [];
-        var i = 0;
-        while (i < len) {
-        var concatColumn = "";
-        var j = i + 1;
-        concatColumn = "column" + j + "heading";
-        headings[i] = data[0][concatColumn];
-        i++;
-        }
-        return headings;
-    }
-});
+// app.service('prepHeadings', function() {
+//     this.myFunc = function (data) {
+//         var len = data.length;
+//         var headings = [];
+//         var i = 0;
+//         while (i < len) {
+//         var concatColumn = "";
+//         var j = i + 1;
+//         concatColumn = "column" + j + "heading";
+//         headings[i] = data[0][concatColumn];
+//         i++;
+//         }
+//         return headings;
+//     }
+// });
 
-app.controller('reportCtrl', function($scope, $http, prepHeadings, $sessionStorage) {
+app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     
     //get and store the report name
     if ($scope.$storage) {
@@ -81,6 +81,11 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings, $sessionStora
         
         
 
+    });
+
+    $http.get("/listStatus")
+    .then(function(response) {
+        console.log(response);
     });
 });
 
