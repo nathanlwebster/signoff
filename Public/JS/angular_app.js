@@ -1,20 +1,5 @@
 var app = angular.module('reportApp', ['ngStorage']);
 
-// app.service('prepHeadings', function() {
-//     this.myFunc = function (data) {
-//         var len = data.length;
-//         var headings = [];
-//         var i = 0;
-//         while (i < len) {
-//         var concatColumn = "";
-//         var j = i + 1;
-//         concatColumn = "column" + j + "heading";
-//         headings[i] = data[0][concatColumn];
-//         i++;
-//         }
-//         return headings;
-//     }
-// });
 
 app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     
@@ -33,6 +18,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $http.get("/listReport")
     .then(function(response) {
         
+        //get report titles for select report dropdown
         var titleArray = [];
         var i = 0;
         while (i < response.data.length) {
@@ -85,7 +71,16 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
 
     $http.get("/listStatus")
     .then(function(response) {
-        console.log(response);
+        
+        var statusOptions = [];
+        var i = 0;
+        while (i < response.data.length) {
+            statusOptions[i] = response.data[i].Description;
+            i++;
+        }
+        console.log(statusOptions);
+        $scope.status = statusOptions;
+        console.log($scope.status);
     });
 });
 
