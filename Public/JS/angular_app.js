@@ -17,6 +17,8 @@ app.service('prepHeadings', function() {
 });
 
 app.controller('reportCtrl', function($scope, $http, prepHeadings, $sessionStorage) {
+    
+    //get and store the report name
     if ($scope.$storage) {
          $scope.name = $scope.$storage.title;
     } else {
@@ -27,7 +29,7 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings, $sessionStora
     }
 
    
-
+    //create the report body
     $http.get("/listReport")
     .then(function(response) {
         
@@ -44,7 +46,7 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings, $sessionStora
         // console.log("Response ID is: " + response.data[0].id);
         // console.log("$scope.name is: " + $scope.name)
 
-        
+        //watch the report name and update the report number
         var reportNum = 9999;
         $scope.$watch("name", function(newValue) {
             //console.log("Watching name. newValue = " + newValue);
@@ -59,6 +61,7 @@ app.controller('reportCtrl', function($scope, $http, prepHeadings, $sessionStora
             }
         });
 
+        //watch the report number and change the values of the report with it
         $scope.$watch("reportNum", function(newValue) {
             if (response.data[newValue] != null) {
             $scope.rows = response.data[newValue].rows;
