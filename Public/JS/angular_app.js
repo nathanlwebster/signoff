@@ -4,10 +4,10 @@ var app = angular.module('reportApp', ['ngStorage', 'ngRoute']);
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "/views/main.html"
+        templateUrl : "/views/main.ejs"
     })
     .when("/reports", {
-        templateUrl : "/views/reports.html"
+        templateUrl : "/views/reports.ejs"
     })
     .when("/paris", {
         templateUrl : "paris.htm"
