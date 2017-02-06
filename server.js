@@ -7,13 +7,22 @@ var stringify = require("json-stringify-pretty-compact");
 var urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 
-app.use(express.static('public'));
+app.use('/', express.static('public'));
+// app.use('/views', express.static(__dirname + 'public/views'));
 
 /* Index API */
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.html");
 })
 
+/* Catch all route for views */
+
+
+app.get('/views/:filename', urlencodedParser, function (req, res) {
+   console.log(req.params.filename);
+   myUrl = req.params.filename;
+   res.render( __dirname + "/" + myUrl);
+})
 
 
 /* Status API */

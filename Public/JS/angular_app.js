@@ -1,5 +1,20 @@
-var app = angular.module('reportApp', ['ngStorage']);
+var app = angular.module('reportApp', ['ngStorage', 'ngRoute']);
 
+
+app.config(function($routeProvider, $locationProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "/views/main.html"
+    })
+    .when("/reports", {
+        templateUrl : "/views/reports.html"
+    })
+    .when("/paris", {
+        templateUrl : "paris.htm"
+    });
+
+    $locationProvider.html5Mode(true);
+});
 
 app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     
@@ -26,7 +41,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $http.get("/listReport")
     .then(function(response) {
         
-        
+
         //get report titles for select report dropdown
         var titleArray = [];
         var i = 0;
@@ -87,9 +102,9 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
             statusOptions[i] = response.data[i].Description;
             i++;
         }
-        console.log(statusOptions);
+        //console.log(statusOptions);
         $scope.status = statusOptions;
-        console.log($scope.status);
+        //console.log($scope.status);
     });
 });
 
