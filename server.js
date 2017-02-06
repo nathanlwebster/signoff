@@ -6,28 +6,22 @@ var stringify = require("json-stringify-pretty-compact");
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: true })
 
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
 app.use('/', express.static('public'));
 app.use('/views/', express.static(__dirname + 'public/views'));
 
-/* Index API */
+
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.html");
 })
 
 app.get('/reports', function (req, res) {
-   res.render(__dirname + "/" + "views/reports.ejs");
+   res.sendFile(__dirname + "/" + "index.html");
 })
 
 /* Catch all route for views */
 
-
-app.get('/views/:filename', urlencodedParser, function (req, res) {
-   console.log(req.params.filename);
-   //myUrl = req.params.filename;
-   //res.render( __dirname + "/" + myUrl);
-})
 
 
 /* Status API */

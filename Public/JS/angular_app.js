@@ -2,18 +2,20 @@ var app = angular.module('reportApp', ['ngStorage', 'ngRoute']);
 
 
 app.config(function($routeProvider, $locationProvider) {
+    
+    $locationProvider.hashPrefix('');
+    $locationProvider.html5Mode(true);
+    
     $routeProvider
     .when("/", {
-        templateUrl : "/views/main.ejs"
+        templateUrl: "/views/main.html",
+        controller: 'reportCtrl'
     })
     .when("/reports", {
-        templateUrl : "/views/reports.ejs"
-    })
-    .when("/paris", {
-        templateUrl : "paris.htm"
+        templateUrl : "/views/reports.html",
+        controller: 'reportCtrl'
     });
 
-    $locationProvider.html5Mode(true);
 });
 
 app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
