@@ -42,71 +42,71 @@ $(function(){
         init: function() {
             //controller.createColOptions(model.reports);
         },
-        collectUpdate: function(){
-            $("#form_submit").click(function(){
-                var update = {};
+        // collectUpdate: function(){
+        //     $("#form_submit").click(function(){
+        //         var update = {};
                 
-                var reportNum = $("#reportNum").val();
-                var numRows = $("#rowCount").val();
-                var reportName = $("#reportName").val();
+        //         var reportNum = $("#reportNum").val();
+        //         var numRows = $("#rowCount").val();
+        //         var reportName = $("#reportName").val();
 
-                //use sessionStorage to select correct report on refresh
+        //         //use sessionStorage to select correct report on refresh
 
-                if (typeof(Storage) !== "undefined") {
-                    sessionStorage.currentReport = reportName;
-                } 
+        //         if (typeof(Storage) !== "undefined") {
+        //             sessionStorage.currentReport = reportName;
+        //         } 
 
-                var c = 1;
-                while (c < 6) {
-                    var columnHeading = "Column " + c;
-                    update["column" + c + "heading"] = columnHeading;
+        //         var c = 1;
+        //         while (c < 6) {
+        //             var columnHeading = "Column " + c;
+        //             update["column" + c + "heading"] = columnHeading;
 
-                    var columnName = "column" + c;
-                    update["column" + c] = columnName;
+        //             var columnName = "column" + c;
+        //             update["column" + c] = columnName;
 
-                    c++;
-                }
+        //             c++;
+        //         }
                
-                update.id = reportNum;
-                update.name = reportName;
-                update.columns = 5;
+        //         update.id = reportNum;
+        //         update.name = reportName;
+        //         update.columns = 5;
                 
-                var rows = [];
-                var i = 0;
-                while (i < numRows) {
-                    var cell = {};
-                    var j = 1;
-                    while (j < 6) {
-                        //console.log($("#row" + i + "col" + j + "val").val());
-                        if (j == 1) {
-                            var cellVal = "col" + j + "val";
-                            var cellType = "col" + j + "type";
-                            cell[cellVal] = $("#row" + i + "col" + j + "val").text();
-                            cell[cellType] = "fixed";
-                        } else {
-                            var cellVal = "col" + j + "val";
-                            var cellType = "col" + j + "type";
-                            var cellID = "id";
-                            cell[cellVal] = $("#row" + i + "col" + j + "val").val();
-                            cell[cellType] = $("#row" + i + "col" + j + "val").attr('type');
-                            cell[cellID] = j;
-                        }
-                        var cellID = "id";
-                        cell[cellID] = i;
-                        rows[i] = cell;
-                        //console.log(rows[i]);
-                    j++;
-                    }
+        //         var rows = [];
+        //         var i = 0;
+        //         while (i < numRows) {
+        //             var cell = {};
+        //             var j = 1;
+        //             while (j < 6) {
+        //                 //console.log($("#row" + i + "col" + j + "val").val());
+        //                 if (j == 1) {
+        //                     var cellVal = "col" + j + "val";
+        //                     var cellType = "col" + j + "type";
+        //                     cell[cellVal] = $("#row" + i + "col" + j + "val").text();
+        //                     cell[cellType] = "fixed";
+        //                 } else {
+        //                     var cellVal = "col" + j + "val";
+        //                     var cellType = "col" + j + "type";
+        //                     var cellID = "id";
+        //                     cell[cellVal] = $("#row" + i + "col" + j + "val").val();
+        //                     cell[cellType] = $("#row" + i + "col" + j + "val").attr('type');
+        //                     cell[cellID] = j;
+        //                 }
+        //                 var cellID = "id";
+        //                 cell[cellID] = i;
+        //                 rows[i] = cell;
+        //                 //console.log(rows[i]);
+        //             j++;
+        //             }
                     
-                //console.log(rows);
-                i++;
-                }
-                update.rows = rows;
-                //JSON.stringify(update);
-                controller.reportUpdater(update);
+        //         //console.log(rows);
+        //         i++;
+        //         }
+        //         update.rows = rows;
+        //         //JSON.stringify(update);
+        //         controller.reportUpdater(update);
                 
-            });
-        },
+        //     });
+        // },
         showStatus: function(status) {
             window.location.reload();
             $("#save_status").text(status);

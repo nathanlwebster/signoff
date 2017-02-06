@@ -14,9 +14,18 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     }
 
    
+    $scope.mySave = function() {
+        var i = 0;
+        while (i < $scope.rows.length) {
+            console.log($scope.rows[i].col2val);
+            i++;
+        }
+    }
+
     //create the report body
     $http.get("/listReport")
     .then(function(response) {
+        
         
         //get report titles for select report dropdown
         var titleArray = [];
