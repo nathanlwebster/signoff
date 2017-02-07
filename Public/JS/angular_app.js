@@ -8,24 +8,19 @@ app.config(function($routeProvider, $locationProvider) {
     
     $routeProvider
     .when("/", {
-        templateUrl: "/views/main.html",
-        controller: 'reportCtrl'
+        templateUrl: "/views/main.html"
     })
     .when("/reports", {
-        templateUrl : "/views/reports.html",
-        controller: 'reportCtrl'
+        templateUrl : "/views/reports.html"
     })
     .when("/edit_row", {
-        templateUrl : "/views/edit_row.html",
-        controller: 'reportCtrl'
+        templateUrl : "/views/edit_row.html"
     })
     .when("/edit_data", {
-        templateUrl : "/views/edit_data.html",
-        controller: 'reportCtrl'
+        templateUrl : "/views/edit_data.html"
     })
     .when("/create_report", {
-        templateUrl : "/views/create_report.html",
-        controller: 'reportCtrl'
+        templateUrl : "/views/create_report.html"
     });
 
 });
@@ -33,75 +28,76 @@ app.config(function($routeProvider, $locationProvider) {
 app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     
     //get and store the report name
-    if ($scope.$storage) {
-         $scope.name = $scope.$storage.title;
-    } else {
-        $scope.$storage = $sessionStorage.$default({
-            title: "Report Title"
-        });
-        $scope.name = $scope.$storage.title;
-    }
+    // if ($scope.$storage) {
+    //      $scope.name = $scope.$storage.title;
+    // } else {
+    //     $scope.$storage = $sessionStorage.$default({
+    //         title: "Report Title"
+    //     });
+    //     $scope.name = $scope.$storage.title;
+    // }
 
    
-    $scope.mySave = function() {
-        var i = 0;
-        while (i < $scope.rows.length) {
-            console.log($scope.rows[i].col2val);
-            i++;
-        }
-    }
+    // $scope.mySave = function() {
+    //     var i = 0;
+    //     while (i < $scope.rows.length) {
+    //         console.log($scope.rows[i].col2val);
+    //         i++;
+    //     }
+    // }
 
     //create the report body
     $http.get("/listReport")
     .then(function(response) {
         
+        console.log(response.data);
 
         //get report titles for select report dropdown
-        var titleArray = [];
-        var i = 0;
-        while (i < response.data.length) {
-            var newTitle = response.data[i].name;
-            titleArray[i] = newTitle;
-            i++;
-        }
-        $scope.titles = titleArray;
+        // var titleArray = [];
+        // var i = 0;
+        // while (i < response.data.length) {
+        //     var newTitle = response.data[i].name;
+        //     titleArray[i] = newTitle;
+        //     i++;
+        // }
+        // $scope.titles = titleArray;
         
         // console.log("Response name is: " + response.data[0].name);
         // console.log("Response ID is: " + response.data[0].id);
         // console.log("$scope.name is: " + $scope.name)
 
         //watch the report name and update the report number
-        var reportNum = 9999;
-        $scope.$watch("name", function(newValue) {
-            //console.log("Watching name. newValue = " + newValue);
-            $scope.$storage.title = newValue;
-            var i = 0;
-            while (i < response.data.length) {
-                if (response.data[i].name == newValue) {
-                   reportNum = response.data[i].id;
-                   $scope.reportNum = reportNum;
-                } 
-                i++;
-            }
-        });
+        // var reportNum = 9999;
+        // $scope.$watch("name", function(newValue) {
+        //     //console.log("Watching name. newValue = " + newValue);
+        //     $scope.$storage.title = newValue;
+        //     var i = 0;
+        //     while (i < response.data.length) {
+        //         if (response.data[i].name == newValue) {
+        //            reportNum = response.data[i].id;
+        //            $scope.reportNum = reportNum;
+        //         } 
+        //         i++;
+        //     }
+        // });
 
         //watch the report number and change the values of the report with it
-        $scope.$watch("reportNum", function(newValue) {
-            if (response.data[newValue] != null) {
-            $scope.rows = response.data[newValue].rows;
-            $scope.headings = response.data[reportNum];
-            $scope.rowCount = response.data[reportNum].rows.length;
-            }
-        });
+        // $scope.$watch("reportNum", function(newValue) {
+        //     if (response.data[newValue] != null) {
+        //     $scope.rows = response.data[newValue].rows;
+        //     $scope.headings = response.data[reportNum];
+        //     $scope.rowCount = response.data[reportNum].rows.length;
+        //     }
+        // });
 
         
-        {
-            if (reportNum != 9999) {
-            $scope.reportNum = reportNum;
-            $scope.headings = response.data[reportNum];
-            $scope.rows = response.data[reportNum].rows;
-            }
-        }
+        // {
+        //     if (reportNum != 9999) {
+        //     $scope.reportNum = reportNum;
+        //     $scope.headings = response.data[reportNum];
+        //     $scope.rows = response.data[reportNum].rows;
+        //     }
+        // }
         
         
 
