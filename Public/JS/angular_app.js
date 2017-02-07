@@ -14,6 +14,18 @@ app.config(function($routeProvider, $locationProvider) {
     .when("/reports", {
         templateUrl : "/views/reports.html",
         controller: 'reportCtrl'
+    })
+    .when("/edit_row", {
+        templateUrl : "/views/edit_row.html",
+        controller: 'reportCtrl'
+    })
+    .when("/edit_data", {
+        templateUrl : "/views/edit_data.html",
+        controller: 'reportCtrl'
+    })
+    .when("/create_report", {
+        templateUrl : "/views/create_report.html",
+        controller: 'reportCtrl'
     });
 
 });

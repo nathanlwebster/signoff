@@ -20,6 +20,17 @@ app.get('/reports', function (req, res) {
    res.sendFile(__dirname + "/" + "index.html");
 })
 
+app.get('/edit_row', function (req, res) {
+   res.sendFile(__dirname + "/" + "index.html");
+})
+
+app.get('/edit_data', function (req, res) {
+   res.sendFile(__dirname + "/" + "index.html");
+})
+
+app.get('/create_report', function (req, res) {
+   res.sendFile(__dirname + "/" + "index.html");
+})
 /* Catch all route for views */
 
 
