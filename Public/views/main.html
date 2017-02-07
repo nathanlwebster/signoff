@@ -20,7 +20,7 @@
     <div id="headerRow">
 
     </div>
-    <div id="bodyRows" class="container">
+    <div id="bodyRows" class="container rowEdit">
         
         <div ng-repeat="row in rows" ng-model="rows" class="row">
             <div class="col-lg-1 tabledata" ng-model="row">
@@ -44,51 +44,3 @@
         </div>
     </div>
 </div>
-    <!--<div id="reportTitle">
-        <row>
-        <h1>{{name}}</h1>
-        <h2 ng-show="false">{{reportNum}}</h2>
-        </row>
-    </div>
-    
-    <div class="form-group">
-        <form>
-            <button id="form_submit" ng-click="mySave()">Save Changes</button>
-            <div id="save_status"></div>
-            <table class="table table-responsive">        
-                <tr id="reportHeadings">
-                    <th id="reportColumn1Heading" value="{{ headings.column1heading }}">{{ headings.column1heading }}</th>
-                    <th id="reportColumn2Heading" value="{{ headings.column2heading }}">{{ headings.column2heading }}</th>
-                    <th id="reportColumn3Heading" value="{{ headings.column3heading }}">{{ headings.column3heading }}</th>
-                    <th id="reportColumn4Heading" value="{{ headings.column4heading }}">{{ headings.column4heading }}</th>
-                    <th id="reportColumn5Heading" value="{{ headings.column5heading }}">{{ headings.column5heading }}</th>
-                </tr>
-                <tr id="hiddenData" ng-show="false">
-                    <td><input id="reportNum" type="text" value="{{ reportNum }}" /></td>
-                    <td><input id="rowCount" type="text" value="{{ rowCount }}" /></td>
-                    <td><input id="reportName" type="text" value="{{ name }}" /></td>
-                </tr>
-                <tr id="reportRows" ng-repeat="row in rows">
-                    <td id="row{{row.id}}col1val">{{ row.col1val }}</td>
-                    <td><select ng-model="selectedStatus">
-                                <option id="row{{row.id}}col2val" ng-repeat"stat in status">{{stat}}</option>
-                        </select>
-                    </td>
-                    <td><input id="row{{row.id}}col2val" type="{{ row.col2type }}" value="{{ row.col2val }}" /></td>
-                    <td><input type="text" ng-model="row.col2val" /></td>
-                    <td><input type="checkbox" ng-model="row.col3val" /></td>
-                    <td><input type="text" ng-model="row.col4val" /></td>
-                    <td><input type="text" ng-model="row.col5val" /></td>
-                    <td><input id="row{{row.id}}col3val" type="{{ row.col3type }}" value="{{ row.col3val }}"/></td>
-                    <td><input id="row{{row.id}}col4val" type="{{ row.col4type }}" value="{{ row.col4val }}"/></td>
-                    <td><input id="row{{row.id}}col5val" type="{{ row.col5type }}" value="{{ row.col5val }}"/></td>
-                </tr>
-            </table>
-        </form>
-        <table>
-            <tr ng-repeat="row in rows">
-                <td><input type="text" ng-model="row.col2val" /></td>
-            </tr>
-
-        </table>
-    </div>-->

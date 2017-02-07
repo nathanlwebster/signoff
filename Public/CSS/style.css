@@ -26,6 +26,7 @@ form#selectReportForm {
 }
 table {
     width: 1500px;
+    margin-top: 50px;
 }
 
 form {
@@ -35,6 +36,7 @@ form {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
 
 /*div.main {
     width: 1500px;

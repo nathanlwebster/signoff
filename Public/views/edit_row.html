@@ -10,7 +10,7 @@
                             <option ng-repeat="stat in status" ng-value="stat.value">{{stat.description}}</option>
                         </select>
                     </td>
-                    <td><input type="text" ng-model="row.col3val" /></td>
+                    <td><input type="text" ng-model="row.col3val" />{{row.col2val}}</td>
                     <td><input type="checkbox" ng-model="row.col4val" /></td>
                     <td><input type="text" ng-model="row.col5val" /></td>
                 </tr>
