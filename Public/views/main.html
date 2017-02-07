@@ -24,7 +24,7 @@
         
         <div ng-repeat="row in rows" ng-model="rows" class="row">
             <div class="col-lg-1 tabledata" ng-model="row">
-                <button class="tabledata" ng-click="rowSelect(row.id)">Edit</button>
+                <a href="/edit_row"><button class="tabledata" ng-click="rowSelect(row.id)">Edit</button></a>
             </div>
             <div class="col-lg-3 tabledata">
                 <h3><span>{{row.col1val}}</span></h3>
