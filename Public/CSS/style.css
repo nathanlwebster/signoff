@@ -1,15 +1,36 @@
-div.main {
-    width: 1500px;
-    margin: 0 auto;
-}
-header {
-    margin: 20px;
-    font-size: 20px;
-    padding: 10px 20px;
-}
 div.container-fluid {
     display: inline-block;
 }
+div.row {
+    border-top: 1px solid black;
+}
+div.reportName {
+    border-top: none;
+    width: inherit;
+    margin: 0 auto;
+}
+div.tabledata {
+  height: 68px;  
+  line-height: 1.1;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;*/
+}
+button.tabledata {
+    margin: 20px auto;
+}
+form#selectReportForm {
+    width: 250px;
+    margin: 0px auto;
+}
+
+/*div.main {
+    width: 1500px;
+    margin: 0 auto;
+}
+
+
 a.navbar-brand {
     font-size: 20px;
 }
@@ -36,4 +57,4 @@ button#form_submit {
 div#save_status {
     margin: 20px 0;
     color: green;
-}
+}*/

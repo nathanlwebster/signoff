@@ -1,24 +1,46 @@
 
 
 <div>
-        <form>
+        <form id="selectReportForm">
         <h2>Select Report:</h2>
         <select ng-model="report" ng-options="report.name for report in reports" ng-change="reportSelect(report.id)"></select>
         <!--<select id="selectReport" ng-model="report.name">
             <option id="selectReportOptions" ng-repeat="report in reports">{{report.name}}</option>
         </select>-->
         </form>
-        <h1>{{report.name}}</h1>
+        
 </div>
-<div id="reportBody">
+    
+<div id="reportBody container">
+    <div class="row reportName">
+        <div class="col-lg-12">
+            <h1>{{report.name}}</h1>
+        </div>
+    </div>
     <div id="headerRow">
 
     </div>
-    <div id="bodyRows">
+    <div id="bodyRows" class="container">
         
-        <div ng-repeat="row in rows" ng-model="rows">
-            <button>Edit</button>
-            <h2><span>{{row.col1val}}</span></h2>
+        <div ng-repeat="row in rows" ng-model="rows" class="row">
+            <div class="col-lg-1 tabledata" ng-model="row">
+                <button class="tabledata" ng-click="rowSelect()">Edit</button>
+            </div>
+            <div class="col-lg-3 tabledata">
+                <h3><span>{{row.col1val}}</span></h3>
+            </div>
+            <div class="col-lg-2 tabledata">
+                <h3><span>{{row.col2val}}</span></h3>
+            </div>
+            <div class="col-lg-2 tabledata">
+                <h3><span>{{row.col3val}}</span></h3>
+            </div>
+            <div class="col-lg-2 tabledata">
+                <h3><span>{{row.col4val}}</span></h3>
+            </div>
+            <div class="col-lg-2 tabledata">
+                <h3><span>{{row.col5val}}</span></h3>
+            </div>
         </div>
     </div>
 </div>
