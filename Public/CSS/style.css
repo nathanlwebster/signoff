@@ -2,7 +2,12 @@ div.main {
     width: 1500px;
     margin: 0 auto;
 }
-
+header {
+    margin: 20px;
+}
+li {
+    text-decoration: none;
+}
 table {
     width: 1500px;
 }
