@@ -27,9 +27,10 @@ app.config(function($routeProvider, $locationProvider) {
 
 app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     
-    $scope.report = "Nathan";
-    $scope.reports = "";
-
+    $scope.report;
+    $scope.reports;
+    $scope.rows;
+    $scope.reportData;
     //get and store the report name
     // if ($scope.$storage) {
     //      $scope.name = $scope.$storage.title;
@@ -53,10 +54,10 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $http.get("/listReport")
     .then(function(response) {
         $scope.reportData = response.data;
-        console.log("Before changing data, name is: " + $scope.reportData[0].name);
+        // console.log("Before changing data, name is: " + $scope.reportData[0].name);
         //$scope.reportData[0].name = 9999;
-        console.log("After changing, id is: " + $scope.reportData[0].name);
-        console.log("Master data is: " + $scope.reportData);
+        // console.log("After changing, id is: " + $scope.reportData[0].name);
+        // console.log("Master data is: " + $scope.reportData);
 
         //get report titles for select report dropdown
         var reportArray = [];
@@ -85,10 +86,14 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         //console.log($scope.status);
     });
 
-    $scope.selectReport = function(report) {
-        $scope.currentReport = report;
-        console.log($scope.currentReport);
+    $scope.reportSelect = function(id) {
+        $scope.report = $scope.reportData[id];
+        $scope.column1 = $scope.report.column1;
+        $scope.rows = $scope.report.rows;
+        console.log($scope.report);
     }
+
+
 });
 
 

@@ -3,11 +3,12 @@
 <div>
         <form>
         <h2>Select Report:</h2>
-        <select id="selectReport" ng-model="selectedReport.name" ng-change="selectReport(selectedReport.name)">
+        <select ng-model="report" ng-options="report.name for report in reports" ng-change="reportSelect(report.id)"></select>
+        <!--<select id="selectReport" ng-model="report.name">
             <option id="selectReportOptions" ng-repeat="report in reports">{{report.name}}</option>
-        </select>
+        </select>-->
         </form>
-        <h1>{{selectedReport.name}}</h1>
+        <h1>{{report.name}}</h1>
 </div>
 <div id="reportBody">
     <div id="headerRow">
@@ -15,9 +16,9 @@
     </div>
     <div id="bodyRows">
         
-        <div ng-repeat="report in reports">
+        <div ng-repeat="row in rows" ng-model="rows">
             <button>Edit</button>
-            <h2><span ng-model="col1val">{{report.row.col1val}}</span></h2>
+            <h2><span>{{row.col1val}}</span></h2>
         </div>
     </div>
 </div>
