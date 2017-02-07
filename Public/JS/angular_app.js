@@ -30,6 +30,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.report;
     $scope.reports;
     $scope.rows;
+    $scope.row;
     $scope.reportData;
     //get and store the report name
     // if ($scope.$storage) {
@@ -86,11 +87,18 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         //console.log($scope.status);
     });
 
+    //after report is selected from dropdown, update scope
     $scope.reportSelect = function(id) {
         $scope.report = $scope.reportData[id];
         $scope.column1 = $scope.report.column1;
         $scope.rows = $scope.report.rows;
-        console.log($scope.report);
+        //console.log($scope.report);
+    }
+
+    //when row is selected to edit, update scope
+    $scope.rowSelect = function(id) {
+        $scope.row = $scope.report.rows[id];
+        console.log($scope.row);
     }
 
 
