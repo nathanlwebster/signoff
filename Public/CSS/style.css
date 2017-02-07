@@ -4,9 +4,14 @@ div.main {
 }
 header {
     margin: 20px;
+    font-size: 20px;
+    padding: 10px 20px;
 }
-li {
-    text-decoration: none;
+div.container-fluid {
+    display: inline-block;
+}
+a.navbar-brand {
+    font-size: 20px;
 }
 table {
     width: 1500px;
