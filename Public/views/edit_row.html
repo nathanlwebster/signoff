@@ -4,15 +4,14 @@
             <div id="save_status"></div>
             <table class="table table-responsive">        
                 <tr id="reportRows">
-                    <td id="row{{row.id}}col1val">{{ row.col1val }}</td>
+                    <td><input type="text" ng-model="row.col1val" /></td>
                     <td>
-                        <select ng-model="selectedStatus">
-                                <option id="row.col2val" ng-repeat"status in status">{{stat}}</option>
+                        <select ng-model="row.col2val">
+                            <option ng-repeat="stat in status" ng-value="stat.value">{{stat.description}}</option>
                         </select>
                     </td>
-                    <td><input type="text" ng-model="row.col2val" /></td>
-                    <td><input type="checkbox" ng-model="row.col3val" /></td>
-                    <td><input type="text" ng-model="row.col4val" /></td>
+                    <td><input type="text" ng-model="row.col3val" /></td>
+                    <td><input type="checkbox" ng-model="row.col4val" /></td>
                     <td><input type="text" ng-model="row.col5val" /></td>
                 </tr>
             </table>

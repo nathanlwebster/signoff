@@ -32,6 +32,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.rows;
     $scope.row;
     $scope.reportData;
+    $scope.status;
     //get and store the report name
     // if ($scope.$storage) {
     //      $scope.name = $scope.$storage.title;
@@ -75,16 +76,16 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
 
     $http.get("/listStatus")
     .then(function(response) {
-        
+        console.log(response);
         var statusOptions = [];
         var i = 0;
         while (i < response.data.length) {
-            statusOptions[i] = response.data[i].Description;
+            statusOptions.push(response.data[i]);
             i++;
         }
-        //console.log(statusOptions);
+        console.log(statusOptions);
         $scope.status = statusOptions;
-        //console.log($scope.status);
+        console.log($scope.status);
     });
 
     //after report is selected from dropdown, update scope
@@ -98,7 +99,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     //when row is selected to edit, update scope
     $scope.rowSelect = function(id) {
         $scope.row = $scope.report.rows[id];
-        console.log($scope.row);
+        //console.log($scope.row);
     }
 
 

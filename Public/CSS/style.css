@@ -24,16 +24,6 @@ form#selectReportForm {
     width: 250px;
     margin: 0px auto;
 }
-
-/*div.main {
-    width: 1500px;
-    margin: 0 auto;
-}
-
-
-a.navbar-brand {
-    font-size: 20px;
-}
 table {
     width: 1500px;
 }
@@ -45,6 +35,17 @@ form {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+/*div.main {
+    width: 1500px;
+    margin: 0 auto;
+}
+
+
+a.navbar-brand {
+    font-size: 20px;
+}
+
 input {
     margin: 0 5px;
 }
