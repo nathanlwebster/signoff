@@ -38,40 +38,37 @@ app.get('/create_report', function (req, res) {
 
 app.post('/getRow', bodyParser, function (req, res) {
    
-   console.log(req.body);
+   console.log(req.body.id);
    res.send("getRow is working.");
-//    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
-//         if (err) {
-//             console.log(err);
-//             res.redirect('/edit_row');
-//         } else {
-//         obj = JSON.parse(data);
-//         console.log(obj[0].rows[29].col2type);
-//         // obj[index] = response;
-//         // fs.writeFileSync('status.json', JSON.stringify(obj));
-//         // res.redirect('/status');   
-//         }
-//    }); 
-})
-
-app.post('/updateRow', urlencodedParser, function (req, res) {
-    console.log(req);
-
-//    var index = req.body.id - 1;
-//    var response = {
-//        id:req.body.id,
-//        Description:req.body.Description      
-//    };
    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
         if (err) {
             console.log(err);
             res.redirect('/edit_row');
         } else {
         obj = JSON.parse(data);
-        console.log(obj[0].rows[29].col2type);
+        console.log(obj[0].rows[0]);
         // obj[index] = response;
         // fs.writeFileSync('status.json', JSON.stringify(obj));
         // res.redirect('/status');   
+        }
+   }); 
+})
+
+app.post('/updateRow', bodyParser, function (req, res) {
+    var reportID = req.body[0].id;
+    var rowID = req.body[1].id;
+    var rowData = req.body[1];
+    console.log("Row data is: " + rowData);
+
+   fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/edit_row');
+        } else {
+        obj = JSON.parse(data);
+        obj[reportID].rows[rowID] = rowData;
+        fs.writeFileSync('report.json', JSON.stringify(obj));
+        res.send('/edit_row');   
         }
    });
 })

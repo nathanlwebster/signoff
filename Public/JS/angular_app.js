@@ -86,20 +86,21 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     //when row is selected to edit, update scope
     $scope.rowSelect = function(id) {
         $scope.row = $scope.report.rows[id];
-        console.log($scope.row);
-        var data = $scope.row;
-        $http.post("/getRow", data)
-        .then(function(response) {
-            console.log(response);
-        });
+        // console.log($scope.row);
+        // var data = $scope.report;
+        // $http.post("/getRow", data)
+        // .then(function(response) {
+        //     console.log(response);
+        // });
     }
 
     //when save button is clicked on edit_row page, post data to json
     $scope.mySave = function() {
-        $http.post("/updateRow")
+        var data = [$scope.report, $scope.row];
+        $http.post("/updateRow", data)
         .then(function(response) {
             reponse = "Button is working";
-            console.log(response);
+            //console.log(response);
         });
     }
 

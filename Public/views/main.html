@@ -4,9 +4,6 @@
         <form id="selectReportForm">
         <h2>Select Report:</h2>
         <select ng-model="report" ng-options="report.name for report in reports" ng-change="reportSelect(report.id)"></select>
-        <!--<select id="selectReport" ng-model="report.name">
-            <option id="selectReportOptions" ng-repeat="report in reports">{{report.name}}</option>
-        </select>-->
         </form>
         
 </div>
