@@ -1,10 +1,11 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser').json();
+var bodyParser2 = require('body-parser');
 var fs = require("fs");
 var stringify = require("json-stringify-pretty-compact");
 // Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: true })
+var urlencodedParser = bodyParser2.urlencoded({ extended: true });
 
 //app.set('view engine', 'ejs');
 
@@ -31,8 +32,49 @@ app.get('/edit_data', function (req, res) {
 app.get('/create_report', function (req, res) {
    res.sendFile(__dirname + "/" + "index.html");
 })
-/* Catch all route for views */
 
+
+/* Row API */
+
+app.post('/getRow', bodyParser, function (req, res) {
+   
+   console.log(req.body);
+   res.send("getRow is working.");
+//    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+//         if (err) {
+//             console.log(err);
+//             res.redirect('/edit_row');
+//         } else {
+//         obj = JSON.parse(data);
+//         console.log(obj[0].rows[29].col2type);
+//         // obj[index] = response;
+//         // fs.writeFileSync('status.json', JSON.stringify(obj));
+//         // res.redirect('/status');   
+//         }
+//    }); 
+})
+
+app.post('/updateRow', urlencodedParser, function (req, res) {
+    console.log(req);
+
+//    var index = req.body.id - 1;
+//    var response = {
+//        id:req.body.id,
+//        Description:req.body.Description      
+//    };
+   fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/edit_row');
+        } else {
+        obj = JSON.parse(data);
+        console.log(obj[0].rows[29].col2type);
+        // obj[index] = response;
+        // fs.writeFileSync('status.json', JSON.stringify(obj));
+        // res.redirect('/status');   
+        }
+   });
+})
 
 
 /* Status API */
