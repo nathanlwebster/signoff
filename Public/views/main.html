@@ -1,17 +1,16 @@
-<div>
-        <form id="selectReportForm">
+<div id="selectReportForm" class="container">
+    <form class="form-inline">
         <h2>Select Report:</h2>
-        <select ng-model="report" ng-options="report.name for report in reports" ng-change="reportSelect(report.id)"></select>
-        </form>
-        
+        <select ng-model="report" ng-options="report.name for report in reports" ng-change="reportSelect(report.id)">
+        </select>
+    </form>        
 </div>
-
-<div id="container">
+<div class="container">
     <h2>{{report.name}}</h2>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Edit</th>
+                <th></th>
                 <th>{{report.column1heading}}</th>
                 <th>{{report.column2heading}}</th>
                 <th>{{report.column3heading}}</th>
@@ -21,7 +20,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="row in rows">
-                <td><a href="/edit_row"><button class="tabledata" ng-click="rowSelect(row.id)">Edit</button></a>
+                <td><a href="/edit_row"><button class="btn btn-primary" ng-click="rowSelect(row.id)">Edit</button></a>
                 <td>{{row.col1val}}</td>
                 <td>{{row.col2val}}</td>
                 <td>{{row.col3val}}</td>
@@ -30,6 +29,5 @@
             </tr>
         </tbody>
     </table>
-
 </div>
     

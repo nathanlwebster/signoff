@@ -1,45 +1,10 @@
+ul.navbar-right {
+    margin-right: 30px;
+    height: 56px;
+}
 div.container-fluid {
     display: inline-block;
-}
-/*
-div.row {
-    border-top: 1px solid black;
-}
-div.reportName {
-    border-top: none;
-    width: inherit;
-    margin: 0 auto;
-}
-div.tabledata {
-  height: 68px;  
-  line-height: 1.1;
-  /*display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;*/
-/*
-
-
-/*div.main {
-    width: 1500px;
-    margin: 0 auto;
+    margin-left: 30px;
 }
 
 
-a.navbar-brand {
-    font-size: 20px;
-}
-
-input {
-    margin: 0 5px;
-}
-.columnHeadings {
-    margin: 10px 10px;
-}
-button#form_submit {
-    margin: 20px 0;
-}
-div#save_status {
-    margin: 20px 0;
-    color: green;
-}*/
