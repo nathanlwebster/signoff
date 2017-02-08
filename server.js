@@ -67,7 +67,7 @@ app.post('/updateRow', bodyParser, function (req, res) {
         } else {
         obj = JSON.parse(data);
         obj[reportID].rows[rowID] = rowData;
-        fs.writeFileSync('report.json', JSON.stringify(obj));
+        fs.writeFileSync('report.json', JSON.stringify(obj, null, 4));
         res.send('/edit_row');   
         }
    });
