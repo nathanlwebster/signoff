@@ -58,7 +58,7 @@ app.post('/updateRow', bodyParser, function (req, res) {
     var reportID = req.body[0].id;
     var rowID = req.body[1].id;
     var rowData = req.body[1];
-    console.log("Row data is: " + rowData);
+    //console.log("Row data is: " + rowData);
 
    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
         if (err) {
