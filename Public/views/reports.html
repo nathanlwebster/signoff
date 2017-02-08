@@ -1,5 +1,3 @@
-<!--<h2>This is from the reports page.</h2>-->
-
 <div>
 
 <table class="table table-responsive">
@@ -21,9 +19,12 @@
 </table>
 
 
-<div class="form-group">
+<div class="form-inline">
     <form action="http://localhost:8081/deleteReport" method="POST">
-        Delete Report with ID:<input type="text" name="id" id="deleteID">
+        <div class="form-group">
+            <label>Delete Report with ID:</label>
+            <input type="text" name="id" id="deleteID">
+        </div>
         <button type="submit" value="submit" id="delete_report">Submit</button>
     </form>
 </div>
