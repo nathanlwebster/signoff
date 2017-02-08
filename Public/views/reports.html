@@ -1,33 +1,46 @@
 <div>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Report Name</th>
+                    <th>Number of Columns</th>
+                    <th>Column 1 Heading</th>
+                    <th>Column 2 Heading</th>
+                    <th>Column 3 Heading</th>
+                    <th>Column 4 Heading</th>
+                    <th>Column 5 Heading</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="report in reports">
+                    <td><a href="/edit_report"><button class="btn btn-primary" ng-click="editReportSelect(report.id)">Edit</button></a>
+                    <th>{{report.id}}</th>
+                    <th>{{report.name}}</th>
+                    <th>{{report.columns}}</th>
+                    <th>{{report.column1heading}}</th>
+                    <th>{{report.column2heading}}</th>
+                    <th>{{report.column3heading}}</th>
+                    <th>{{report.column4heading}}</th>
+                    <th>{{report.column5heading}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<table class="table table-responsive">
-        <tr id="reportTable">
-        <th id="idRow">ID</th>
-        <th id="reportGroupRow">Report Name</th>
-        <th id="reportColumnNumber">Number of Columns</th>
-        <th id="reportColumn1">Column 1</th>
-        <th id="reportColumn1Heading">Column 1 Heading</th>
-        <th id="reportColumn2">Column 2</th>
-        <th id="reportColumn2Heading">Column 2 Heading</th>
-        <th id="reportColumn3">Column 3</th>
-        <th id="reportColumn3Heading">Column 3 Heading</th>
-        <th id="reportColumn4">Column 4</th>
-        <th id="reportColumn4Heading">Column 4 Heading</th>
-        <th id="reportColumn5">Column 5</th>
-        <th id="reportColumn5Heading">Column 5 Heading</th>
-    </tr>
-</table>
-
-
-<div class="form-inline">
-    <form action="http://localhost:8081/deleteReport" method="POST">
-        <div class="form-group">
-            <label>Delete Report with ID:</label>
-            <input type="text" name="id" id="deleteID">
+    <div class="container">
+        <div class="form-inline">
+            <form action="http://localhost:8081/deleteReport" method="POST">
+                <div class="form-group">
+                    <label>Delete Report with ID:</label>
+                    <input type="text" name="id" id="deleteID">
+                </div>
+                <button type="submit" value="submit" id="delete_report">Submit</button>
+            </form>
         </div>
-        <button type="submit" value="submit" id="delete_report">Submit</button>
-    </form>
-</div>
+    </div>
 </div>
 
 
