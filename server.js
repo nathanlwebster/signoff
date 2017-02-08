@@ -36,23 +36,23 @@ app.get('/create_report', function (req, res) {
 
 /* Row API */
 
-app.post('/getRow', bodyParser, function (req, res) {
+// app.post('/getRow', bodyParser, function (req, res) {
    
-   console.log(req.body.id);
-   res.send("getRow is working.");
-   fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
-        if (err) {
-            console.log(err);
-            res.redirect('/edit_row');
-        } else {
-        obj = JSON.parse(data);
-        console.log(obj[0].rows[0]);
-        // obj[index] = response;
-        // fs.writeFileSync('status.json', JSON.stringify(obj));
-        // res.redirect('/status');   
-        }
-   }); 
-})
+//    console.log(req.body.id);
+//    res.send("getRow is working.");
+//    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+//         if (err) {
+//             console.log(err);
+//             res.redirect('/edit_row');
+//         } else {
+//         obj = JSON.parse(data);
+//         console.log(obj[0].rows[0]);
+//         // obj[index] = response;
+//         // fs.writeFileSync('status.json', JSON.stringify(obj));
+//         // res.redirect('/status');   
+//         }
+//    }); 
+// })
 
 app.post('/updateRow', bodyParser, function (req, res) {
     var reportID = req.body[0].id;
