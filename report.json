@@ -2459,8 +2459,8 @@
             {
                 "id": 0,
                 "col1val": "Zolarex",
-                "col2val": "",
-                "col3val": "",
+                "col2val": "Published to WFDS. Manual BP Matrix update not required",
+                "col3val": "Test",
                 "col4val": "",
                 "col5val": "",
                 "col1type": "text",
