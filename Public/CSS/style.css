@@ -1,6 +1,7 @@
 div.container-fluid {
     display: inline-block;
 }
+/*
 div.row {
     border-top: 1px solid black;
 }
@@ -16,26 +17,7 @@ div.tabledata {
   justify-content: center;
   align-items: center;
   border: 1px solid black;*/
-}
-button.tabledata {
-    margin: 20px auto;
-}
-form#selectReportForm {
-    width: 250px;
-    margin: 0px auto;
-}
-table {
-    width: 1500px;
-    margin-top: 50px;
-}
-
-form {
-    width: 1500px;
-    margin: 0 auto;
-    text-align: left;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
+/*
 
 
 /*div.main {

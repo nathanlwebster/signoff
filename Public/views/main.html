@@ -7,37 +7,31 @@
         </form>
         
 </div>
-    
-<div id="reportBody container">
-    <div class="row reportName">
-        <div class="col-lg-12">
-            <h1>{{report.name}}</h1>
-        </div>
-    </div>
-    <div id="headerRow">
 
-    </div>
-    <div id="bodyRows" class="container rowEdit">
-        
-        <div ng-repeat="row in rows" ng-model="rows" class="row">
-            <div class="col-lg-1 tabledata" ng-model="row">
-                <a href="/edit_row"><button class="tabledata" ng-click="rowSelect(row.id)">Edit</button></a>
-            </div>
-            <div class="col-lg-3 tabledata">
-                <h3><span>{{row.col1val}}</span></h3>
-            </div>
-            <div class="col-lg-2 tabledata">
-                <h3><span>{{row.col2val}}</span></h3>
-            </div>
-            <div class="col-lg-2 tabledata">
-                <h3><span>{{row.col3val}}</span></h3>
-            </div>
-            <div class="col-lg-2 tabledata">
-                <h3><span>{{row.col4val}}</span></h3>
-            </div>
-            <div class="col-lg-2 tabledata">
-                <h3><span>{{row.col5val}}</span></h3>
-            </div>
-        </div>
-    </div>
+<div id="container">
+    <h2>{{report.name}}</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Edit</th>
+                <th>{{report.column1heading}}</th>
+                <th>{{report.column2heading}}</th>
+                <th>{{report.column3heading}}</th>
+                <th>{{report.column4heading}}</th>
+                <th>{{report.column5heading}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in rows">
+                <td><a href="/edit_row"><button class="tabledata" ng-click="rowSelect(row.id)">Edit</button></a>
+                <td>{{row.col1val}}</td>
+                <td>{{row.col2val}}</td>
+                <td>{{row.col3val}}</td>
+                <td>{{row.col4val}}</td>
+                <td>{{row.col5val}}</td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>
+    
