@@ -88,6 +88,13 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         $scope.row = $scope.report.rows[id];
     }
 
+    //when save button is clicked on edit_row page, post data to json
+    $scope.mySave = function() {
+        $http.post("/updateRow")
+        .then(function(response) {
+            console.log(response);
+        });
+    }
 
 });
 
