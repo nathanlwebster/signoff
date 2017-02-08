@@ -33,6 +33,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.row;
     $scope.reportData;
     $scope.status;
+    $scope.nextID;
     
     //get and store the report name
     // if ($scope.$storage) {
@@ -44,30 +45,28 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     //     $scope.name = $scope.$storage.name;
     // }
 
-   
-    // $scope.mySave = function() {
-    //     var i = 0;
-    //     while (i < $scope.rows.length) {
-    //         console.log($scope.rows[i].col2val);
-    //         i++;
-    //     }
-    // }
 
     //create the report body
     $http.get("/listReport")
     .then(function(response) {
         $scope.reportData = response.data;
 
-        //get report titles for select report dropdown
+        //get report titles for select report dropdown and next id to create new report
         var reportArray = [];
+        var idArray = [];
         var i = 0;
         while (i < $scope.reportData.length) {
             var newReport = $scope.reportData[i];
+            var newID = $scope.reportData[i].id;
             reportArray[i] = newReport;
+            idArray[i] = newID;
             i++;
         }
         $scope.reports = reportArray;
         
+        //get and set next report id
+        var largestID = Math.max.apply(Math, idArray);
+        $scope.nextID = largestID + 1;
         });
 
 
