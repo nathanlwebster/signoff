@@ -12,7 +12,7 @@
             {
                 "id": 0,
                 "col1val": "Evidends",
-                "col2val": "Published to WFDS. Manual BP Matrix update not required",
+                "col2val": "Solve group not active",
                 "col3val": "to",
                 "col4val": "check",
                 "col5val": "accuracy",
@@ -829,7 +829,7 @@
             {
                 "id": 1,
                 "col1val": "Tripsch",
-                "col2val": "",
+                "col2val": "Published to WFDS and manual BP Matrix update complete",
                 "col3val": "",
                 "col4val": "",
                 "col5val": "",
