@@ -34,13 +34,8 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.reportData;
     $scope.status;
     $scope.nextID;
+    $scope.saveMessage;
     
-    //show modal message on return from edit
-    if ($sessionStorage.SaveMessage) {
-        $scope.showModal = true;
-    } else {
-        $scope.showModal = false;
-    }
 
     //get and store the report name
     // if ($scope.$storage) {
@@ -108,21 +103,14 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         .then(function(response) {
             if (response.status == 200) {
                 $sessionStorage.SaveMessage = "Changes were saved!";
-            }
-            
+                $scope.saveMessage = $sessionStorage.SaveMessage;
+            }             
         });
     }
 
     $scope.setReportID = function() {
         console.log()
         $scope.report.id = $scope.nextID;
-    }
-    $scope.open = function() {
-        $scope.showModal = true;
-    }
-
-    $scope.ok = function() {
-        $scope.showModal = false;
     }
 
 });

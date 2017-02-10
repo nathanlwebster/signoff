@@ -7,6 +7,9 @@
 </div>
 <div class="container">
     <h2>{{report.name}}</h2>
+        <div id="saveMessage" ng-model="saveMessage">
+            <div class="alert alert-info" ng-show="saveMessage"><strong>{{saveMessage}}</strong></div>
+        </div>
     <table class="table table-bordered">
         <thead>
             <tr>
