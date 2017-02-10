@@ -1,4 +1,4 @@
-var app = angular.module('reportApp', ['ngStorage', 'ngRoute', 'ui.bootstrap']);
+var app = angular.module('reportApp', ['ngStorage', 'ngRoute', 'ui.bootstrap.modal']);
 
 
 app.config(function($routeProvider, $locationProvider) {
@@ -35,6 +35,13 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.status;
     $scope.nextID;
     
+    //show modal message on return from edit
+    if ($sessionStorage.SaveMessage) {
+        $scope.showModal = true;
+    } else {
+        $scope.showModal = false;
+    }
+
     //get and store the report name
     // if ($scope.$storage) {
     //      $scope.name = $scope.$storage.name;
@@ -100,9 +107,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         $http.post("/updateRow", data)
         .then(function(response) {
             if (response.status == 200) {
-                console.log("Changes were saved.");
                 $sessionStorage.SaveMessage = "Changes were saved!";
-                alert($sessionStorage.SaveMessage);
             }
             
         });
@@ -111,6 +116,13 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.setReportID = function() {
         console.log()
         $scope.report.id = $scope.nextID;
+    }
+    $scope.open = function() {
+        $scope.showModal = true;
+    }
+
+    $scope.ok = function() {
+        $scope.showModal = false;
     }
 
 });
