@@ -109,8 +109,8 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     }
 
     $scope.setReportID = function() {
-        console.log()
-        $scope.report.id = $scope.nextID;
+        console.log("this is working");
+        // $scope.report.id = 9999;
     }
 
 });

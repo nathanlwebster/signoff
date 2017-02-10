@@ -12,9 +12,9 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="/">IDPD SignOff</a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" ng-controller="reportApp">
             <li><a href="/reports">Reports</a></li>
-            <li ng-click="setReportID()"><a href="/create_report">Create Report</a></li>
+            <li><a href="/create_report" ng-click="setReportID()">Create Report</a></li>
             <li><a href="/edit_data">Data</a></li>
         </ul>
     </nav>
