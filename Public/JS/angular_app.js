@@ -1,4 +1,4 @@
-var app = angular.module('reportApp', ['ngStorage', 'ngRoute']);
+var app = angular.module('reportApp', ['ngStorage', 'ngRoute', 'ui-bootstrap']);
 
 
 app.config(function($routeProvider, $locationProvider) {
