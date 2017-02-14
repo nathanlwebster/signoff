@@ -1,82 +1,99 @@
 <div class="container">
     <div class="form-horizontal">
         <form>
-            <div class="form-group row" ng-model="report.name">
+            <div class="form-group row">
                 <label>Report title:</label>
-                <input type="text" value="{{report.name}}">
+                <input type="text" ng-model="newReport.name" value="{{newReport.name}}">
             </div>
             <div class="form-group">
                 <label>Add columns in report:</label>
-                <input type="text" name="columns" id="columns" value="4">
+                <input type="text" ng-model="newReport.columns" value="{{newReport.columns}}">
             </div>
             <div class="form-group">
                 <label>Add Column 1 selection:</label>
-                <input type="text" name="column1" id="column1" value="Solve Group">
+                <input type="text" ng-model="newReport.col1val" value="{{newReport.col1val}}">
             </div>
             <div class="form-group">
                 <label>Add Column 1 heading:</label>
-                <input type="text" name="column1heading" id="column1heading" value="Column 1">
+                <input type="text" ng-model="newReport.column1heading" value="{{newReport.column1heading}}">
+            </div>
+            <div class="form-group">
+                <label>Add Column 1 type:</label>
+                <input type="text" ng-model="newReport.col1type" value="{{newReport.col1type}}">
             </div>
             <div class="form-group">
                 <label>Add Column 2 selection:</label>
-                <input type="text" name="column2" id="column2" value="Sign Off">
+                <input type="text" ng-model="newReport.col2val" value="{{newReport.col2val}}">
             </div>
             <div class="form-group">
                 <label>Add Column 2 heading:</label>
-                <input type="text" name="column2heading" id="column2heading" value="Column 2">
+                <input type="text" ng-model="newReport.column2heading" value="{{newReport.column2heading}}">
+            </div>
+            <div class="form-group">
+                <label>Add Column 2 type:</label>
+                <input type="text" ng-model="newReport.col2type" value="{{newReport.col2type}}">
             </div>
             <div class="form-group">
                 <label>Add Column 3 selection:</label>
-                <input type="text" name="column3" id="column3" value="Sign Off">
+                <input type="text" ng-model="newReport.col3val" value="{{newReport.col3val}}">
             </div>
             <div class="form-group">
                 <label>Add Column 3 heading:</label>
-                <input type="text" name="column3heading" id="column3heading" value="Column 3">
+                <input type="text" ng-model="newReport.column3heading" value="{{newReport.column3heading}}">
+            </div>
+            <div class="form-group">
+                <label>Add Column 3 type:</label>
+                <input type="text" ng-model="newReport.col3type" value="{{newReport.col3type}}">
             </div>
             <div class="form-group">
                 <label>Add Column 4 selection:</label>
-                <input type="text" name="column4" id="column4" value="Sign Off">
+                <input type="text" ng-model="newReport.col4val" value="{{newReport.col4val}}">
             </div>
             <div class="form-group">
                 <label>Add Column 4 heading:</label>
-                <input type="text" name="column4heading" id="column4heading" value="Column 4">
+                <input type="text" ng-model="newReport.column4heading" value="{{newReport.column4heading}}">
+            </div>
+            <div class="form-group">
+                <label>Add Column 4 type:</label>
+                <input type="text" ng-model="newReport.col4type" value="{{newReport.col4type}}">
             </div>
             <div class="form-group">
                 <label>Add Column 5 selection:</label>
-                <input type="text" name="column5" id="column5" value="Sign Off">
+                <input type="text" ng-model="newReport.col5val" value="{{newReport.col5val}}">
             </div>
             <div class="form-group">
                 <label>Add Column 5 heading:</label>
-                <input type="text" name="column5heading" id="column5heading" value="Column 5">
+                <input type="text" ng-model="newReport.column5heading" value="{{newReport.column5heading}}">
+            </div>
+            <div class="form-group">
+                <label>Add Column 5 type:</label>
+                <input type="text" ng-model="newReport.col5type" value="{{newReport.col5type}}">
             </div>
             <button type="input" value="submit" id="report_submit">Submit</button>
         </form>
     </div>
 </div>
 <div class="container">
-    <h2>{{report.name}}</h2>
-        <div id="saveMessage" ng-model="saveMessage">
-            <div class="alert alert-info" ng-show="saveMessage"><strong>{{saveMessage}}</strong></div>
-        </div>
+    <h2>{{newReport.name}}</h2>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th></th>
-                <th>{{report.column1heading}}</th>
-                <th>{{report.column2heading}}</th>
-                <th>{{report.column3heading}}</th>
-                <th>{{report.column4heading}}</th>
-                <th>{{report.column5heading}}</th>
+                <th>{{newReport.column1heading}}</th>
+                <th>{{newReport.column2heading}}</th>
+                <th>{{newReport.column3heading}}</th>
+                <th>{{newReport.column4heading}}</th>
+                <th>{{newReport.column5heading}}</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="row in rows">
-                <td><a href="/edit_row"><button class="btn btn-primary" ng-click="rowSelect(row.id)">Edit</button></a>
-                <td>{{row.col1val}}</td>
-                <td>{{row.col2val}}</td>
-                <td>{{row.col3val}}</td>
-                <td>{{row.col4val}}</td>
-                <td>{{row.col5val}}</td>
+            <tr>
+                <td>Sample</td>
+                <td><input type="{{newReport.col1type}}" value="{{newReport.col1val}}"></td>
+                <td><input type="{{newReport.col12ype}}" value="{{newReport.col2val}}"></td>
+                <td><input type="{{newReport.col13ype}}" value="{{newReport.col3val}}"></td>
+                <td><input type="{{newReport.col14ype}}" value="{{newReport.col4val}}"></td>
+                <td><input type="{{newReport.col15ype}}" value="{{newReport.col5val}}"></td>
             </tr>
         </tbody>
     </table>

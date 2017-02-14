@@ -35,40 +35,35 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.status;
     $scope.nextID;
     $scope.saveMessage;
-    
-
-    //get and store the report name
-    // if ($scope.$storage) {
-    //      $scope.name = $scope.$storage.name;
-    // } else {
-    //     $scope.$storage = $sessionStorage.$default({
-    //         name: "Report Title"
-    //     });
-    //     $scope.name = $scope.$storage.name;
-    // }
-
+    $scope.newReport;
 
     //create the report body
     $http.get("/listReport")
     .then(function(response) {
+        //set master scope for reports
         $scope.reportData = response.data;
+        
+        //set new report scope
+        $scope.newReport = $scope.reportData[0];
+        console.log($scope.newReport);
+
 
         //get report titles for select report dropdown and next id to create new report
         var reportArray = [];
-        var idArray = [];
+        //var idArray = [];
         var i = 0;
         while (i < $scope.reportData.length) {
             var newReport = $scope.reportData[i];
-            var newID = $scope.reportData[i].id;
+            //var newID = $scope.reportData[i].id;
             reportArray[i] = newReport;
-            idArray[i] = newID;
+            //idArray[i] = newID;
             i++;
         }
         $scope.reports = reportArray;
         
         //get and set next report id
-        var largestID = Math.max.apply(Math, idArray);
-        $scope.nextID = largestID + 1;
+        // var largestID = Math.max.apply(Math, idArray);
+        // $scope.nextID = largestID + 1;
         });
 
 
@@ -89,12 +84,6 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         $scope.row = $scope.report.rows[id];
         $sessionStorage.SaveMessage = "";
         $scope.saveMessage = $sessionStorage.SaveMessage;
-        // console.log($scope.row);
-        // var data = $scope.report;
-        // $http.post("/getRow", data)
-        // .then(function(response) {
-        //     console.log(response);
-        // });
     }
 
     //when save button is clicked on edit_row page, post data to json
