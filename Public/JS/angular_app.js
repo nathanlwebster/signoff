@@ -88,6 +88,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.rowSelect = function(id) {
         $scope.row = $scope.report.rows[id];
         $sessionStorage.SaveMessage = "";
+        $scope.saveMessage = $sessionStorage.SaveMessage;
         // console.log($scope.row);
         // var data = $scope.report;
         // $http.post("/getRow", data)
