@@ -36,11 +36,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.nextID;
     $scope.saveMessage;
     $scope.newReport;
-    // $scope.newReport.col1visible = true;
-    // $scope.newReport.col2visible = true;
-    // $scope.newReport.col3visible = true;
-    // $scope.newReport.col4visible = true;
-    // $scope.newReport.col5visible = true;
+    
 
 
     //create the report body
@@ -52,7 +48,11 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         //set new report scope
         $scope.newReport = $scope.reportData[0];
         console.log($scope.newReport);
-
+        $scope.newReport.col1visible = "true";
+        $scope.newReport.col2visible = "true";
+        $scope.newReport.col3visible = "true";
+        $scope.newReport.col4visible = "true";
+        $scope.newReport.col5visible = "true";
 
         //get report titles for select report dropdown and next id to create new report
         var reportArray = [];
@@ -66,10 +66,6 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
             i++;
         }
         $scope.reports = reportArray;
-        
-        //get and set next report id
-        // var largestID = Math.max.apply(Math, idArray);
-        // $scope.nextID = largestID + 1;
         });
 
 
@@ -109,23 +105,23 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         // $scope.report.id = 9999;
     }
 
-    $scope.columnUpdate = function() {
+    // $scope.columnUpdate = function() {
         
-        if ($scope.newReport.columns == 5) {
-            $scope.newReport.col1visible = true;
-            $scope.newReport.col2visible = true;
-            $scope.newReport.col3visible = true;
-            $scope.newReport.col4visible = true;
-            $scope.newReport.col5visible = true;
-            console.log("Number of columns: " + $scope.newReport.columns);
-        } else if ($scope.newReport.columns == 4) {
-            $scope.newReport.col1visible = true;
-            $scope.newReport.col2visible = true;
-            $scope.newReport.col3visible = true;
-            $scope.newReport.col4visible = true;
-            $scope.newReport.col5visible = false;
-        }
-    }
+    //     if ($scope.newReport.columns == 5) {
+    //         $scope.newReport.col1visible = "true";
+    //         $scope.newReport.col2visible = "true";
+    //         $scope.newReport.col3visible = "true";
+    //         $scope.newReport.col4visible = "true";
+    //         $scope.newReport.col5visible = "true";
+    //         console.log("Number of columns: " + $scope.newReport.columns);
+    //     } else if ($scope.newReport.columns == 4) {
+    //         $scope.newReport.col1visible = "true";
+    //         $scope.newReport.col2visible = "true";
+    //         $scope.newReport.col3visible = "true";
+    //         $scope.newReport.col4visible = "true";
+    //         $scope.newReport.col5visible = "false";
+    //     }
+    // }
 
 });
 
