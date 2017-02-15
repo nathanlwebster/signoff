@@ -6,8 +6,8 @@
                 <input type="text" ng-model="newReport.name" value="{{newReport.name}}">
             </div>
             <div class="form-group">
-                <label>Add columns in report:</label>
-                <input type="text" ng-model="newReport.columns" value="{{newReport.columns}}">
+                <label>Number of Columns:</label>
+                <input type="text" ng-model="newReport.columns" value="{{newReport.columns}}" ng-blur="columnUpdate()">
             </div>
             <div class="form-group">
                 <label>Add Column 1 selection:</label>
@@ -79,21 +79,21 @@
         <thead>
             <tr>
                 <th></th>
-                <th>{{newReport.column1heading}}</th>
-                <th>{{newReport.column2heading}}</th>
-                <th>{{newReport.column3heading}}</th>
-                <th>{{newReport.column4heading}}</th>
-                <th>{{newReport.column5heading}}</th>
+                <th ng-show="{{newReport.col1visible}}">{{newReport.column1heading}}</th>
+                <th ng-show="{{newReport.col2visible}}">{{newReport.column2heading}}</th>
+                <th ng-show="{{newReport.col3visible}}">{{newReport.column3heading}}</th>
+                <th ng-show="{{newReport.col4visible}}">{{newReport.column4heading}}</th>
+                <th ng-show="{{newReport.col5visible}}">{{newReport.column5heading}}</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>Sample</td>
-                <td><input type="{{newReport.col1type}}" value="{{newReport.col1val}}"></td>
-                <td><input type="{{newReport.col12ype}}" value="{{newReport.col2val}}"></td>
-                <td><input type="{{newReport.col13ype}}" value="{{newReport.col3val}}"></td>
-                <td><input type="{{newReport.col14ype}}" value="{{newReport.col4val}}"></td>
-                <td><input type="{{newReport.col15ype}}" value="{{newReport.col5val}}"></td>
+                <td ng-show="{{newReport.col1visible}}"><input type="{{newReport.col1type}}" value="{{newReport.col1val}}"></td>
+                <td ng-show="{{newReport.col2visible}}"><input type="{{newReport.col12ype}}" value="{{newReport.col2val}}"></td>
+                <td ng-show="{{newReport.col3visible}}"><input type="{{newReport.col13ype}}" value="{{newReport.col3val}}"></td>
+                <td ng-show="{{newReport.col4visible}}"><input type="{{newReport.col14ype}}" value="{{newReport.col4val}}"></td>
+                <td ng-show="{{newReport.col5visible}}"><input type="{{newReport.col15ype}}" value="{{newReport.col5val}}"></td>
             </tr>
         </tbody>
     </table>
