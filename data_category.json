@@ -6,63 +6,63 @@
         "data": [
             {
                 "id": 1,
-                "solve_group": "Dadabase"
+                "description": "Dadabase"
             },
             {
                 "id": 2,
-                "solve_group": "Comveyor"
+                "description": "Comveyor"
             },
             {
                 "id": 3,
-                "solve_group": "Combogene"
+                "description": "Combogene"
             },
             {
                 "id": 4,
-                "solve_group": "Norsul"
+                "description": "Norsul"
             },
             {
                 "id": 5,
-                "solve_group": "Tropolis"
+                "description": "Tropolis"
             },
             {
                 "id": 6,
-                "solve_group": "Zogak"
+                "description": "Zogak"
             },
             {
                 "id": 7,
-                "solve_group": "Enomen"
+                "description": "Enomen"
             },
             {
                 "id": 8,
-                "solve_group": "Keengen"
+                "description": "Keengen"
             },
             {
                 "id": 9,
-                "solve_group": "Zillar"
+                "description": "Zillar"
             },
             {
                 "id": 10,
-                "solve_group": "Ovation"
+                "description": "Ovation"
             },
             {
                 "id": 11,
-                "solve_group": "Circum"
+                "description": "Circum"
             },
             {
                 "id": 12,
-                "solve_group": "Applideck"
+                "description": "Applideck"
             },
             {
                 "id": 13,
-                "solve_group": "Mitroc"
+                "description": "Mitroc"
             },
             {
                 "id": 14,
-                "solve_group": "Fiberox"
+                "description": "Fiberox"
             },
             {
                 "id": 15,
-                "solve_group": "Bolax"
+                "description": "Bolax"
             }
         ]
     },
@@ -73,23 +73,23 @@
         "data": [
             {
                 "id": 1,
-                "planner": "Nathan Webster"
+                "description": "Nathan Webster"
             },
             {
                 "id": 2,
-                "planner": "Dan Smith"
+                "description": "Dan Smith"
             },
             {
                 "id": 3,
-                "planner": "Doug Stoker"
+                "description": "Doug Stoker"
             },
             {
                 "id": 4,
-                "planner": "Gregg Rupp"
+                "description": "Gregg Rupp"
             },
             {
                 "id": 5,
-                "planner": "Dorothy Jackson"
+                "description": "Dorothy Jackson"
             }
         ]
     },

@@ -120,7 +120,30 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     }
 
     $scope.newReportSubmit = function() {
-        console.log("Rows data: " + $scope.newReport.rows)
+        
+        //collect data for $scope.newReport.rows
+        var newRows = [];
+        for (var i = 0; i < $scope.newReport.col1val.data.length; i++) {
+        var col1 = $scope.newReport.col1val.data[i].description;
+        // newRows[i] = "{'id': " + i + ", 'col1val': " + col1 + ", 'col2val': '', 'col3val': '', 'col4val': '','col5val': ''}";
+        newRows[i] = {};
+        newRows[i].id = i;
+        newRows[i].col1val = col1;
+        newRows[i].col2val = "";
+        newRows[i].col3val = "";
+        newRows[i].col4val = "";
+        newRows[i].col5val = "";
+        }
+
+        //assign data to $scope.newReport.rows
+        $scope.newReport.rows = newRows;
+        //check data headings, selections, titles
+
+        //post data to json file
+        
+        
+        
+        //console.log("Rows data: " + $scope.newReport.rows)
         console.log($scope.newReport);
         //  = $scope.reportData[0];
     }
