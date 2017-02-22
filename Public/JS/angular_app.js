@@ -126,6 +126,11 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         // $scope.report.id = 9999;
     }
 
+    $scope.newReportSubmit = function() {
+        console.log($scope.newReport);
+        //  = $scope.reportData[0];
+    }
+
 });
 
 
