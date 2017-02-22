@@ -136,10 +136,14 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         $scope.newReport.column1heading = $scope.newReport.col1val.name;
 
         //post data to json file
-        
-        
-        
         console.log($scope.newReport);
+        var data = $scope.newReport;
+        $http.post('/addReport', data)
+        .then(function(response) {
+            if (response.status == 200) {
+                console.log("Report added!");
+            }             
+        });
     }
 
 });
