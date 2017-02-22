@@ -300,7 +300,6 @@ app.post('/addDataCategory', urlencodedParser, function (req, res) {
    
    
 })
-
 app.post('/deleteDataCategory', urlencodedParser, function (req, res) {
     var index = req.body.id - 1;
     fs.readFile( __dirname + "/" + "data_category.json", 'utf8', function (err, data) {
@@ -316,6 +315,17 @@ app.post('/deleteDataCategory', urlencodedParser, function (req, res) {
         res.redirect('/data_category');   
         }
    });
+})
+
+/* Data Category API */
+app.get('/input_types', function (req, res) {
+   res.sendFile( __dirname + "/" + "input_types.html");
+})
+
+app.get('/listInputTypes', function (req, res) {
+   fs.readFile( __dirname + "/" + "input_types.json", 'utf8', function (err, data) {
+       res.end( data );
+   }); 
 })
 
 /* Create Report API */

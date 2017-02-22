@@ -107,20 +107,5 @@
         "id": "5",
         "name": "Process",
         "data_type": "list"
-    },
-    {
-        "id": "6",
-        "name": "Sign Off",
-        "data_type": "text"
-    },
-    {
-        "id": "7",
-        "name": "Yes/No",
-        "data_type": "checkbox"
-    },
-    {
-        "id": "8",
-        "name": "User Input",
-        "data_type": "text"
-    }
+    }    
 ]
