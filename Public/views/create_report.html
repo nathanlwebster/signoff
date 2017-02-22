@@ -1,70 +1,86 @@
 <div class="container">
     <div class="form-horizontal">
         <form>
-            <div class="form-group row">
-                <label>Report title:</label>
-                <input type="text" ng-model="newReport.name" value="{{newReport.name}}">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Report title:</label>
+                    <input type="text" ng-model="newReport.name" value="{{newReport.name}}">
+                </div>
+                <div class="col-md-6">
+                    <label>Number of Columns:</label>
+                    <select ng-model="newReport.columns">
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Number of Columns:</label>
-                <select ng-model="newReport.columns">
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Add Column 1 selection:</label>
-                <select ng-model="newReport.col1val" ng-options="category.name for category in dataCategories"></select>
-            </div>
-            <div class="form-group">
-                <label>Add Column 2 selection:</label>
-                <input type="text" ng-model="newReport.col2val" value="{{newReport.col2val}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 2 heading:</label>
-                <input type="text" ng-model="newReport.column2heading" value="{{newReport.column2heading}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 2 type:</label>
-                <input type="text" ng-model="newReport.col2type" value="{{newReport.col2type}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 3 selection:</label>
-                <input type="text" ng-model="newReport.col3val" value="{{newReport.col3val}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 3 heading:</label>
-                <input type="text" ng-model="newReport.column3heading" value="{{newReport.column3heading}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 3 type:</label>
-                <input type="text" ng-model="newReport.col3type" value="{{newReport.col3type}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 4 selection:</label>
-                <input type="text" ng-model="newReport.col4val" value="{{newReport.col4val}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 4 heading:</label>
-                <input type="text" ng-model="newReport.column4heading" value="{{newReport.column4heading}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 4 type:</label>
-                <input type="text" ng-model="newReport.col4type" value="{{newReport.col4type}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 5 selection:</label>
-                <input type="text" ng-model="newReport.col5val" value="{{newReport.col5val}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 5 heading:</label>
-                <input type="text" ng-model="newReport.column5heading" value="{{newReport.column5heading}}">
-            </div>
-            <div class="form-group">
-                <label>Add Column 5 type:</label>
-                <input type="text" ng-model="newReport.col5type" value="{{newReport.col5type}}">
+            <div class="row">
+                <div class="col-md-2">
+                    <div ng-show="newReport.columns >= 1">
+                        <label>Add Column 1 selection:</label>
+                        <select ng-model="newReport.col1val" ng-options="category.name for category in dataCategories"></select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div ng-show="newReport.columns >= 2">
+                        <label>Add Column 2 selection:</label>
+                        <select ng-model="newReport.col2val" ng-options="input.name for input in inputTypes"></select>
+                    </div>
+                    <div ng-show="newReport.columns >= 2">
+                        <label>Add Column 2 heading:</label>
+                        <input type="text" ng-model="newReport.column2heading" value="{{newReport.column2heading}}">
+                    </div>
+                    <!--<div class="form-group" ng-show="newReport.columns >= 2">
+                        <label>Add Column 2 type:</label>
+                        <input type="text" ng-model="newReport.col2type" value="{{newReport.col2type}}">
+                    </div>-->
+                </div>
+                <div class="col-md-2">
+                    <div ng-show="newReport.columns >= 3">
+                        <label>Add Column 3 selection:</label>
+                        <select ng-model="newReport.col3val" ng-options="input.name for input in inputTypes"></select>
+                    </div>
+                    <div ng-show="newReport.columns >= 3">
+                        <label>Add Column 3 heading:</label>
+                        <input type="text" ng-model="newReport.column3heading" value="{{newReport.column3heading}}">
+                    </div>
+                    <!--<div class="form-group" ng-show="newReport.columns >= 3">
+                        <label>Add Column 3 type:</label>
+                        <input type="text" ng-model="newReport.col3type" value="{{newReport.col3type}}">
+                    </div>-->
+                </div>
+                <div class="col-md-2">
+                    <div ng-show="newReport.columns >= 4">
+                        <label>Add Column 4 selection:</label>
+                        <select ng-model="newReport.col4val" ng-options="input.name for input in inputTypes"></select>
+                    </div>
+                    <div ng-show="newReport.columns >= 4">
+                        <label>Add Column 4 heading:</label>
+                        <input type="text" ng-model="newReport.column4heading" value="{{newReport.column4heading}}">
+                    </div>
+                    <!--<div class="form-group" ng-show="newReport.columns >= 4">
+                        <label>Add Column 4 type:</label>
+                        <input type="text" ng-model="newReport.col4type" value="{{newReport.col4type}}">
+                    </div>-->
+                </div>
+                <div class="col-md-2">
+                    <div ng-show="newReport.columns >= 5">
+                        <label>Add Column 5 selection:</label>
+                        <select ng-model="newReport.col5val" ng-options="input.name for input in inputTypes"></select>
+                    </div>
+                    <div ng-show="newReport.columns >= 5">
+                        <label>Add Column 5 heading:</label>
+                        <input type="text" ng-model="newReport.column5heading" value="{{newReport.column5heading}}">
+                    </div>
+                    <!--<div class="form-group" ng-show="newReport.columns >= 5">
+                        <label>Add Column 5 type:</label>
+                        <input type="text" ng-model="newReport.col5type" value="{{newReport.col5type}}">
+                    </div>-->
+                </div>
+                <div class="col-md-2">
+                </div>
             </div>
             <button type="input" value="submit" id="report_submit">Submit</button>
         </form>
@@ -85,12 +101,12 @@
         </thead>
         <tbody>
             <tr>
-                <td>Sample</td>
+                <td><button class="btn btn-primary" ng-click="rowSelect(row.id)">Edit</button></td>
                 <td ng-show="newReport.columns >= 1"><input type="{{newReport.col1type}}" value="{{newReport.col1val.data.name}}"></td>
-                <td ng-show="newReport.columns >= 2"><input type="{{newReport.col12ype}}" value="{{newReport.col2val}}"></td>
-                <td ng-show="newReport.columns >= 3"><input type="{{newReport.col13ype}}" value="{{newReport.col3val}}"></td>
-                <td ng-show="newReport.columns >= 4"><input type="{{newReport.col14ype}}" value="{{newReport.col4val}}"></td>
-                <td ng-show="newReport.columns >= 5"><input type="{{newReport.col15ype}}" value="{{newReport.col5val}}"></td>
+                <td ng-show="newReport.columns >= 2"><input type="{{newReport.col12ype}}"></td>
+                <td ng-show="newReport.columns >= 3"><input type="{{newReport.col13ype}}"></td>
+                <td ng-show="newReport.columns >= 4"><input type="{{newReport.col14ype}}"></td>
+                <td ng-show="newReport.columns >= 5"><input type="{{newReport.col15ype}}"></td>
             </tr>
         </tbody>
     </table>

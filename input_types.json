@@ -16,8 +16,8 @@
     },
     {
         "id": "4",
-        "name": "Sign Off",
-        "data_type": "text"
+        "name": "WFDS Status",
+        "data_type": "select"
     },
     {
         "id": "5",

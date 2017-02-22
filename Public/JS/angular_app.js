@@ -85,6 +85,16 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         console.log($scope.dataCategories);
     });
 
+    //Get input types
+    $http.get("/listInputTypes")
+    .then(function(response) {
+        var inputs = [];
+        for (var i = 0;i < response.data.length;i++)
+        inputs[i] = response.data[i];
+        $scope.inputTypes = inputs;
+        console.log($scope.inputTypes);
+    });
+
     //after report is selected from dropdown, update scope
     $scope.reportSelect = function(id) {
         $scope.report = $scope.reportData[id];
