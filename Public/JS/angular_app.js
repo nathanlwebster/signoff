@@ -36,6 +36,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.nextID;
     $scope.saveMessage;
     $scope.newReport;
+    $scope.dataCategories;
     
 
 
@@ -68,10 +69,19 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         $scope.reports = reportArray;
         });
 
-
+    //Get WFDS report status types
     $http.get("/listStatus")
     .then(function(response) {
         $scope.status = response.data;
+    });
+
+    //Get data categories
+    $http.get("/listDataCategories")
+    .then(function(response) {
+        var categories = [];
+        for (var i = 0;i < response.data.length;i++)
+        categories[i] = response.data[i].name;
+        $scope.dataCategories = categories;
     });
 
     //after report is selected from dropdown, update scope
@@ -103,24 +113,6 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.setReportID = function() {
         console.log("this is working");
         // $scope.report.id = 9999;
-    }
-
-    $scope.columnUpdate = function() {
-        
-        if ($scope.newReport.columns == 5) {
-                $scope.newReport.col1visible = "true";
-                $scope.newReport.col2visible = "true";
-                $scope.newReport.col3visible = "true";
-                $scope.newReport.col4visible = "true";
-                $scope.newReport.col5visible = "true";
-                console.log("Number of columns: " + $scope.newReport.columns);
-        } else if ($scope.newReport.columns == 4) {
-            $scope.newReport.col1visible = "true";
-            $scope.newReport.col2visible = "true";
-            $scope.newReport.col3visible = "true";
-            $scope.newReport.col4visible = "true";
-            $scope.newReport.col5visible = "false";
-        }
     }
 
 });
