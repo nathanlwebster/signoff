@@ -1,4 +1,4 @@
-var app = angular.module('reportApp', ['ngStorage', 'ngRoute', 'ui.bootstrap.modal']);
+var app = angular.module('reportApp', ['ngStorage', 'ngRoute']);
 
 
 app.config(function($routeProvider, $locationProvider) {
@@ -48,7 +48,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         
         //set new report scope
         $scope.newReport = $scope.reportData[0];
-        console.log($scope.newReport);
+        //console.log($scope.newReport);
         $scope.newReport.col1visible = "true";
         $scope.newReport.col2visible = "true";
         $scope.newReport.col3visible = "true";
@@ -58,13 +58,11 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         //get report titles for select report dropdown and next id to create new report
         var reportArray = [];
         //var idArray = [];
-        var i = 0;
-        while (i < $scope.reportData.length) {
+        for (var i = 0; i < $scope.reportData.length; i++) {
             var newReport = $scope.reportData[i];
             //var newID = $scope.reportData[i].id;
             reportArray[i] = newReport;
             //idArray[i] = newID;
-            i++;
         }
         $scope.reports = reportArray;
         });
@@ -82,7 +80,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         for (var i = 0;i < response.data.length;i++)
         categories[i] = response.data[i];
         $scope.dataCategories = categories;
-        console.log($scope.dataCategories);
+        //console.log($scope.dataCategories);
     });
 
     //Get input types
@@ -92,7 +90,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         for (var i = 0;i < response.data.length;i++)
         inputs[i] = response.data[i];
         $scope.inputTypes = inputs;
-        console.log($scope.inputTypes);
+        //console.log($scope.inputTypes);
     });
 
     //after report is selected from dropdown, update scope
@@ -121,12 +119,8 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         });
     }
 
-    $scope.setReportID = function() {
-        console.log("this is working");
-        // $scope.report.id = 9999;
-    }
-
     $scope.newReportSubmit = function() {
+        console.log("Rows data: " + $scope.newReport.rows)
         console.log($scope.newReport);
         //  = $scope.reportData[0];
     }
