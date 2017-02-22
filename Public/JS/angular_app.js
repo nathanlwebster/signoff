@@ -125,7 +125,6 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         var newRows = [];
         for (var i = 0; i < $scope.newReport.col1val.data.length; i++) {
         var col1 = $scope.newReport.col1val.data[i].description;
-        // newRows[i] = "{'id': " + i + ", 'col1val': " + col1 + ", 'col2val': '', 'col3val': '', 'col4val': '','col5val': ''}";
         newRows[i] = {};
         newRows[i].id = i;
         newRows[i].col1val = col1;
@@ -137,7 +136,9 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
 
         //assign data to $scope.newReport.rows
         $scope.newReport.rows = newRows;
+        
         //check data headings, selections, titles
+        $scope.newReport.column1heading = $scope.newReport.col1val.name;
 
         //post data to json file
         
