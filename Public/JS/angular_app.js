@@ -80,8 +80,9 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     .then(function(response) {
         var categories = [];
         for (var i = 0;i < response.data.length;i++)
-        categories[i] = response.data[i].name;
+        categories[i] = response.data[i];
         $scope.dataCategories = categories;
+        console.log($scope.dataCategories);
     });
 
     //after report is selected from dropdown, update scope

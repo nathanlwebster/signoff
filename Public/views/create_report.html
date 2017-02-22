@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label>Add Column 1 selection:</label>
-                <select ng-model="newReport.col1val" ng-options="category as category in dataCategories">
+                <select ng-model="newReport.col1val" ng-options="category.name for category in dataCategories">
             </div>
             <div class="form-group">
                 <label>Add Column 1 heading:</label>
