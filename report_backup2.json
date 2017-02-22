@@ -274,10 +274,10 @@
             {
                 "id": 0,
                 "col1val": "Evidends",
-                "col2val": "Not running this reset",
+                "col2val": "Solve group not active",
                 "col3val": "to",
                 "col4val": "check",
-                "col5val": "accuracy"
+                "col5val": "accuracy"                
             },
             {
                 "id": 1,
@@ -791,7 +791,7 @@
                 "col2val": "",
                 "col3val": "",
                 "col4val": "",
-                "col5val": ""
+                "col5val": ""                
             },
             {
                 "id": 1,
@@ -1305,7 +1305,7 @@
                 "col2val": "",
                 "col3val": "",
                 "col4val": "",
-                "col5val": ""
+                "col5val": ""                
             },
             {
                 "id": 1,
@@ -2064,7 +2064,7 @@
         "column3heading": "Column 3",
         "column4heading": "Column 4",
         "column5heading": "Column 5",
-        "col1type": "text",
+         "col1type": "text",
         "col2type": "select",
         "col3type": "checkbox",
         "col4type": "text",
