@@ -1,1 +1,126 @@
-[{"id":"1","name":"Solve Group","data_type":"list"},{"id":"2","name":"Planner","data_type":"list"},{"id":"3","name":"Product","data_type":"list"},{"id":"4","name":"Tool","data_type":"list"},{"id":"5","name":"Process","data_type":"list"},{"id":"6","name":"Sign Off","data_type":"text"},{"id":"7","name":"Yes/No","data_type":"radio"},{"id":"8","name":"User Input","data_type":"text"}]
+[
+    {
+        "id": "1",
+        "name": "Solve Group",
+        "data_type": "list",
+        "data": [
+            {
+                "id": 1,
+                "solve_group": "Dadabase"
+            },
+            {
+                "id": 2,
+                "solve_group": "Comveyor"
+            },
+            {
+                "id": 3,
+                "solve_group": "Combogene"
+            },
+            {
+                "id": 4,
+                "solve_group": "Norsul"
+            },
+            {
+                "id": 5,
+                "solve_group": "Tropolis"
+            },
+            {
+                "id": 6,
+                "solve_group": "Zogak"
+            },
+            {
+                "id": 7,
+                "solve_group": "Enomen"
+            },
+            {
+                "id": 8,
+                "solve_group": "Keengen"
+            },
+            {
+                "id": 9,
+                "solve_group": "Zillar"
+            },
+            {
+                "id": 10,
+                "solve_group": "Ovation"
+            },
+            {
+                "id": 11,
+                "solve_group": "Circum"
+            },
+            {
+                "id": 12,
+                "solve_group": "Applideck"
+            },
+            {
+                "id": 13,
+                "solve_group": "Mitroc"
+            },
+            {
+                "id": 14,
+                "solve_group": "Fiberox"
+            },
+            {
+                "id": 15,
+                "solve_group": "Bolax"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Planner",
+        "data_type": "list",
+        "data": [
+            {
+                "id": 1,
+                "planner": "Nathan Webster"
+            },
+            {
+                "id": 2,
+                "planner": "Dan Smith"
+            },
+            {
+                "id": 3,
+                "planner": "Doug Stoker"
+            },
+            {
+                "id": 4,
+                "planner": "Gregg Rupp"
+            },
+            {
+                "id": 5,
+                "planner": "Dorothy Jackson"
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "name": "Product",
+        "data_type": "list"
+    },
+    {
+        "id": "4",
+        "name": "Tool",
+        "data_type": "list"
+    },
+    {
+        "id": "5",
+        "name": "Process",
+        "data_type": "list"
+    },
+    {
+        "id": "6",
+        "name": "Sign Off",
+        "data_type": "text"
+    },
+    {
+        "id": "7",
+        "name": "Yes/No",
+        "data_type": "checkbox"
+    },
+    {
+        "id": "8",
+        "name": "User Input",
+        "data_type": "text"
+    }
+]
