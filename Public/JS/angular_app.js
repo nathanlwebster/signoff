@@ -48,7 +48,6 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         
         //set new report scope
         $scope.newReport = $scope.reportData[0];
-        //console.log($scope.newReport);
         $scope.newReport.col1visible = "true";
         $scope.newReport.col2visible = "true";
         $scope.newReport.col3visible = "true";
@@ -57,12 +56,9 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
 
         //get report titles for select report dropdown and next id to create new report
         var reportArray = [];
-        //var idArray = [];
         for (var i = 0; i < $scope.reportData.length; i++) {
             var newReport = $scope.reportData[i];
-            //var newID = $scope.reportData[i].id;
             reportArray[i] = newReport;
-            //idArray[i] = newID;
         }
         $scope.reports = reportArray;
         });
@@ -90,7 +86,6 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         for (var i = 0;i < response.data.length;i++)
         inputs[i] = response.data[i];
         $scope.inputTypes = inputs;
-        //console.log($scope.inputTypes);
     });
 
     //after report is selected from dropdown, update scope
@@ -144,9 +139,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         
         
         
-        //console.log("Rows data: " + $scope.newReport.rows)
         console.log($scope.newReport);
-        //  = $scope.reportData[0];
     }
 
 });
