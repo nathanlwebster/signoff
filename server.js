@@ -189,21 +189,21 @@ app.get('/listReport', function (req, res) {
 app.post('/addReport', bodyParser, function (req, res) {
    
    var report = req.body;
-   report.id = 1000;
-   console.log(report);
+   var index = report.id;
 
 
-//    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
-//         if (err) {
-//             console.log(err);
-//             res.redirect('/report');
-//         } else {
-//         obj = JSON.parse(data);
-//         obj[index] = response;
-//         fs.writeFileSync('report.json', JSON.stringify(obj));
-//         res.redirect('/report');   
-//         }
-//    });
+   fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
+        if (err) {
+            console.log(err);
+            res.redirect('/report');
+        } else {
+        obj = JSON.parse(data);
+        obj[index] = report;
+        console.log("This is the obj: " + obj);
+        fs.writeFileSync('report.json', JSON.stringify(obj, null, 4));
+        res.redirect('/report');   
+        }
+   });
    
    
 })

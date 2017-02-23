@@ -56,11 +56,21 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
 
         //get report titles for select report dropdown and next id to create new report
         var reportArray = [];
+        var ids = [];
         for (var i = 0; i < $scope.reportData.length; i++) {
             var newReport = $scope.reportData[i];
+            var newID = $scope.reportData[i].id;
             reportArray[i] = newReport;
+            ids.push(newID);
         }
         $scope.reports = reportArray;
+
+        //get max id
+        function getMaxOfArray(numArray) {
+            return Math.max.apply(null, numArray);
+        }
+        $scope.nextID = getMaxOfArray(ids) + 1;
+        console.log($scope.nextID);
         });
 
     //Get WFDS report status types
@@ -131,9 +141,13 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
 
         //assign data to $scope.newReport.rows
         $scope.newReport.rows = newRows;
+        $scope.newReport.id = $scope.nextID;
         
         //check data headings, selections, titles
         $scope.newReport.column1heading = $scope.newReport.col1val.name;
+
+        //assign new id
+
 
         //post data to json file
         console.log($scope.newReport);
