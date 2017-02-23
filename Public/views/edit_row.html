@@ -14,21 +14,37 @@
         <tbody>
             <tr>
                 <td><a href="/"><button class="btn btn-default" id="form_submit" ng-click="mySave()">Save Changes</button></a></td>
-                <td ng-show="report.columns >= 1"><input type="text" ng-model="row.col1val" /></td>
-                <td ng-show="report.columns >= 2">
-                    <select ng-model="row.col2val">
-                    <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
-                    </select>
+                <td ng-show="report.columns >= 1">
+                    <div ng-show="report.col1type != 'select'">
+                        <input type="{{report.col1type}}" ng-model="row.col1val" />
+                    </div>
+                    <div ng-show="report.col1type == 'select'">
+                        <select ng-model="row.col2val">
+                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
+                        </select>   
+                    </div>
                 </td>
-                <td ng-show="report.columns >= 3"><input type="text" ng-model="row.col3val" value="{{row.col3val}}" /></td>
-                <td ng-show="report.columns >= 4"><input type="checkbox" ng-model="row.col4val" /></td>
-                <td ng-show="report.columns >= 5"><input type="text" ng-model="row.col5val" /></td>
+                <td ng-show="report.columns >= 2">
+                    <div ng-show="report.col2type != 'select'">
+                        <input type="{{report.col2type}}" ng-model="row.col2val" />
+                    </div>
+                    <div ng-show="report.col2type == 'select'">
+                        <select ng-model="row.col2val">
+                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
+                        </select>   
+                    </div>
+                </td>
+                
+                <td ng-show="report.columns >= 3"><input type="{{report.col3type}}" ng-model="row.col3val" value="{{row.col3val}}" /></td>
+                <td ng-show="report.columns >= 4"><input type="{{report.col4type}}" ng-model="row.col4val" /></td>
+                <td ng-show="report.columns >= 5"><input type="{{report.col5type}}" ng-model="row.col5val" /></td>
             </tr>
         </tbody>
     </table>
 
 </div>
 
+<!--<column-type type="{{report.col1type}}"></column-type>-->
 
 <!--<form class="form-inline">
     <button id="form_submit" ng-click="mySave()">Save Changes</button>        

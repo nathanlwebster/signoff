@@ -1055,7 +1055,7 @@
         "col1type": "text",
         "col2type": "select",
         "col3type": "checkbox",
-        "col4type": "text",
+        "col4type": "date",
         "col5type": "text",
         "rows": [
             {
@@ -1567,10 +1567,10 @@
         "column4heading": "Column 4",
         "column5heading": "Column 5",
         "col1type": "text",
-        "col2type": "select",
+        "col2type": "checkbox",
         "col3type": "checkbox",
-        "col4type": "text",
-        "col5type": "text",
+        "col4type": "date",
+        "col5type": "month",
         "rows": [
             {
                 "id": 0,
