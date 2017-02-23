@@ -14,21 +14,21 @@
         <thead>
             <tr>
                 <th></th>
-                <th>{{report.column1heading}}</th>
-                <th>{{report.column2heading}}</th>
-                <th>{{report.column3heading}}</th>
-                <th>{{report.column4heading}}</th>
-                <th ng-show="true">{{report.column5heading}}</th>
+                <th ng-show="report.columns >= 1">{{report.column1heading}}</th>
+                <th ng-show="report.columns >= 2">{{report.column2heading}}</th>
+                <th ng-show="report.columns >= 3">{{report.column3heading}}</th>
+                <th ng-show="report.columns >= 4">{{report.column4heading}}</th>
+                <th ng-show="report.columns >= 5">{{report.column5heading}}</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="row in rows">
                 <td><a href="/edit_row"><button class="btn btn-primary" ng-click="rowSelect(row.id)">Edit</button></a>
-                <td>{{row.col1val}}</td>
-                <td>{{row.col2val}}</td>
-                <td>{{row.col3val}}</td>
-                <td>{{row.col4val}}</td>
-                <td ng-show="true">{{row.col5val}}</td>
+                <td ng-show="report.columns >= 1">{{row.col1val}}</td>
+                <td ng-show="report.columns >= 2">{{row.col2val}}</td>
+                <td ng-show="report.columns >= 3">{{row.col3val}}</td>
+                <td ng-show="report.columns >= 4">{{row.col4val}}</td>
+                <td ng-show="report.columns >= 5">{{row.col5val}}</td>
             </tr>
         </tbody>
     </table>
