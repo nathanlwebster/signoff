@@ -36,24 +36,6 @@ app.get('/create_report', function (req, res) {
 
 /* Row API */
 
-// app.post('/getRow', bodyParser, function (req, res) {
-   
-//    console.log(req.body.id);
-//    res.send("getRow is working.");
-//    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
-//         if (err) {
-//             console.log(err);
-//             res.redirect('/edit_row');
-//         } else {
-//         obj = JSON.parse(data);
-//         console.log(obj[0].rows[0]);
-//         // obj[index] = response;
-//         // fs.writeFileSync('status.json', JSON.stringify(obj));
-//         // res.redirect('/status');   
-//         }
-//    }); 
-// })
-
 app.post('/updateRow', bodyParser, function (req, res) {
     var reportID = req.body[0].id;
     var rowID = req.body[1].id;
@@ -99,7 +81,7 @@ app.post('/addStatus', urlencodedParser, function (req, res) {
         } else {
         obj = JSON.parse(data);
         obj[index] = response;
-        fs.writeFileSync('status.json', JSON.stringify(obj));
+        fs.writeFileSync('status.json', JSON.stringify(obj, null, 4));
         res.redirect('/status');   
         }
    });
@@ -118,7 +100,7 @@ app.post('/deleteStatus', urlencodedParser, function (req, res) {
         obj.splice(index, 1);
         //delete obj[index];
 
-        fs.writeFileSync('status.json', JSON.stringify(obj));
+        fs.writeFileSync('status.json', JSON.stringify(obj, null, 4));
         res.redirect('/status');   
         }
    });
@@ -150,7 +132,7 @@ app.post('/addSolveGroup', urlencodedParser, function (req, res) {
         } else {
         obj = JSON.parse(data);
         obj[index] = response;
-        fs.writeFileSync('solve_group.json', JSON.stringify(obj));
+        fs.writeFileSync('solve_group.json', JSON.stringify(obj, null, 4));
         res.redirect('/solve_group');   
         }
    });
@@ -169,7 +151,7 @@ app.post('/deleteSolveGroup', urlencodedParser, function (req, res) {
         obj.splice(index, 1);
         //delete obj[index];
 
-        fs.writeFileSync('solve_group.json', JSON.stringify(obj));
+        fs.writeFileSync('solve_group.json', JSON.stringify(obj, null, 4));
         res.redirect('/solve_group');   
         }
    });
@@ -199,7 +181,6 @@ app.post('/addReport', bodyParser, function (req, res) {
         } else {
         obj = JSON.parse(data);
         obj[index] = report;
-        console.log("This is the obj: " + obj);
         fs.writeFileSync('report.json', JSON.stringify(obj, null, 4));
         res.redirect('/report');   
         }
@@ -209,7 +190,6 @@ app.post('/addReport', bodyParser, function (req, res) {
 })
 
 app.post('/updateReport', urlencodedParser, function (req, res) {
-        //console.log(req.body);
         var getKeys = function(obj){
             var keys = [];
             for (var key in obj){
@@ -222,7 +202,6 @@ app.post('/updateReport', urlencodedParser, function (req, res) {
 
     var reportID = req.body.id;
     var reportData = req.body;
-    //console.log("The reportID is: " + reportID);
     
    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
         if (err) {
@@ -252,7 +231,7 @@ app.post('/deleteReport', urlencodedParser, function (req, res) {
         obj.splice(index, 1);
         //delete obj[index];
 
-        fs.writeFileSync('report.json', JSON.stringify(obj));
+        fs.writeFileSync('report.json', JSON.stringify(obj, null, 4));
         res.redirect('/report');   
         }
    });
@@ -283,7 +262,7 @@ app.post('/addDataCategory', urlencodedParser, function (req, res) {
         } else {
         obj = JSON.parse(data);
         obj[index] = response;
-        fs.writeFileSync('data_category.json', JSON.stringify(obj));
+        fs.writeFileSync('data_category.json', JSON.stringify(obj, null, 4));
         res.redirect('/data_category');   
         }
    });
@@ -301,7 +280,7 @@ app.post('/deleteDataCategory', urlencodedParser, function (req, res) {
         obj.splice(index, 1);
         //delete obj[index];
 
-        fs.writeFileSync('data_category.json', JSON.stringify(obj));
+        fs.writeFileSync('data_category.json', JSON.stringify(obj, null, 4));
         res.redirect('/data_category');   
         }
    });
