@@ -70,7 +70,6 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
             return Math.max.apply(null, numArray);
         }
         $scope.nextID = getMaxOfArray(ids) + 1;
-        console.log($scope.nextID);
         });
 
     //Get WFDS report status types
@@ -103,6 +102,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         $scope.report = $scope.reportData[id];
         $scope.column1 = $scope.report.column1;
         $scope.rows = $scope.report.rows;
+        $scope.columns = $scope.report.columns;
     }
 
     //when row is selected to edit, update scope
