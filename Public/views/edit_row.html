@@ -4,25 +4,25 @@
         <thead>
             <tr>
                 <th>Edit</th>
-                <th>{{report.column1heading}}</th>
-                <th>{{report.column2heading}}</th>
-                <th>{{report.column3heading}}</th>
-                <th>{{report.column4heading}}</th>
-                <th>{{report.column5heading}}</th>
+                <th ng-show="report.columns >= 1">{{report.column1heading}}</th>
+                <th ng-show="report.columns >= 2">{{report.column2heading}}</th>
+                <th ng-show="report.columns >= 3">{{report.column3heading}}</th>
+                <th ng-show="report.columns >= 4">{{report.column4heading}}</th>
+                <th ng-show="report.columns >= 5">{{report.column5heading}}</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><a href="/"><button class="btn btn-default" id="form_submit" ng-click="mySave()">Save Changes</button></a></td>
-                <td><input type="text" ng-model="row.col1val" /></td>
-                <td>
+                <td ng-show="report.columns >= 1"><input type="text" ng-model="row.col1val" /></td>
+                <td ng-show="report.columns >= 2">
                     <select ng-model="row.col2val">
                     <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
                     </select>
                 </td>
-                <td><input type="text" ng-model="row.col3val" value="{{row.col3val}}" /></td>
-                <td><input type="checkbox" ng-model="row.col4val" /></td>
-                <td><input type="text" ng-model="row.col5val" /></td>
+                <td ng-show="report.columns >= 3"><input type="text" ng-model="row.col3val" value="{{row.col3val}}" /></td>
+                <td ng-show="report.columns >= 4"><input type="checkbox" ng-model="row.col4val" /></td>
+                <td ng-show="report.columns >= 5"><input type="text" ng-model="row.col5val" /></td>
             </tr>
         </tbody>
     </table>
