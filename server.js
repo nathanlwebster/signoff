@@ -7,8 +7,6 @@ var stringify = require("json-stringify-pretty-compact");
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser2.urlencoded({ extended: true });
 
-//app.set('view engine', 'ejs');
-
 app.use('/', express.static('public'));
 app.use('/views/', express.static(__dirname + 'public/views'));
 
@@ -157,6 +155,7 @@ app.post('/deleteSolveGroup', urlencodedParser, function (req, res) {
    });
 })
 
+
 /* Report API */
 app.get('/report', function (req, res) {
    res.sendFile( __dirname + "/" + "report.html");
@@ -237,6 +236,7 @@ app.post('/deleteReport', urlencodedParser, function (req, res) {
    });
 })
 
+
 /* Data Category API */
 app.get('/data_category', function (req, res) {
    res.sendFile( __dirname + "/" + "data_category.html");
@@ -286,7 +286,8 @@ app.post('/deleteDataCategory', urlencodedParser, function (req, res) {
    });
 })
 
-/* Data Category API */
+
+/* Input Types API */
 app.get('/input_types', function (req, res) {
    res.sendFile( __dirname + "/" + "input_types.html");
 })
