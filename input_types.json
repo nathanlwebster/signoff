@@ -17,16 +17,82 @@
     {
         "id": "4",
         "name": "WFDS Status",
-        "data_type": "select"
+        "data_type": "select",
+        "options": [
+            {
+                "id": "1",
+                "description": "Published to WFDS. Manual BP Matrix update not required"
+            },
+            {
+                "id": "2",
+                "description": "Published to WFDS and manual BP Matrix update complete"
+            },
+            {
+                "id": "3",
+                "description": "Solve group not active"
+            },
+            {
+                "id": "4",
+                "description": "Not running this reset"
+            },
+            {
+                "id": "5",
+                "description": "Behind schedule, need additional time to complete reset"
+            }
+        ]
     },
     {
         "id": "5",
-        "name": "Yes/No",
-        "data_type": "checkbox"
+        "name": "Custom Response",
+        "data_type": "select",
+        "options": [
+            {
+                "id": "1",
+                "description": "Custom Response #1"
+            },
+            {
+                "id": "2",
+                "description": "Custom Response #2"
+            },
+            {
+                "id": "3",
+                "description": "Custom Response #3"
+            },
+            {
+                "id": "4",
+                "description": "Custom Response #4"
+            },
+            {
+                "id": "5",
+                "description": "Custom Response #5"
+            }
+        ]
     },
     {
         "id": "6",
-        "name": "User Input",
-        "data_type": "text"
+        "name": "Another Custom Response",
+        "data_type": "select",
+        "options": [
+            {
+                "id": "1",
+                "description": "Another custom Response #1"
+            },
+            {
+                "id": "2",
+                "description": "Another custom Response #2"
+            },
+            {
+                "id": "3",
+                "description": "Another custom Response #3"
+            },
+            {
+                "id": "4",
+                "description": "Another custom Response #4"
+            },
+            {
+                "id": "5",
+                "description": "Another custom Response #5"
+            }
+        ]
     }
 ]

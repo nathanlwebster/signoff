@@ -19,7 +19,7 @@
                         <input type="{{report.col1type}}" ng-model="row.col1val" />
                     </div>
                     <div ng-show="report.col1type == 'select'">
-                        <select ng-model="row.col2val">
+                        <select ng-model="row.col1val">
                             <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
                         </select>   
                     </div>
@@ -45,7 +45,7 @@
                     </div>
                 </td>
                 <td ng-show="report.columns >= 4">
-                    <div ng-show="report.col2type != 'select'">
+                    <div ng-show="report.col4type != 'select'">
                         <input type="{{report.col4type}}" ng-model="row.col4val" />
                     </div>
                     <div ng-show="report.col4type == 'select'">
