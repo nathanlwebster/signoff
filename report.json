@@ -284,8 +284,8 @@
         "col1type": "text",
         "col2type": "select",
         "col3type": "checkbox",
-        "col4type": "text",
-        "col5type": "text",
+        "col4type": "select",
+        "col5type": "date",
         "rows": [
             {
                 "id": 0,

@@ -34,10 +34,36 @@
                         </select>   
                     </div>
                 </td>
-                
-                <td ng-show="report.columns >= 3"><input type="{{report.col3type}}" ng-model="row.col3val" value="{{row.col3val}}" /></td>
-                <td ng-show="report.columns >= 4"><input type="{{report.col4type}}" ng-model="row.col4val" /></td>
-                <td ng-show="report.columns >= 5"><input type="{{report.col5type}}" ng-model="row.col5val" /></td>
+                <td ng-show="report.columns >= 3">
+                    <div ng-show="report.col3type != 'select'">
+                        <input type="{{report.col3type}}" ng-model="row.col3val" />
+                    </div>
+                    <div ng-show="report.col3type == 'select'">
+                        <select ng-model="row.col3val">
+                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
+                        </select>   
+                    </div>
+                </td>
+                <td ng-show="report.columns >= 4">
+                    <div ng-show="report.col2type != 'select'">
+                        <input type="{{report.col4type}}" ng-model="row.col4val" />
+                    </div>
+                    <div ng-show="report.col4type == 'select'">
+                        <select ng-model="row.col4val">
+                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
+                        </select>   
+                    </div>
+                </td>
+                <td ng-show="report.columns >= 5">
+                    <div ng-show="report.col5type != 'select'">
+                        <input type="{{report.col5type}}" ng-model="row.col5val" />
+                    </div>
+                    <div ng-show="report.col5type == 'select'">
+                        <select ng-model="row.col5val">
+                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
+                        </select>   
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
