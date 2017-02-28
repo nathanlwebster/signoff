@@ -1,7 +1,7 @@
 <div id="selectReportForm" class="container">
     <form class="form-inline">
         <h2>Select Report:</h2>
-        <select ng-model="report" ng-options="report.name for report in reports" ng-change="reportSelect(report.id)">
+        <select ng-model="report" ng-options="report.name for report in reports | filter: { name : '!New Report' }" ng-change="reportSelect(report.id)">
         </select>
     </form>        
 </div>

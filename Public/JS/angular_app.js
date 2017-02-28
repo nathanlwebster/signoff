@@ -37,7 +37,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.saveMessage;
     $scope.newReport;
     $scope.dataCategories;
-    $scope.columnNums = [1,2,3,4,5];
+    $scope.columnNums = [2,3,4,5];
 
 
     //create the report body

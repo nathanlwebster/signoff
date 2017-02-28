@@ -11,19 +11,24 @@
                     <select ng-model="newReport.columns" ng-options="nums for nums in columnNums"></select>
                 </div>
             </div>
-            <div class="row" ng-repeat="i in columnNums track by i">
-                <div class="col-md-2">
-                    <div ng-show="newReport.columns >= {{i}}">
-                        <label>Add Column {{i}} selection:</label>
-                        <select ng-model="newReport['col' + i + 'val']" ng-options="input.name for input in inputTypes"></select>
+            <div class="row">
+                    <div class="col-md-2">
+                        <label>Add Column 1 selection:</label>
+                            <select ng-model="newReport.col1val" ng-options="data.name for data in dataCategories"></select>
                     </div>
-                    <div ng-show="newReport.columns >= {{i}}">
-                        <label>Add Column {{i}} heading:</label>
-                        <input type="text" ng-model="newReport['column' + i + 'heading']" value="{{newReport['column' + i + 'heading']">
+                <div ng-repeat="i in columnNums track by i">
+                    <div class="col-md-2">
+                        <div ng-show="newReport.columns >= {{i}}">
+                            <label>Add Column {{i}} selection:</label>
+                            <select ng-model="newReport['col' + i + 'val']" ng-options="input.name for input in inputTypes"></select>
+                        </div>
+                        <div ng-show="newReport.columns >= {{i}}">
+                            <label>Add Column {{i}} heading:</label>
+                            <input type="text" ng-model="newReport['column' + i + 'heading']" value="{{newReport['column' + i + 'heading']">
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                </div>
+                <div class="col-md-1"></div>
             </div>
             <button type="input" value="submit" ng-click="newReportSubmit()">Submit</button>
         </form>
@@ -35,7 +40,7 @@
         <thead>
             <tr>
                 <th></th>
-                <th ng-show="newReport.columns >= 1">{{newReport.col1val.name}}</th>
+                <th ng-show="newReport.columns >= 1">{{newReport.column1heading}}</th>
                 <th ng-show="newReport.columns >= 2">{{newReport.column2heading}}</th>
                 <th ng-show="newReport.columns >= 3">{{newReport.column3heading}}</th>
                 <th ng-show="newReport.columns >= 4">{{newReport.column4heading}}</th>
