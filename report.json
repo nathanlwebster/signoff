@@ -81,9 +81,9 @@
             {
                 "id": 6,
                 "col1val": "Solgan",
-                "col2val": "",
-                "col3val": "",
-                "col4val": "",
+                "col2val": "Published to WFDS. Manual BP Matrix update not required",
+                "col3val": true,
+                "col4val": "Hello",
                 "col5val": ""
             },
             {

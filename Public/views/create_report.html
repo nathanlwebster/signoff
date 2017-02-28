@@ -11,47 +11,15 @@
                     <select ng-model="newReport.columns" ng-options="nums for nums in columnNums"></select>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-repeat="i in columnNums track by i">
                 <div class="col-md-2">
-                    <div ng-show="newReport.columns >= 1">
-                        <label>Add Column 1 selection:</label>
-                        <select ng-model="newReport.col1val" ng-options="category.name for category in dataCategories"></select>
+                    <div ng-show="newReport.columns >= {{i}}">
+                        <label>Add Column {{i}} selection:</label>
+                        <select ng-model="newReport['col' + i + 'val']" ng-options="input.name for input in inputTypes"></select>
                     </div>
-                </div>
-                <div class="col-md-2">
-                    <div ng-show="newReport.columns >= 2">
-                        <label>Add Column 2 selection:</label>
-                        <select ng-model="newReport.col2val" ng-options="input.name for input in inputTypes"></select>
-                    </div>
-                    <div ng-show="newReport.columns >= 2">
-                        <label>Add Column 2 heading:</label>
-                        <input type="text" ng-model="newReport.column2heading" value="{{newReport.column2heading}}">
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div ng-show="newReport.columns >= 3">
-                        <label>Add Column 3 selection:</label>
-                        <select ng-model="newReport.col3val" ng-options="input.name for input in inputTypes"></select>
-                    </div>
-                    <div ng-show="newReport.columns >= 3">
-                        <label>Add Column 3 heading:</label>
-                        <input type="text" ng-model="newReport.column3heading" value="{{newReport.column3heading}}">
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div ng-show="newReport.columns >= 4">
-                        <label>Add Column 4 selection:</label>
-                        <select ng-model="newReport.col4val" ng-options="input.name for input in inputTypes"></select>
-                    </div>
-                    <div ng-show="newReport.columns >= 4">
-                        <label>Add Column 4 heading:</label>
-                        <input type="text" ng-model="newReport.column4heading" value="{{newReport.column4heading}}">
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div ng-show="newReport.columns >= 5">
-                        <label>Add Column 5 selection:</label>
-                        <select ng-model="newReport.col5val" ng-options="input.name for input in inputTypes"></select>
+                    <div ng-show="newReport.columns >= {{i}}">
+                        <label>Add Column {{i}} heading:</label>
+                        <input type="text" ng-model="newReport['column' + i + 'heading']" value="{{newReport['column' + i + 'heading']">
                     </div>
                 </div>
                 <div class="col-md-2">
