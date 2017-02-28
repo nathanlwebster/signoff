@@ -131,6 +131,21 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
 
     $scope.newReportSubmit = function() {
         
+        //assign types to columns
+        for (var i = 2; i <= $scope.newReport.columns; i++) {
+            if ($scope.newReport['col' + i + 'val']) {
+                var name = $scope.newReport['col' + i + 'val'].name; 
+                if (name === "Sign Off" || name === "User Input" ) {
+                    $scope.newReport['col' + i + 'type'] = "text";
+                } else if (name === "Yes/No") {
+                    $scope.newReport['col' + i + 'type'] = "checkbox";
+                } else {
+                    $scope.newReport['col' + i + 'type'] = "select";
+                }
+            console.log("Col" + i + "type is:" + $scope.newReport['col' + i + 'type']);
+            }
+        }
+
         //collect data for $scope.newReport.rows
         var newRows = [];
         for (var i = 0; i < $scope.newReport.col1val.data.length; i++) {
