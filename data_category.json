@@ -96,16 +96,19 @@
     {
         "id": "3",
         "name": "Product",
-        "data_type": "list"
+        "data_type": "list",
+        "data": []
     },
     {
         "id": "4",
         "name": "Tool",
-        "data_type": "list"
+        "data_type": "list",
+        "data": []
     },
     {
         "id": "5",
         "name": "Process",
-        "data_type": "list"
+        "data_type": "list",
+        "data": []
     }    
 ]
