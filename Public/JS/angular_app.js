@@ -37,7 +37,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.saveMessage;
     $scope.newReport;
     $scope.dataCategories;
-    
+    $scope.columnNums = [1,2,3,4,5];
 
 
     //create the report body
@@ -122,6 +122,11 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
                 $scope.saveMessage = $sessionStorage.SaveMessage;
             }             
         });
+    }
+    
+    //when column number is selected, create columns for new report
+    $scope.createNewReportColumns = function() {
+        console.log("It's working.");
     }
 
     $scope.newReportSubmit = function() {
