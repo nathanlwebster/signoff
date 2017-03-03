@@ -25,6 +25,13 @@ app.config(function($routeProvider, $locationProvider) {
 
 });
 
+app.directive('makeColumns', function() {
+    return {
+        templateUrl: '/views/columns_template.html',
+        restrict: 'A'
+    }
+});
+
 app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     
     $scope.report;
@@ -48,11 +55,6 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         
         //set new report scope
         $scope.newReport = $scope.reportData[0];
-        $scope.newReport.col1visible = "true";
-        $scope.newReport.col2visible = "true";
-        $scope.newReport.col3visible = "true";
-        $scope.newReport.col4visible = "true";
-        $scope.newReport.col5visible = "true";
 
         //get report titles for select report dropdown and next id to create new report
         var reportArray = [];
@@ -142,7 +144,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
                 } else {
                     $scope.newReport['col' + i + 'type'] = "select";
                 }
-            console.log("Col" + i + "type is:" + $scope.newReport['col' + i + 'type']);
+            //console.log("Col" + i + "type is:" + $scope.newReport['col' + i + 'type']);
             }
         }
 

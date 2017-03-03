@@ -1,5 +1,7 @@
 <div class="container">
     <h2>{{report.name}}</h2>
+    <!--<h2>{{columnNums}}</h2>
+    <h2>{{report.columns}}</h2>-->
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -11,94 +13,10 @@
                 <th ng-show="report.columns >= 5">{{report.column5heading}}</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td><a href="/"><button class="btn btn-default" id="form_submit" ng-click="mySave()">Save Changes</button></a></td>
-                <td ng-show="report.columns >= 1">
-                    <div ng-show="report.col1type != 'select'">
-                        <input type="{{report.col1type}}" ng-model="row.col1val" />
-                    </div>
-                    <div ng-show="report.col1type == 'select'">
-                        <select ng-model="row.col1val">
-                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
-                        </select>   
-                    </div>
-                </td>
-                <td ng-show="report.columns >= 2">
-                    <div ng-show="report.col2type != 'select'">
-                        <input type="{{report.col2type}}" ng-model="row.col2val" />
-                    </div>
-                    <div ng-show="report.col2type == 'select'">
-                        <select ng-model="row.col2val">
-                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
-                        </select>   
-                    </div>
-                </td>
-                <td ng-show="report.columns >= 3">
-                    <div ng-show="report.col3type != 'select'">
-                        <input type="{{report.col3type}}" ng-model="row.col3val" />
-                    </div>
-                    <div ng-show="report.col3type == 'select'">
-                        <select ng-model="row.col3val">
-                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
-                        </select>   
-                    </div>
-                </td>
-                <td ng-show="report.columns >= 4">
-                    <div ng-show="report.col4type != 'select'">
-                        <input type="{{report.col4type}}" ng-model="row.col4val" />
-                    </div>
-                    <div ng-show="report.col4type == 'select'">
-                        <select ng-model="row.col4val">
-                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
-                        </select>   
-                    </div>
-                </td>
-                <td ng-show="report.columns >= 5">
-                    <div ng-show="report.col5type != 'select'">
-                        <input type="{{report.col5type}}" ng-model="row.col5val" />
-                    </div>
-                    <div ng-show="report.col5type == 'select'">
-                        <select ng-model="row.col5val">
-                            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
-                        </select>   
-                    </div>
-                </td>
+        <tbody
+            <tr make-columns>
             </tr>
         </tbody>
     </table>
-
 </div>
-
-<!--<column-type type="{{report.col1type}}"></column-type>-->
-
-<!--<form class="form-inline">
-    <button id="form_submit" ng-click="mySave()">Save Changes</button>        
-    <input type="text" ng-model="row.col1val" />
-    <select ng-model="row.col2val">
-        <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
-    </select>
-    <input type="text" ng-model="row.col3val" value="{{row.col3val}}" />
-    <input type="checkbox" ng-model="row.col4val" />
-    <input type="text" ng-model="row.col5val" />        
-</form>-->
-
-<!--<div class="form-group">
-    <form class="form-inline">
-        <button id="form_submit" ng-click="mySave()">Save Changes</button>
-        <table class="table table-responsive">        
-            <tr id="reportRows">
-                <td><input type="text" ng-model="row.col1val" /></td>
-                <td>
-                    <select ng-model="row.col2val">
-                        <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
-                    </select>
-                </td>
-                <td><input type="text" ng-model="row.col3val" value="{{row.col3val}}" /></td>
-                <td><input type="checkbox" ng-model="row.col4val" /></td>
-                <td><input type="text" ng-model="row.col5val" /></td>
-            </tr>
-        </table>
-    </form>
-</div>-->
 
