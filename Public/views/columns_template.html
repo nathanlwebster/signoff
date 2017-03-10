@@ -2,7 +2,7 @@
 <td>
     <a href="/"><button class="btn btn-default" id="form_submit" ng-click="mySave()">Save Changes</button></a>
 </td>
-<td ng-show="report.columns >= {{i}}" ng-repeat="i in [1,2,3,4,5] as i">
+<td ng-show="report.columns >= {{i}}" ng-repeat="i in editNums as i">
     <div ng-show="report['col' + {{i}} + 'type'] != 'select'">
         <input type="{{report['col' + i + 'type']}}" ng-model="row['col' + i + 'val']" />
     </div>
