@@ -172,7 +172,6 @@ app.post('/addReport', bodyParser, function (req, res) {
    var report = req.body;
    var index = report.id;
 
-
    fs.readFile( __dirname + "/" + "report.json", 'utf8', function (err, data) {
         if (err) {
             console.log(err);
@@ -183,9 +182,7 @@ app.post('/addReport', bodyParser, function (req, res) {
         fs.writeFileSync('report.json', JSON.stringify(obj, null, 4));
         res.send('/');   
         }
-   });
-   
-   
+   });  
 })
 
 app.post('/updateReport', urlencodedParser, function (req, res) {
