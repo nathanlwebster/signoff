@@ -2,7 +2,7 @@
     {
         "id": 0,
         "name": "New Report",
-        "columns": 5,
+        "columns": 0,
         "column1heading": "Column 1",
         "column2heading": "Column 2",
         "column3heading": "Column 3",
