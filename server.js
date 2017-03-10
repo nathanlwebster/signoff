@@ -181,7 +181,7 @@ app.post('/addReport', bodyParser, function (req, res) {
         obj = JSON.parse(data);
         obj[index] = report;
         fs.writeFileSync('report.json', JSON.stringify(obj, null, 4));
-        res.redirect('/');   
+        res.send('/');   
         }
    });
    

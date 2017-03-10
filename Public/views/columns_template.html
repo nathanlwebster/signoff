@@ -7,8 +7,6 @@
         <input type="{{report['col' + i + 'type']}}" ng-model="row['col' + i + 'val']" />
     </div>
     <div ng-show="report['col' + {{i}} + 'type'] == 'select'">
-        <select ng-model="row['col' + i + 'val']">
-            <option ng-repeat="stat in status" ng-value="stat.description">{{stat.description}}</option>
-        </select>
+        <select ng-model="row['col' + i + 'val']" ng-options="options.description as options.description for options in report['col' + i + 'val'].options"</select>
     </div>
 </td>

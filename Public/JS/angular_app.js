@@ -177,7 +177,8 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         $http.post('/addReport', data)
         .then(function(response) {
             if (response.status == 200) {
-                console.log("Report added!");
+                $sessionStorage.SaveMessage = "Report was created!";
+                $scope.saveMessage = $sessionStorage.SaveMessage;
             }             
         });
     }
