@@ -46,6 +46,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
     $scope.dataCategories;
     $scope.columnNums = [2,3,4,5];
     $scope.editNums = [1,2,3,4,5];
+    $scope.inputType;
 
 
     //create the report body
@@ -178,7 +179,7 @@ app.controller('reportCtrl', function($scope, $http, $sessionStorage) {
         $http.post('/addReport', data)
         .then(function(response) {
             if (response.status == 200) {
-                $sessionStorage.SaveMessage = "Report was created! Refresh page to see new report in dropdown.";
+                $sessionStorage.SaveMessage = "Report was created! Refresh page to see the new report in the dropdown.";
                 $scope.saveMessage = $sessionStorage.SaveMessage;
             }             
         });

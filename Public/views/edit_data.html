@@ -1,1 +1,30 @@
-<h2>This is from the edit data page.</h2>
+<div id="selectReportForm" class="container">
+    <form class="form-inline">
+        <h2>Select Data Type:</h2>
+        <select ng-model="inputType" ng-options="inputType.name for inputType in inputTypes | filter: { name : '!New Report' }">
+        </select>
+    </form>        
+</div>
+<div class="container">
+    <h2>{{inputType.name}}</h2>
+        <div id="saveMessage" ng-model="saveMessage">
+            <div class="alert alert-info" ng-show="saveMessage"><strong>{{saveMessage}}</strong></div>
+        </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="options in inputType.options">
+                <td><a href="/edit_input_type"><button class="btn btn-primary" ng-click="rowSelect(row.id)">Edit</button></a>
+                <td >{{options.description}}</td>
+            </tr>
+            <tr>
+                <td><a href="/add_input_type"><button class="btn btn-primary" ng-click="rowSelect(row.id)">Add Another Option</button></a>
+            </tr>
+        </tbody>
+    </table>
+</div>
